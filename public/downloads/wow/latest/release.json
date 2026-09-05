@@ -1,0 +1,11 @@
+{
+  "product": "Oiko Wow",
+  "version": "0.1.1-beta.3",
+  "formats": ["CLAP", "VST3"],
+  "files": {
+    "linux-x86_64": "wow-linux-x86_64.tar.gz",
+    "macos-universal": "wow-macos-universal.zip",
+    "windows-x86_64": "wow-windows-x86_64.zip"
+  },
+  "checksums": "checksums.txt"
+}

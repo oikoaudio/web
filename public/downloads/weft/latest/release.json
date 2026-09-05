@@ -1,0 +1,16 @@
+{
+  "product": "Oiko Weft",
+  "version": "0.1.1-beta3",
+  "status": "public-beta",
+  "formats": ["CLAP", "VST3"],
+  "available_files": [
+    "weft-linux-x86_64.tar.gz",
+    "weft-macos-universal.zip",
+    "weft-windows-x86_64.zip"
+  ],
+  "expected_files": [
+    "weft-linux-x86_64.tar.gz",
+    "weft-macos-universal.zip",
+    "weft-windows-x86_64.zip"
+  ]
+}
