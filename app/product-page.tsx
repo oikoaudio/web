@@ -3,17 +3,19 @@ import { SiteHeader } from './site-header';
 import { ThemeScreenshot } from './theme-screenshot';
 
 type ProductPageProps = {
-  product: 'Wow' | 'Weft';
+  product: 'Wow' | 'Weft' | 'Inton';
+  stage?: 'beta' | 'alpha';
   line: string;
   description: string;
   startHere: ReactNode;
   demo?: { src: string; poster: string; width: number; height: number; caption: string };
   screenshot?: { darkSrc: string; brightSrc: string; darkWidth: number; darkHeight: number; brightWidth: number; brightHeight: number; frameCrop?: { dark: number; bright: number } };
   manual: ReactNode;
+  manualTitle?: string;
   releases: ReactNode;
 };
 
-export function ProductPage({ product, line, description, startHere, demo, screenshot, manual, releases }: ProductPageProps) {
+export function ProductPage({ product, stage = 'beta', line, description, startHere, demo, screenshot, manual, manualTitle = 'Manual', releases }: ProductPageProps) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   const slug = product.toLowerCase();
   return (
@@ -21,17 +23,17 @@ export function ProductPage({ product, line, description, startHere, demo, scree
       <SiteHeader currentProduct={product} />
       <article className="product-detail" id="overview">
         <header className="product-intro">
-          <p className="eyebrow"><span className="status-dot" /> Public beta</p>
+          <p className="eyebrow"><span className="status-dot" /> Public {stage}</p>
           <h1>{product.toUpperCase()}</h1>
           <p className="product-detail-line">{line}</p>
           <p className="product-detail-description">{description}</p>
           <div className="actions">
             <a className="button primary" href={demo ? '#demo' : '#start-here'}>{demo ? 'Watch & listen' : 'Start here'} <span aria-hidden="true">↓</span></a>
-            <a className="button" id="downloads" href={`${basePath}/downloads/#${slug}`}>Download beta <span aria-hidden="true">↗</span></a>
+            <a className="button" id="downloads" href={`${basePath}/downloads/#${slug}`}>Download {stage} <span aria-hidden="true">↗</span></a>
           </div>
           <div className="product-section-links" aria-label="On this page">
             {demo && <a href="#start-here">Start here</a>}
-            <a href="#manual">Manual</a>
+            <a href="#manual">{manualTitle}</a>
             <a href="#release-notes">Release notes</a>
           </div>
         </header>
@@ -53,7 +55,7 @@ export function ProductPage({ product, line, description, startHere, demo, scree
           <div className="document-content">{startHere}</div>
         </section>
         <section className="product-page-section product-reading" id="manual">
-          <header><p className="index">02 / REFERENCE</p><h2>Manual</h2><p>Controls, settings and practical details.</p></header>
+          <header><p className="index">02 / REFERENCE</p><h2>{manualTitle}</h2><p>Controls, settings and practical details.</p></header>
           <div className="document-content">{manual}</div>
         </section>
         <section className="product-page-section product-reading" id="release-notes">

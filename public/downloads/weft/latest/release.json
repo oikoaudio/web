@@ -1,8 +1,11 @@
 {
   "product": "Oiko Weft",
-  "version": "0.1.1-beta3",
+  "version": "0.1.1-beta4",
   "status": "public-beta",
-  "formats": ["CLAP", "VST3"],
+  "formats": [
+    "CLAP",
+    "VST3"
+  ],
   "available_files": [
     "weft-linux-x86_64.tar.gz",
     "weft-macos-universal.zip",
@@ -12,5 +15,12 @@
     "weft-linux-x86_64.tar.gz",
     "weft-macos-universal.zip",
     "weft-windows-x86_64.zip"
-  ]
+  ],
+  "source_tag": "v0.1.1-beta4",
+  "build_revisions": {
+    "Linux": "44a7da7ccb541067a2abff3b090dc4fae89c7ced",
+    "macOS": "44a7da7ccb541067a2abff3b090dc4fae89c7ced",
+    "Windows": "5cbf4f9f58d90da8a6d749b876f1faa18026f49a"
+  },
+  "build_note": "Windows includes a test-only portability fix; plug-in runtime code is unchanged from the beta4 tag."
 }

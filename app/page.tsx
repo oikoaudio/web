@@ -33,11 +33,10 @@ export default function Home() {
             <h3>WEFT</h3>
             <p className="plugin-line">An expressive spectral filter.</p>
             <div className="plugin-description">
-              <p>Draw cuts in the spectrum, pick out chords with notes, or add movement to a loop. Capture a track’s spectral shape and reuse it on another track. Pin notes with the mouse or play them over MIDI while Weft processes your audio.</p>
+              <p>Weft is a realtime spectral filter plugin. Draw cuts in the spectrum, pick out chords with notes, or add movement to a loop. Capture a track’s spectral shape and reuse it on another track. Pin notes with the mouse or play them over MIDI.</p>
             </div>
             <dl className="spec-list">
               <div><dt>Platforms</dt><dd>macOS · Windows · Linux</dd></div>
-              <div><dt>Mask</dt><dd>Draw · Capture · Notes · Motion</dd></div>
               <div><dt>Formats</dt><dd>CLAP · VST3</dd></div>
             </dl>
             <div className="actions">
@@ -63,8 +62,7 @@ export default function Home() {
             </div>
             <dl className="spec-list">
               <div><dt>Platforms</dt><dd>macOS · Windows · Linux</dd></div>
-              <div><dt>Modes</dt><dd>Wow · Flutter · Drift</dd></div>
-              <div><dt>Quality</dt><dd>Draft · Normal · HQ · Ultra</dd></div>
+              <div><dt>Formats</dt><dd>CLAP · VST3</dd></div>
             </dl>
             <div className="actions">
               <a className="button primary" href={`${basePath}/downloads/#wow`}>Download beta <Arrow /></a>
@@ -75,6 +73,30 @@ export default function Home() {
           <figure className="product-shot wow-shot">
             <ThemeScreenshot darkSrc={`${basePath}/images/oiko-wow-dark.png`} brightSrc={`${basePath}/images/oiko-wow-bright.png`} alt="Oiko Wow plug-in interface" darkWidth={504} darkHeight={394} brightWidth={508} brightHeight={398} frameCrop={{ dark: 3, bright: 5 }} />
             <figcaption>WOW / v0.1.1-beta.2</figcaption>
+          </figure>
+        </article>
+        <article className="plugin plugin-inton">
+          <div className="plugin-copy">
+            <div className="plugin-meta"><span className="product-index">003</span><span className="availability live">Public alpha</span></div>
+            <h3>INTON</h3>
+            <p className="plugin-line">Microtuning for your DAW.</p>
+            <div className="plugin-description">
+              <p>Inton is a free MTS-ESP host for Linux, macOS and Windows. It supports multiple scales per project and morphing between them.</p>
+              <p>A lot of care has gone into keeping Inton simple to use. Build scale sets for each project, or create and edit scales without leaving the plug-in. The interactive wheel shows how the notes line up against standard twelve-note tuning.</p>
+            </div>
+            <dl className="spec-list">
+              <div><dt>Platforms</dt><dd>Linux · macOS · Windows</dd></div>
+              <div><dt>Tuning</dt><dd>MTS-ESP · Scala SCL / KBM</dd></div>
+              <div><dt>Formats</dt><dd>CLAP · VST3</dd></div>
+            </dl>
+            <div className="actions">
+              <a className="button primary" href={`${basePath}/downloads/#inton`}>Download alpha <Arrow /></a>
+              <a className="button" href={`${basePath}/inton/`}>Explore Inton <Arrow /></a>
+            </div>
+          </div>
+          <figure className="product-shot inton-shot">
+            <ThemeScreenshot darkSrc={`${basePath}/images/oiko-inton-dark.png`} brightSrc={`${basePath}/images/oiko-inton-bright.png`} alt="Inton showing 17 equal divisions across two octaves" darkWidth={420} darkHeight={350} brightWidth={420} brightHeight={350} />
+            <figcaption>INTON / v0.3.80 alpha</figcaption>
           </figure>
         </article>
       </section>

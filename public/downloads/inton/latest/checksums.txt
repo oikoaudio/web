@@ -1,0 +1,3 @@
+5f1f9dab7bb3aff87cac0951fbefba221473e254be236d3f5a684e270598de05  inton-linux-x86_64.zip
+26521400a72d183bc9a7bb0a55893ebc61c047b536f1f05d2499c117122af07b  inton-macos-universal.zip
+5eccf913e032fce6b48e1d309da94b1cc2bdea5a9849d3a04f092d8c4c60c876  inton-windows-x86_64.zip

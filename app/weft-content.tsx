@@ -1,7 +1,6 @@
 function WeftKnownIssues() {
   return <ul>
     <li>Changing Resolution clears the processing buffers and briefly interrupts the sound.</li>
-    <li>Bitwig Studio 6.1 may keep the old latency after a Resolution change in CLAP. Deactivate and reactivate Weft after changing it, especially before exporting. VST3 updates latency correctly in the reported tests.</li>
     <li>In REAPER on Linux, the CLAP editor may be blank on its first opening. Toggle REAPER&apos;s UI control off and back on.</li>
     <li>Weft reads note changes once per audio block and updates their effect at the FFT frame rate. Resolution sets the shortest possible attack and release.</li>
     <li>The beta builds are unsigned, and the macOS builds are not notarized.</li>
@@ -17,15 +16,8 @@ export function WeftStartContent() {
   </>;
 }
 
-export function WeftExplainerContent() {
-  return <section className="technical-explainer" id="how-notes-shape-the-spectrum">
-    <h2>How notes shape the spectrum</h2>
-    <p>Each note in Weft opens a family of harmonic regions in the incoming audio. Their width follows musical intervals, while pitch bend, pressure and timbre reshape each note&apos;s contribution.</p>
-    <p>Musical pitches usually fall between the fixed frequency bins of an FFT. Weft compensates for that alignment so narrow note openings retain their strength across the keyboard. Resolution still determines how finely nearby frequencies can be separated.</p>
-  </section>;
-}
-
 export function WeftManualContent({ includeStart = true }: { includeStart?: boolean } = {}) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   return <>
     {includeStart && <section><h2>Start here</h2><WeftStartContent /></section>}
     <section>
@@ -41,14 +33,15 @@ export function WeftManualContent({ includeStart = true }: { includeStart?: bool
       <p>A transform can move parts of the curve outside the graph. Dashed red marks show where it continues. Those parts keep their shape, and another transform can bring them back. Values above 0 dB add no gain to the base curve. Values at or below -144 dB silence their bins.</p>
     </section>
     <section>
-      <h2>Capture, Flip and curve files</h2>
-      <p>Click Capture to average the incoming spectrum, then click it again to stop. Watch the preview build while audio plays. Weft sets the strongest captured region to 0 dB and uses the result as the new curve. Capture reads the input before Motion and Note Control, so their settings stay as they were.</p>
-      <p>A short capture gives you a snapshot. Leave it running through a phrase to capture more of the track. Escape discards an unfinished capture. Reset cancels it and clears the curve.</p>
-      <p>Flip turns peaks into valleys within the existing range. Flip twice to get back to the original. To make room for one track in another, capture the first track, Flip, then Copy. Paste the curve into Weft on the second track and adjust its depth with Transform. The cut stays fixed until you edit it.</p>
-      <p>The Curve menu has Copy, Paste, Save and Load. These transfer only the curve, leaving notes and other settings alone. Files use the .weftcurve extension. When you load one at a different sample rate, Weft keeps the cuts at the same frequencies. Stop Capture before using Transform, Flip, Paste or Load.</p>
+      <h2>Spectral motion</h2>
+      <p>Start with Depth. At 0 dB, motion has no effect. Raise it to hear the selected shape move across the spectrum.</p>
+      <p>Drift moves broad, irregular shapes. Try Ripple or Saw for repeating patterns. Harmonic opens a comb of frequencies, Scan moves an opening and Notch moves a cut. Splash sends an expanding cut out from each incoming note.</p>
+      <p>Use Free for a rate in hertz or Sync for beat divisions. Phase offsets the cycle, Size changes its width or spacing, and Direction selects forward, reverse or alternating movement. The fastest rates depend on Resolution.</p>
     </section>
-    <section>
-      <h2>Play or pin notes</h2>
+    <section id="how-notes-shape-the-spectrum">
+      <h2>Use notes to shape the spectrum</h2>
+      <p>Each note in Weft opens a family of harmonic regions in the incoming audio. Their width follows musical intervals, while pitch bend, pressure and timbre reshape each note&apos;s contribution.</p>
+      <p>Musical pitches usually fall between the fixed frequency bins of an FFT. Weft compensates for that alignment so narrow note openings retain their strength across the keyboard. Resolution still determines how finely nearby frequencies can be separated.</p>
       <p>Raise Note Depth, then click the piano keys to pin notes. Click an active key again to remove it, or drag across keys to add or remove several. The Reset beside the keys clears the pinned notes.</p>
       <p>You can also route MIDI or note events into Weft while it processes audio. Play over a pinned chord, or use live notes alone. In a host with hybrid tracks, put Weft after the sound source. Otherwise, send a MIDI track to the track or plugin carrying the audio. The routing controls depend on your DAW.</p>
       <p>Hold keeps the notes you are playing, plus any new notes that arrive. Turn it off to release them. Notes you pinned by hand stay. Notes still held on an external keyboard keep playing too. You can remove held notes by clicking their piano keys.</p>
@@ -62,15 +55,21 @@ export function WeftManualContent({ includeStart = true }: { includeStart?: bool
       </dl>
     </section>
     <section>
+      <h2>Capture, Flip and transfer curve files</h2>
+      <p>Click Capture to average the incoming spectrum, then click it again to stop. Watch the preview build while audio plays. Weft sets the strongest captured region to 0 dB and uses the result as the new curve. Capture reads the input before Motion and Note Control, so their settings stay as they were.</p>
+      <p>A short capture gives you a snapshot. Leave it running through a phrase to capture more of the track. Escape discards an unfinished capture. Reset cancels it and clears the curve.</p>
+      <p>Flip turns peaks into valleys within the existing range. Flip twice to get back to the original. To make room for one track in another, capture the first track, Flip, then Copy. Paste the curve into Weft on the second track and adjust its depth with Transform. The cut stays fixed until you edit it.</p>
+      <p>The Curve menu has Copy, Paste, Save and Load. These transfer only the curve, leaving notes and other settings alone. Files use the .weftcurve extension. When you load one at a different sample rate, Weft keeps the cuts at the same frequencies. Stop Capture before using Transform, Flip, Paste or Load.</p>
+    </section>
+    <section>
+      <h2>MTS-ESP tuning</h2>
+      <p>Weft follows an active MTS-ESP host, such as <a href={`${basePath}/inton/`}>Inton</a>, automatically. Live, held and pinned notes follow tuning changes. Pitch bend and note expression work on top of that tuning.</p>
+      <p>The note ruler shows the active scale and spaces notes by their tuned frequencies. Without an active MTS master, Weft uses standard tuning. Install the MTS-ESP runtime supplied with your tuning software, then restart your DAW.</p>
+    </section>
+    <section>
       <h2>Expression and sustain</h2>
       <p>Pitch bend or per-note tuning moves a note and its partials. Pressure and per-note volume change its strength. Timbre or CC74 changes the partial rolloff for that note. The Bend control sets the pitch-bend range.</p>
       <p>Weft follows CLAP note expression and MIDI/MPE channel expression whenever the host sends them. There is no MPE switch. A sustain pedal holds released notes on its own MIDI channel until the pedal comes up. It leaves pinned notes alone.</p>
-    </section>
-    <section>
-      <h2>Spectral motion</h2>
-      <p>Start with Depth. At 0 dB, motion has no effect. Raise it to hear the selected shape move across the spectrum.</p>
-      <p>Drift moves broad, irregular shapes. Try Ripple or Saw for repeating patterns. Harmonic opens a comb of frequencies, Scan moves an opening and Notch moves a cut. Splash sends an expanding cut out from each incoming note.</p>
-      <p>Use Free for a rate in hertz or Sync for beat divisions. Phase offsets the cycle, Size changes its width or spacing, and Direction selects forward, reverse or alternating movement. The fastest rates depend on Resolution.</p>
     </section>
     <section>
       <h2>Resolution and output</h2>
@@ -101,6 +100,15 @@ export function WeftManualContent({ includeStart = true }: { includeStart?: bool
 
 export function WeftReleaseContent() {
   return <>
+    <section className="release-entry">
+      <div className="release-heading"><h2>0.1.1-beta4</h2><time dateTime="2026-09-06">6 September 2026</time></div>
+      <ul>
+        <li>Follows tuning from MTS-ESP hosts such as Inton, including changes to held and pinned notes.</li>
+        <li>Shows the active scale on the note ruler, with notes spaced by their tuned frequencies.</li>
+        <li>Adds three-bar and dotted-whole sync rates for spectral motion.</li>
+      </ul>
+      <p>CLAP and VST3 for Linux, Windows and universal macOS.</p>
+    </section>
     <section className="release-entry">
       <div className="release-heading"><h2>0.1.1-beta3</h2><time dateTime="2026-09-04">4 September 2026</time></div>
       <ul>

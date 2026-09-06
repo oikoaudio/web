@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/downloads/`, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${siteUrl}/wow/`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${siteUrl}/weft/`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${siteUrl}/inton/`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${siteUrl}/oikontrol/`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${siteUrl}/manuals/oikontrol/`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${siteUrl}/manuals/wow/`, changeFrequency: 'monthly', priority: 0.8 },

@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { SiteHeader } from '../site-header';
 
-export const metadata: Metadata = { title: 'Downloads | Oiko Audio', description: 'Download Weft and Wow for macOS, Windows and Linux, and Oikontrol controller extensions for Bitwig Studio.' };
+export const metadata: Metadata = { title: 'Downloads | Oiko Audio', description: 'Download Weft, Wow and Inton for macOS, Windows and Linux, and Oikontrol controller extensions for Bitwig Studio.' };
 const download = 'https://github.com/oikoaudio/bitwig-oikontrol/releases/download/oikontrol-v2.23.0/Oikontrol.bwextension';
 
 const downloadRows = [
@@ -26,19 +26,20 @@ export default function DownloadsPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   const weftChecksums = readChecksums('weft/latest/checksums.txt');
   const wowChecksums = readChecksums('wow/latest/checksums.txt');
+  const intonChecksums = readChecksums('inton/latest/checksums.txt');
   const oikontrolChecksums = readChecksums('oikontrol/v2.23.0/checksums.txt');
   return <main>
     <SiteHeader downloadsCurrent />
     <header className="downloads-intro">
       <p className="eyebrow"><span className="status-dot" /> Free audio software</p>
       <h1>Downloads</h1>
-      <p>Choose your product and platform. Weft and Wow come in CLAP and VST3 formats, with universal macOS builds for Apple Silicon and Intel.</p>
-      <div className="actions"><a className="button" href="#weft">Weft ↓</a><a className="button" href="#wow">Wow ↓</a><a className="button" href="#oikontrol">Oikontrol ↓</a></div>
+      <p>Choose your product and platform. Weft, Wow and Inton come in CLAP and VST3 formats, with universal macOS builds for Apple Silicon and Intel.</p>
+      <div className="actions"><a className="button" href="#weft">Weft ↓</a><a className="button" href="#wow">Wow ↓</a><a className="button" href="#inton">Inton ↓</a><a className="button" href="#oikontrol">Oikontrol ↓</a></div>
     </header>
     <section className="downloads-catalog" aria-label="Product downloads">
         <div className="download-panel" id="weft">
           <div className="download-panel-head">
-            <div><span className="download-product">WEFT</span><span className="version">v0.1.1-beta3</span></div>
+            <div><span className="download-product">WEFT</span><span className="version">v0.1.1-beta4</span></div>
             <a href={`${basePath}/weft/#release-notes`}>Release notes <Arrow /></a>
           </div>
           <div className="download-table">
@@ -63,6 +64,22 @@ export default function DownloadsPage() {
             ))}
           </div>
           <p className="download-note">Current beta builds are not signed for distribution or notarized. <a href={`${basePath}/downloads/wow/latest/checksums.txt`}>SHA-256 checksums</a></p>
+        </div>
+        <div className="download-panel" id="inton">
+          <div className="download-panel-head">
+            <div><span className="download-product">INTON</span><span className="version">v0.3.80 · Public alpha</span></div>
+            <a href={`${basePath}/inton/#release-notes`}>Release notes <Arrow /></a>
+          </div>
+          <div className="download-table">
+            {downloadRows.map((row) => {
+              const filename = `inton-${row.platform === 'Linux' ? 'linux-x86_64.zip' : row.file}`;
+              return <a key={filename} href={`${basePath}/downloads/inton/latest/${filename}`} className="download-row" download>
+                <strong>{row.platform}</strong><span>{row.detail}{row.platform === 'Windows' ? ' · DAW testing pending' : ''}</span><span>CLAP · VST3</span><code><span className="checksum-label">SHA-256</span>{intonChecksums[filename]}</code><span className="download-arrow">↓</span>
+              </a>;
+            })}
+          </div>
+          <p className="download-note">Inton is an alpha. It’s working on Linux and macOS, but installation hasn’t been thoroughly tested across systems. Windows still needs testing in a DAW.</p>
+          <p className="download-note">Includes the official MTS-ESP runtime and installation helper. macOS plug-ins are not notarized. <a href={`${basePath}/inton/#start-here`}>Installation instructions</a> · <a href={`${basePath}/downloads/inton/latest/checksums.txt`}>SHA-256 checksums</a></p>
         </div>
         <div className="download-panel" id="oikontrol">
           <div className="download-panel-head">

@@ -1,6 +1,6 @@
 import { ThemeControl } from './theme-control';
 
-const products = ['Weft', 'Wow', 'Oikontrol'] as const;
+const products = ['Weft', 'Wow', 'Inton', 'Oikontrol'] as const;
 
 type SiteHeaderProps = {
   currentProduct?: (typeof products)[number];
