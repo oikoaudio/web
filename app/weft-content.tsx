@@ -101,6 +101,21 @@ export function WeftManualContent({ includeStart = true }: { includeStart?: bool
 export function WeftReleaseContent() {
   return <>
     <section className="release-entry">
+      <div className="release-heading"><h2>0.4.0-beta.1</h2></div>
+      <ul>
+        <li>Added per-note pitch, gain, pan, timbre and pressure through CLAP and VST3.</li>
+        <li>Expression changes now follow held notes. Timbre adjusts harmonic rolloff; pressure controls how far a note opens the spectrum.</li>
+        <li>Added support for MPE zones and controller-supplied pitch-bend ranges.</li>
+        <li>Fixed expression routing for overlapping notes of the same pitch.</li>
+        <li>Updated the interface and undo handling.</li>
+      </ul>
+      <h3>Shared fixes</h3>
+      <ul>
+        <li>CLAP automation events now retain their position within the audio block.</li>
+        <li>State loading checks incoming data as it arrives, avoiding large allocations based on an invalid size.</li>
+      </ul>
+    </section>
+    <section className="release-entry">
       <div className="release-heading"><h2>0.1.1-beta4</h2><time dateTime="2026-09-06">6 September 2026</time></div>
       <ul>
         <li>Follows tuning from MTS-ESP hosts such as Inton, including changes to held and pinned notes.</li>
@@ -132,6 +147,6 @@ export function WeftReleaseContent() {
       <div className="release-heading"><h2>0.1.1-beta1</h2><time dateTime="2026-08-30">30 August 2026</time></div>
       <p>First public beta: spectral drawing, pinned and incoming notes, note expression, spectral motion and five FFT resolutions. The original Freeze function has since been replaced by Capture.</p>
     </section>
-    <section><h2>Known issues</h2><WeftKnownIssues /></section>
+    <section><h2>Known limitations</h2><p>Builds are unsigned; macOS builds are not notarized.</p></section>
   </>;
 }

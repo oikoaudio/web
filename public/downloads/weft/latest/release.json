@@ -1,6 +1,6 @@
 {
   "product": "Oiko Weft",
-  "version": "0.1.1-beta4",
+  "version": "0.4.0-beta.1",
   "status": "public-beta",
   "formats": [
     "CLAP",
@@ -16,11 +16,11 @@
     "weft-macos-universal.zip",
     "weft-windows-x86_64.zip"
   ],
-  "source_tag": "v0.1.1-beta4",
+  "source_revision": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
   "build_revisions": {
-    "Linux": "44a7da7ccb541067a2abff3b090dc4fae89c7ced",
-    "macOS": "44a7da7ccb541067a2abff3b090dc4fae89c7ced",
-    "Windows": "5cbf4f9f58d90da8a6d749b876f1faa18026f49a"
+    "Linux": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
+    "macOS": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
+    "Windows": "e095a667de83d8d7f904b2f052cc98ae608f8cdd"
   },
-  "build_note": "Windows includes a test-only portability fix; plug-in runtime code is unchanged from the beta4 tag."
+  "build_run": "https://github.com/oikoaudio/oikoaudio/actions/runs/34277392735"
 }

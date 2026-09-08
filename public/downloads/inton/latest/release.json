@@ -1,8 +1,7 @@
 {
   "product": "Oiko Inton",
-  "version": "0.3.80",
-  "status": "public-alpha",
-  "source_revision": "fad67b4b476d21ca0a0ea512dadd307d99856910",
+  "version": "0.4.0-beta.1",
+  "status": "public-beta",
   "formats": [
     "CLAP",
     "VST3"
@@ -17,10 +16,12 @@
     "inton-macos-universal.zip",
     "inton-windows-x86_64.zip"
   ],
-  "includes": "Official ODDsound MTS-ESP runtime and installation helper",
-  "manual_testing": {
-    "Linux": "tested",
-    "macOS": "tested",
-    "Windows": "pending"
-  }
+  "source_revision": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
+  "build_revisions": {
+    "Linux": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
+    "macOS": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
+    "Windows": "e095a667de83d8d7f904b2f052cc98ae608f8cdd"
+  },
+  "build_run": "https://github.com/oikoaudio/oikoaudio/actions/runs/34277396392",
+  "includes": "Official ODDsound MTS-ESP runtime and installation helper"
 }

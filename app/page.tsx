@@ -72,12 +72,12 @@ export default function Home() {
           </div>
           <figure className="product-shot wow-shot">
             <ThemeScreenshot darkSrc={`${basePath}/images/oiko-wow-dark.png`} brightSrc={`${basePath}/images/oiko-wow-bright.png`} alt="Oiko Wow plug-in interface" darkWidth={504} darkHeight={394} brightWidth={508} brightHeight={398} frameCrop={{ dark: 3, bright: 5 }} />
-            <figcaption>WOW / v0.1.1-beta.2</figcaption>
+            <figcaption>WOW</figcaption>
           </figure>
         </article>
         <article className="plugin plugin-inton">
           <div className="plugin-copy">
-            <div className="plugin-meta"><span className="product-index">003</span><span className="availability live">Public alpha</span></div>
+            <div className="plugin-meta"><span className="product-index">003</span><span className="availability live">Public beta</span></div>
             <h3>INTON</h3>
             <p className="plugin-line">Microtuning for your DAW.</p>
             <div className="plugin-description">
@@ -90,13 +90,13 @@ export default function Home() {
               <div><dt>Formats</dt><dd>CLAP · VST3</dd></div>
             </dl>
             <div className="actions">
-              <a className="button primary" href={`${basePath}/downloads/#inton`}>Download alpha <Arrow /></a>
+              <a className="button primary" href={`${basePath}/downloads/#inton`}>Download beta <Arrow /></a>
               <a className="button" href={`${basePath}/inton/`}>Explore Inton <Arrow /></a>
             </div>
           </div>
           <figure className="product-shot inton-shot">
             <ThemeScreenshot darkSrc={`${basePath}/images/oiko-inton-dark.png`} brightSrc={`${basePath}/images/oiko-inton-bright.png`} alt="Inton showing 17 equal divisions across two octaves" darkWidth={420} darkHeight={350} brightWidth={420} brightHeight={350} />
-            <figcaption>INTON / v0.3.80 alpha</figcaption>
+            <figcaption>INTON</figcaption>
           </figure>
         </article>
       </section>

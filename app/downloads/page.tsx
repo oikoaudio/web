@@ -39,7 +39,7 @@ export default function DownloadsPage() {
     <section className="downloads-catalog" aria-label="Product downloads">
         <div className="download-panel" id="weft">
           <div className="download-panel-head">
-            <div><span className="download-product">WEFT</span><span className="version">v0.1.1-beta4</span></div>
+            <div><span className="download-product">WEFT</span><span className="version">v0.4.0-beta.1</span></div>
             <a href={`${basePath}/weft/#release-notes`}>Release notes <Arrow /></a>
           </div>
           <div className="download-table">
@@ -53,7 +53,7 @@ export default function DownloadsPage() {
         </div>
         <div className="download-panel" id="wow">
           <div className="download-panel-head">
-            <div><span className="download-product">WOW</span><span className="version">v0.1.1-beta.3</span></div>
+            <div><span className="download-product">WOW</span><span className="version">v0.4.0-beta.1</span></div>
             <a href={`${basePath}/wow/#release-notes`}>Release notes <Arrow /></a>
           </div>
           <div className="download-table">
@@ -67,7 +67,7 @@ export default function DownloadsPage() {
         </div>
         <div className="download-panel" id="inton">
           <div className="download-panel-head">
-            <div><span className="download-product">INTON</span><span className="version">v0.3.80 · Public alpha</span></div>
+            <div><span className="download-product">INTON</span><span className="version">v0.4.0-beta.1</span></div>
             <a href={`${basePath}/inton/#release-notes`}>Release notes <Arrow /></a>
           </div>
           <div className="download-table">
@@ -78,7 +78,7 @@ export default function DownloadsPage() {
               </a>;
             })}
           </div>
-          <p className="download-note">Inton is an alpha. It’s working on Linux and macOS, but installation hasn’t been thoroughly tested across systems. Windows still needs testing in a DAW.</p>
+          <p className="download-note">Inton is a beta. Installation testing across systems is ongoing. Windows still needs testing in a DAW.</p>
           <p className="download-note">Includes the official MTS-ESP runtime and installation helper. macOS plug-ins are not notarized. <a href={`${basePath}/inton/#start-here`}>Installation instructions</a> · <a href={`${basePath}/downloads/inton/latest/checksums.txt`}>SHA-256 checksums</a></p>
         </div>
         <div className="download-panel" id="oikontrol">

@@ -1,11 +1,26 @@
 {
   "product": "Oiko Wow",
-  "version": "0.1.1-beta.3",
-  "formats": ["CLAP", "VST3"],
-  "files": {
-    "linux-x86_64": "wow-linux-x86_64.tar.gz",
-    "macos-universal": "wow-macos-universal.zip",
-    "windows-x86_64": "wow-windows-x86_64.zip"
+  "version": "0.4.0-beta.1",
+  "status": "public-beta",
+  "formats": [
+    "CLAP",
+    "VST3"
+  ],
+  "available_files": [
+    "wow-linux-x86_64.tar.gz",
+    "wow-macos-universal.zip",
+    "wow-windows-x86_64.zip"
+  ],
+  "expected_files": [
+    "wow-linux-x86_64.tar.gz",
+    "wow-macos-universal.zip",
+    "wow-windows-x86_64.zip"
+  ],
+  "source_revision": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
+  "build_revisions": {
+    "Linux": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
+    "macOS": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
+    "Windows": "e095a667de83d8d7f904b2f052cc98ae608f8cdd"
   },
-  "checksums": "checksums.txt"
+  "build_run": "https://github.com/oikoaudio/oikoaudio/actions/runs/34277389161"
 }

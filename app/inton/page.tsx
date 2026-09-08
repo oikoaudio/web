@@ -15,7 +15,7 @@ export default function IntonPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   return <ProductPage
     product="Inton"
-    stage="alpha"
+    stage="beta"
     line="Microtuning for your DAW."
     description="Inton is a free MTS-ESP master for Linux, macOS and Windows. It loads standard tuning formats, and allows you to build and edit scales and morph between them within your DAW."
     demo={{ src: '/videos/inton-demo.mp4', poster: '/videos/inton-demo-poster.jpg', width: 1162, height: 720, caption: 'Inton in Bitwig, with Serum 2 and Weft. Press play to hear the demo.' }}
@@ -23,7 +23,7 @@ export default function IntonPage() {
       <p>A lot of care has gone into keeping Inton easy to use. In the simplest case, pick one of the equal division, just intonation or non-octave scales from the built-in library and observe Inton connect to and tune all the MTS-ESP capable instruments in your DAW session. It also imports standard tuning files, such as Scala (.scl) or .tun files.
          You can also build scale sets and morph between scales using automation, create and edit scales within the plug-in. The interactive wheel shows how the notes line up against standard twelve-note tuning.</p>
       <h3>Install</h3>
-      <p><strong>Inton is an alpha</strong>, and is being tested for Linux, macOS and Windows. Please do not use it in mission critical projects yet.</p>
+      <p><strong>Inton is a beta</strong>, and is being tested for Linux, macOS and Windows. Please do not use it in mission critical projects yet.</p>
       <ol>
         <li><a href={`${basePath}/downloads/#inton`}>Download and extract the ZIP for your platform.</a> Close your DAW and copy the plug-in to the folder listed in the README.</li>
         <li><p>Inton uses ODDsound’s <a href="https://github.com/ODDSound/MTS-ESP">MTS-ESP library</a> to share tuning between plug-ins. Thanks to ODDsound for making it available. Install the included MTS-ESP runtime if needed using the provided installer (the helper keeps an existing installation:</p>
@@ -52,6 +52,17 @@ Open the Library with the folder icon and select a scale. Try a few chords with 
       <p>Check that the instrument supports MTS-ESP and has it enabled. If Inton says Unavailable, install the included runtime and restart your DAW. If it says Tuning blocked, check for another active MTS master.</p>
     </>}
     releases={<>
+      <h3>0.4.0-beta.1</h3>
+      <ul>
+        <li>Reworked scale browsing, editing and undo handling.</li>
+        <li>Fixed parameter handling when modulation pushes a control beyond its limits.</li>
+      </ul>
+      <h4>Shared fixes</h4>
+      <ul>
+        <li>CLAP automation events now retain their position within the audio block.</li>
+        <li>State loading checks incoming data as it arrives, avoiding large allocations based on an invalid size.</li>
+      </ul>
+      <p>Builds are unsigned; macOS builds are not notarized.</p>
       <h3>0.3.80 · Public alpha</h3>
       <p>Free CLAP and VST3 downloads for Linux x86-64, macOS Apple Silicon and Intel, and Windows x86-64. Each ZIP includes the official ODDsound MTS runtime and installation instructions.</p>
       <p>The macOS plug-ins are not notarized.</p>
