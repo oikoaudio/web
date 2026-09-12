@@ -2,7 +2,8 @@ function WeftKnownIssues() {
   return <ul>
     <li>Changing Resolution clears the processing buffers and briefly interrupts the sound.</li>
     <li>In REAPER on Linux, the CLAP editor may be blank on its first opening. Toggle REAPER&apos;s UI control off and back on.</li>
-    <li>Weft reads note changes once per audio block and updates their effect at the FFT frame rate. Resolution sets the shortest possible attack and release.</li>
+    <li>Note events retain their timing within the audio block, but spectral changes take effect at the FFT frame rate. Resolution limits how quickly note regions can respond.</li>
+    <li>In reported Bitwig Studio 6.1 tests, CLAP latency may not refresh after changing Resolution. Deactivate and reactivate Weft after a change, especially before exporting. VST3 updated latency correctly in those tests.</li>
     <li>The beta builds are unsigned, and the macOS builds are not notarized.</li>
   </ul>;
 }
@@ -20,6 +21,7 @@ export function WeftManualContent({ includeStart = true }: { includeStart?: bool
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   return <>
     {includeStart && <section><h2>Start here</h2><WeftStartContent /></section>}
+    <section><h2>Updating to 0.5</h2><p>Check Motion Shape automation in existing projects. Cloud changes the normalized selector positions, and Sprinkle replaces Splash with a different sound. See the <a href={`${basePath}/releases/weft/`}>0.5 compatibility notes</a> before saving over an older project.</p></section>
     <section>
       <h2>Reshape with spectral precision</h2>
       <p>Drag in the graph to set each frequency bin&apos;s gain. Hold Shift for a soft circular brush. The small selector at the top left changes the drawing range: 30, 60, 90 or 144 dB. At the bottom of the 144 dB view, −∞ means those bins are silent. Reset clears the curve without changing the other controls.</p>
@@ -35,7 +37,9 @@ export function WeftManualContent({ includeStart = true }: { includeStart?: bool
     <section>
       <h2>Spectral motion</h2>
       <p>Start with Depth. At 0 dB, motion has no effect. Raise it to hear the selected shape move across the spectrum.</p>
-      <p>Drift moves broad, irregular shapes. Try Ripple or Saw for repeating patterns. Harmonic opens a comb of frequencies, Scan moves an opening and Notch moves a cut. Splash sends an expanding cut out from each incoming note.</p>
+      <p>Drift moves broad, irregular shapes. Try Ripple or Saw for repeating patterns. Harmonic opens a comb of frequencies, Scan moves an opening and Notch moves a cut.</p>
+      <p>Sprinkle creates short spectral gestures around played, sustained or pinned notes and their harmonics. Without notes, it chooses pitches automatically. Cloud creates overlapping spectral windows. Notes guide their pitches; without notes, they appear across the spectrum. Direction changes how Cloud windows swell and fade.</p>
+      <p>For Sprinkle and Cloud, Rate controls activity and Size controls width. Size also lengthens Cloud windows. Both reveal sound already in the input. Try Note Depth at zero to hear them without note gating, and use the drawn curve to control the frequency range.</p>
       <p>Use Free for a rate in hertz or Sync for beat divisions. Phase offsets the cycle, Size changes its width or spacing, and Direction selects forward, reverse or alternating movement. The fastest rates depend on Resolution.</p>
     </section>
     <section id="how-notes-shape-the-spectrum">
@@ -48,9 +52,9 @@ export function WeftManualContent({ includeStart = true }: { includeStart?: bool
       <dl className="manual-list">
         <div><dt>Depth</dt><dd>At 0 dB, Note Control is neutral. Raise it to lower the background around the notes and make their regions stand out.</dd></div>
         <div><dt>Width</dt><dd>Sets the spread around each note, in cents.</dd></div>
-        <div><dt>Partials</dt><dd>Opens up to 24 harmonics per note. A value of 1 uses only the fundamental.</dd></div>
-        <div><dt>Partial Rolloff</dt><dd>Sets how much quieter the upper partials become per octave.</dd></div>
-        <div><dt>Attack / Release</dt><dd>Control how note regions open and close. The displayed times include the selected Resolution&apos;s minimum response time.</dd></div>
+        <div><dt>Partials</dt><dd>Opens up to 24 harmonics per note. A value of 1 uses only the fundamental. For Sprinkle, this also sets the available harmonics, even without MIDI or at zero Note Depth. Each gesture usually selects one harmonic, occasionally two or three.</dd></div>
+        <div><dt>Partial Rolloff</dt><dd>Sets how much quieter the upper note regions become per octave. For Sprinkle, it makes higher harmonics less likely to be selected, without applying another rolloff gain.</dd></div>
+        <div><dt>Attack / Release</dt><dd>Control how note regions open and close. The displayed times include the selected Resolution&apos;s minimum response time. These controls also set each Sprinkle&apos;s onset and automatic decay after its peak, with or without notes and at zero Note Depth. Changes affect new Sprinkles.</dd></div>
         <div><dt>Vel Sens</dt><dd>At 0%, all notes act at full strength. Raise it to follow velocity. Clicked notes use 50% velocity, so you can pin a quieter chord and play louder notes over it.</dd></div>
       </dl>
     </section>
@@ -68,8 +72,8 @@ export function WeftManualContent({ includeStart = true }: { includeStart?: bool
     </section>
     <section>
       <h2>Expression and sustain</h2>
-      <p>Pitch bend or per-note tuning moves a note and its partials. Pressure and per-note volume change its strength. Timbre or CC74 changes the partial rolloff for that note. The Bend control sets the pitch-bend range.</p>
-      <p>Weft follows CLAP note expression and MIDI/MPE channel expression whenever the host sends them. There is no MPE switch. A sustain pedal holds released notes on its own MIDI channel until the pedal comes up. It leaves pinned notes alone.</p>
+      <p>Pitch bend or per-note tuning moves a note and its partials. Pressure and per-note volume change its strength. Timbre or CC74 changes the partial rolloff for that note. Per-note pan moves a note&apos;s contribution between channels, and vibrato adds pitch movement. The Bend control sets the pitch-bend range.</p>
+      <p>Weft follows CLAP and VST3 note expression and MIDI/MPE channel expression whenever the host sends them. There is no MPE switch. A sustain pedal holds released notes on its own MIDI channel until the pedal comes up. It leaves pinned notes alone.</p>
     </section>
     <section>
       <h2>Resolution and output</h2>
@@ -92,7 +96,7 @@ export function WeftManualContent({ includeStart = true }: { includeStart?: bool
         <div><b>Windows</b><code>C:\Program Files\Common Files\CLAP</code><code>C:\Program Files\Common Files\VST3</code></div>
         <div><b>Linux</b><code>~/.clap</code><code>~/.vst3</code></div>
       </div>
-      <p>Click OIKO AUDIO in the title bar to choose a size from 50% to 200%. The sun or moon button changes the theme.</p>
+      <p>Click OIKO AUDIO in the title bar to choose a size from 50% to 200%. Drag the bottom-right corner to choose a size from 50% to 200% in 25% steps. Release to resize the window, or press Escape to cancel. The plug-in remembers your chosen size. The sun or moon button changes the theme.</p>
     </section>
     <section><h2>Known issues</h2><WeftKnownIssues /></section>
   </>;
@@ -100,6 +104,25 @@ export function WeftManualContent({ includeStart = true }: { includeStart?: bool
 
 export function WeftReleaseContent() {
   return <>
+    <section className="release-entry">
+      <div className="release-heading"><h2>0.5.0-beta.1</h2><time dateTime="2026-09-12">12 September 2026</time></div>
+      <p>Wow, Weft and Inton now share one release version. These plugins are still maturing; sound, controls and automation mappings may change between beta releases. Keep the previous plugin version and a backup of existing projects before updating.</p>
+      <h3>Check Motion Shape automation</h3>
+      <p>Cloud expands Motion Shape from seven choices to eight. Old VST3 automation points can now select a different shape. Host macros and controller mappings that store normalized values may also need adjustment.</p>
+      <dl className="manual-list">
+        <div><dt>Ripple, Harmonic, Drift</dt><dd>Old VST3 values still select the same shape.</dd></div>
+        <div><dt>Scan</dt><dd>The old VST3 value now selects Notch.</dd></div>
+        <div><dt>Notch</dt><dd>The old VST3 value now selects Saw.</dd></div>
+        <div><dt>Saw</dt><dd>The old VST3 value now selects Sprinkle.</dd></div>
+        <div><dt>Splash</dt><dd>The old VST3 value now selects Cloud.</dd></div>
+      </dl>
+      <p>Re-select the intended shape and update affected automation points or mappings. Check transitions between points too. Loading plug-in state cannot update automation stored by the host.</p>
+      <p>Saved integer selections and CLAP&apos;s plain parameter values retain their indices. The former Splash selection now chooses Sprinkle, which sounds different. Keep the previous version if you need the original Splash sound.</p>
+      <h3>Changes</h3>
+      <ul><li>Sprinkle replaces Splash with repeatable spectral particles. Cloud adds overlapping windows with rounded or reverse-swell envelopes. Both work with live or pinned notes, and without notes.</li><li>Corner-drag resizing from 50% to 200%, with the chosen size restored when reopening the editor, and updated host integration.</li></ul>
+      <p>Per-note expression and MPE support continue to handle tuning, pressure, gain, pan, brightness and vibrato.</p>
+      <h3>Known issues</h3><WeftKnownIssues />
+    </section>
     <section className="release-entry">
       <div className="release-heading"><h2>0.4.0-beta.1</h2></div>
       <ul>
