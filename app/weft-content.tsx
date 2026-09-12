@@ -3,7 +3,6 @@ function WeftKnownIssues() {
     <li>Changing Resolution clears the processing buffers and briefly interrupts the sound.</li>
     <li>In REAPER on Linux, the CLAP editor may be blank on its first opening. Toggle REAPER&apos;s UI control off and back on.</li>
     <li>Note events retain their timing within the audio block, but spectral changes take effect at the FFT frame rate. Resolution limits how quickly note regions can respond.</li>
-    <li>In reported Bitwig Studio 6.1 tests, CLAP latency may not refresh after changing Resolution. Deactivate and reactivate Weft after a change, especially before exporting. VST3 updated latency correctly in those tests.</li>
     <li>The beta builds are unsigned, and the macOS builds are not notarized.</li>
   </ul>;
 }
