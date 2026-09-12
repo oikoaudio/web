@@ -1,6 +1,6 @@
 {
   "product": "Oiko Inton",
-  "version": "0.4.0-beta.1",
+  "version": "0.5.0-beta.1",
   "status": "public-beta",
   "formats": [
     "CLAP",
@@ -16,12 +16,29 @@
     "inton-macos-universal.zip",
     "inton-windows-x86_64.zip"
   ],
-  "source_revision": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
+  "source_revision": "ebdcbe30e32e42cc88a706d8e998f2e21693d36a",
   "build_revisions": {
-    "Linux": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
-    "macOS": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
-    "Windows": "e095a667de83d8d7f904b2f052cc98ae608f8cdd"
+    "Linux": "ebdcbe30e32e42cc88a706d8e998f2e21693d36a",
+    "macOS": "ebdcbe30e32e42cc88a706d8e998f2e21693d36a",
+    "Windows": "ebdcbe30e32e42cc88a706d8e998f2e21693d36a"
   },
-  "build_run": "https://github.com/oikoaudio/oikoaudio/actions/runs/34277396392",
-  "includes": "Official ODDsound MTS-ESP runtime and installation helper"
+  "build_run": "https://github.com/oikoaudio/oikoaudio/actions/runs/34701228805",
+  "includes": "Official ODDsound MTS-ESP runtime and installation helper",
+  "files": [
+    {
+      "name": "inton-linux-x86_64.zip",
+      "size": 9697468,
+      "sha256": "4e568a11fba0d9db1cee8b38971b1db4950db82f163af8a6dd6107487f089e47"
+    },
+    {
+      "name": "inton-windows-x86_64.zip",
+      "size": 9247479,
+      "sha256": "ecee982ef8ca1822ca3104af606510d246956e1ee9804421770be256d8766fc7"
+    },
+    {
+      "name": "inton-macos-universal.zip",
+      "size": 15604819,
+      "sha256": "cbd6e2151e7039f21c186bc0f60dce87fe25369b4981a3f76054402811c54ea7"
+    }
+  ]
 }

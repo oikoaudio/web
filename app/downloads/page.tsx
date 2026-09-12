@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { SiteHeader } from '../site-header';
+import weftRelease from '../../public/downloads/weft/latest/release.json';
+import wowRelease from '../../public/downloads/wow/latest/release.json';
+import intonRelease from '../../public/downloads/inton/latest/release.json';
 
 export const metadata: Metadata = { title: 'Downloads | Oiko Audio', description: 'Download Weft, Wow and Inton for macOS, Windows and Linux, and Oikontrol controller extensions for Bitwig Studio.' };
 const download = 'https://github.com/oikoaudio/bitwig-oikontrol/releases/download/oikontrol-v2.23.0/Oikontrol.bwextension';
@@ -39,7 +42,7 @@ export default function DownloadsPage() {
     <section className="downloads-catalog" aria-label="Product downloads">
         <div className="download-panel" id="weft">
           <div className="download-panel-head">
-            <div><span className="download-product">WEFT</span><span className="version">v0.4.0-beta.1</span></div>
+            <div><span className="download-product">WEFT</span><span className="version">v{weftRelease.version}</span></div>
             <a href={`${basePath}/weft/#release-notes`}>Release notes <Arrow /></a>
           </div>
           <div className="download-table">
@@ -49,11 +52,12 @@ export default function DownloadsPage() {
               </a>
             ))}
           </div>
+          <p className="download-note">Check Motion Shape automation in existing projects. Sprinkle replaces Splash, and Cloud changes normalized selector positions. <a href={`${basePath}/weft/#release-notes`}>Read the 0.5 compatibility notes</a>.</p>
           <p className="download-note">Current beta builds are not signed for distribution or notarized. <a href={`${basePath}/downloads/weft/latest/checksums.txt`}>SHA-256 checksums</a></p>
         </div>
         <div className="download-panel" id="wow">
           <div className="download-panel-head">
-            <div><span className="download-product">WOW</span><span className="version">v0.4.0-beta.1</span></div>
+            <div><span className="download-product">WOW</span><span className="version">v{wowRelease.version}</span></div>
             <a href={`${basePath}/wow/#release-notes`}>Release notes <Arrow /></a>
           </div>
           <div className="download-table">
@@ -67,7 +71,7 @@ export default function DownloadsPage() {
         </div>
         <div className="download-panel" id="inton">
           <div className="download-panel-head">
-            <div><span className="download-product">INTON</span><span className="version">v0.4.0-beta.1</span></div>
+            <div><span className="download-product">INTON</span><span className="version">v{intonRelease.version}</span></div>
             <a href={`${basePath}/inton/#release-notes`}>Release notes <Arrow /></a>
           </div>
           <div className="download-table">

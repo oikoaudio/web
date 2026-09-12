@@ -15,15 +15,15 @@ npm run dev
 
 ## Updating releases
 
-Product copy, version labels, and homepage download rows are in `app/page.tsx`. Product-specific download rows are in `app/product-page.tsx`.
+Product pages live under `app/<product>/`. Download rows are in `app/downloads/page.tsx`; their version labels come from each product's `public/downloads/<product>/latest/release.json`.
 
-Manuals and release notes are published as site pages under `app/manuals` and `app/releases`.
+Wow and Weft each use the same content component for their product-page release notes and standalone `/releases/<product>/` page. Wow's content is in `app/product-content.tsx`, Weft's in `app/weft-content.tsx`, and Inton's in `app/inton/page.tsx`. The manuals share content the same way, so update those components once.
 
 Release archives are served directly from `public/downloads/<plugin>/latest/`. Keep the stable filenames in `release.json` when replacing a build so command-line download URLs do not change. Add matching SHA-256 values to `checksums.txt`.
 
 Each plugin uses one `macos-universal.zip` archive containing Apple Silicon and Intel CLAP and VST3 builds. Audio Unit distribution is paused pending an upstream Logic compatibility fix.
 
-Weft's manual and release notes are in `app/weft-content.tsx`. Update the version on its product page and homepage alongside the release archives, `release.json` and checksums. Do not publish a new version label while the download directory still contains the previous release.
+Update release archives, `release.json` and checksums together. Verify the downloaded archives against the published release checksums before copying them into the website. Do not publish a new version label while the download directory still contains the previous release.
 
 Theme-matched plug-in captures live in `public/images/` as `oiko-<plugin>-dark.png` and `oiko-<plugin>-bright.png`.
 

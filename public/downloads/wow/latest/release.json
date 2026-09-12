@@ -1,6 +1,6 @@
 {
   "product": "Oiko Wow",
-  "version": "0.4.0-beta.1",
+  "version": "0.5.0-beta.1",
   "status": "public-beta",
   "formats": [
     "CLAP",
@@ -16,11 +16,28 @@
     "wow-macos-universal.zip",
     "wow-windows-x86_64.zip"
   ],
-  "source_revision": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
+  "source_revision": "ebdcbe30e32e42cc88a706d8e998f2e21693d36a",
   "build_revisions": {
-    "Linux": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
-    "macOS": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
-    "Windows": "e095a667de83d8d7f904b2f052cc98ae608f8cdd"
+    "Linux": "ebdcbe30e32e42cc88a706d8e998f2e21693d36a",
+    "macOS": "ebdcbe30e32e42cc88a706d8e998f2e21693d36a",
+    "Windows": "ebdcbe30e32e42cc88a706d8e998f2e21693d36a"
   },
-  "build_run": "https://github.com/oikoaudio/oikoaudio/actions/runs/34277389161"
+  "build_run": "https://github.com/oikoaudio/oikoaudio/actions/runs/34701228615",
+  "files": [
+    {
+      "name": "wow-linux-x86_64.tar.gz",
+      "size": 7800593,
+      "sha256": "7336671dfe84004281fdab9ad6b925e92ba483baca56947e5a02107f853992b8"
+    },
+    {
+      "name": "wow-windows-x86_64.zip",
+      "size": 7191036,
+      "sha256": "8a468e943a4d500d3990982cc673266d4e4bff465d56ac4048dbbfabf3a822ff"
+    },
+    {
+      "name": "wow-macos-universal.zip",
+      "size": 13784883,
+      "sha256": "e1f6edfe50722402caf6a95ddb7eaed0126aee98e985129c5f9f8b365c72c970"
+    }
+  ]
 }

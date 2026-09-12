@@ -1,6 +1,6 @@
 {
   "product": "Oiko Weft",
-  "version": "0.4.0-beta.1",
+  "version": "0.5.0-beta.1",
   "status": "public-beta",
   "formats": [
     "CLAP",
@@ -16,11 +16,28 @@
     "weft-macos-universal.zip",
     "weft-windows-x86_64.zip"
   ],
-  "source_revision": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
+  "source_revision": "ebdcbe30e32e42cc88a706d8e998f2e21693d36a",
   "build_revisions": {
-    "Linux": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
-    "macOS": "e095a667de83d8d7f904b2f052cc98ae608f8cdd",
-    "Windows": "e095a667de83d8d7f904b2f052cc98ae608f8cdd"
+    "Linux": "ebdcbe30e32e42cc88a706d8e998f2e21693d36a",
+    "macOS": "ebdcbe30e32e42cc88a706d8e998f2e21693d36a",
+    "Windows": "ebdcbe30e32e42cc88a706d8e998f2e21693d36a"
   },
-  "build_run": "https://github.com/oikoaudio/oikoaudio/actions/runs/34277392735"
+  "build_run": "https://github.com/oikoaudio/oikoaudio/actions/runs/34701228556",
+  "files": [
+    {
+      "name": "weft-linux-x86_64.tar.gz",
+      "size": 11885692,
+      "sha256": "2db7eb534b8cd4332eb734256cc11013646aee181c80b5e9bbaad08987d73268"
+    },
+    {
+      "name": "weft-windows-x86_64.zip",
+      "size": 8561799,
+      "sha256": "d0843e57465acee1cbe9f0a5488d0f305c3e9191829096530c11ae9ee1b62fdd"
+    },
+    {
+      "name": "weft-macos-universal.zip",
+      "size": 15991513,
+      "sha256": "83dd879c5b41616318639437f8e37a40921f79f95e6583c3f28cf661a43830d8"
+    }
+  ]
 }
