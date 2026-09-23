@@ -29,6 +29,10 @@ jobs:
           echo "NEXT_PUBLIC_BASE_PATH=" >> "$GITHUB_ENV"
           echo "NEXT_PUBLIC_SITE_URL=https://oikoaudio.com" >> "$GITHUB_ENV"
       - run: npm ci
+      - name: Fetch and verify plugin releases
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: npm run fetch:releases
       - run: npm run build:pages
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

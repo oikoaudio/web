@@ -6,6 +6,7 @@ Static product site for Oiko Audio. It is designed to deploy to GitHub Pages and
 
 ```sh
 npm ci
+npm run fetch:releases
 npm run dev
 ```
 
@@ -19,11 +20,11 @@ Product pages live under `app/<product>/`. Download rows are in `app/downloads/p
 
 Wow and Weft each use the same content component for their product-page release notes and standalone `/releases/<product>/` page. Wow's content is in `app/product-content.tsx`, Weft's in `app/weft-content.tsx`, and Inton's in `app/inton/page.tsx`. The manuals share content the same way, so update those components once.
 
-Release archives are served directly from `public/downloads/<plugin>/latest/`. Keep the stable filenames in `release.json` when replacing a build so command-line download URLs do not change. Add matching SHA-256 values to `checksums.txt`.
+Plugin downloads come from the GitHub releases of [oikoaudio/oikoaudio](https://github.com/oikoaudio/oikoaudio). Before each build, the deploy workflow runs `npm run fetch:releases`, which downloads the newest published release of Weft, Wow and Inton into `public/downloads/<plugin>/latest/`. It fails the build unless every archive matches the release's `checksums.txt` and `release.json`. That directory is ignored by Git; run the same command before a local preview. The plugin repository's release workflow can start this deployment after publishing; see its `docs/releases.md`.
 
 Each plugin uses one `macos-universal.zip` archive containing Apple Silicon and Intel CLAP and VST3 builds. Audio Unit distribution is paused pending an upstream Logic compatibility fix.
 
-Update release archives, `release.json` and checksums together. Verify the downloaded archives against the published release checksums before copying them into the website. Do not publish a new version label while the download directory still contains the previous release.
+Update the release notes and manuals before deploying a new plugin release, because the download labels come from the fetched `release.json`. Oikontrol downloads link to its own GitHub release, and its checksum stays in `public/downloads/oikontrol/`.
 
 Theme-matched plug-in captures live in `public/images/` as `oiko-<plugin>-dark.png` and `oiko-<plugin>-bright.png`.
 

@@ -16,6 +16,11 @@
 /.vinext/
 /out/
 
+# plugin downloads fetched from GitHub releases at build time
+/public/downloads/weft/
+/public/downloads/wow/
+/public/downloads/inton/
+
 # misc
 .DS_Store
 *.pem

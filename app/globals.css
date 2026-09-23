@@ -150,6 +150,7 @@ footer { min-height: 180px; padding: 40px clamp(20px, 6vw, 96px); display: grid;
 footer p { margin: 0; }
 footer p:first-child { color: var(--ink); letter-spacing: .12em; }
 footer p:nth-child(2) { grid-column: 2; text-align: center; }
+footer p:nth-child(3) { text-align: right; }
 
 @media (max-width: 900px) {
   .site-header { height: auto; min-height: 58px; grid-template-columns: 1fr auto; }

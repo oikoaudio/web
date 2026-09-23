@@ -34,9 +34,9 @@ export default function DownloadsPage() {
   return <main>
     <SiteHeader downloadsCurrent />
     <header className="downloads-intro">
-      <p className="eyebrow"><span className="status-dot" /> Free audio software</p>
+      <p className="eyebrow"><span className="status-dot" /> Free, open-source audio software</p>
       <h1>Downloads</h1>
-      <p>Choose your product and platform. Weft, Wow and Inton come in CLAP and VST3 formats, with universal macOS builds for Apple Silicon and Intel.</p>
+      <p>Choose your product and platform. Weft, Wow and Inton come in CLAP and VST3 formats, with universal macOS builds for Apple Silicon and Intel. All four are open source. Weft, Wow and Inton use MIT or Apache 2.0, and Oikontrol uses MIT. <a href="https://github.com/oikoaudio/oikoaudio">Plugin source code <Arrow /></a></p>
       <div className="actions"><a className="button" href="#weft">Weft ↓</a><a className="button" href="#wow">Wow ↓</a><a className="button" href="#inton">Inton ↓</a><a className="button" href="#oikontrol">Oikontrol ↓</a></div>
     </header>
     <section className="downloads-catalog" aria-label="Product downloads">
@@ -53,7 +53,7 @@ export default function DownloadsPage() {
             ))}
           </div>
           <p className="download-note">Check Motion Shape automation in existing projects. Sprinkle replaces Splash, and Cloud changes normalized selector positions. <a href={`${basePath}/weft/#release-notes`}>Read the 0.5 compatibility notes</a>.</p>
-          <p className="download-note">Current beta builds are not signed for distribution or notarized. <a href={`${basePath}/downloads/weft/latest/checksums.txt`}>SHA-256 checksums</a></p>
+          <p className="download-note">Current beta builds are not signed for distribution or notarized. <a href={`${basePath}/downloads/weft/latest/checksums.txt`}>SHA-256 checksums</a> · <a href="https://github.com/oikoaudio/oikoaudio/tree/main/plugins/weft">Source code <Arrow /></a></p>
         </div>
         <div className="download-panel" id="wow">
           <div className="download-panel-head">
@@ -67,7 +67,7 @@ export default function DownloadsPage() {
               </a>
             ))}
           </div>
-          <p className="download-note">Current beta builds are not signed for distribution or notarized. <a href={`${basePath}/downloads/wow/latest/checksums.txt`}>SHA-256 checksums</a></p>
+          <p className="download-note">Current beta builds are not signed for distribution or notarized. <a href={`${basePath}/downloads/wow/latest/checksums.txt`}>SHA-256 checksums</a> · <a href="https://github.com/oikoaudio/oikoaudio/tree/main/plugins/wow">Source code <Arrow /></a></p>
         </div>
         <div className="download-panel" id="inton">
           <div className="download-panel-head">
@@ -83,7 +83,7 @@ export default function DownloadsPage() {
             })}
           </div>
           <p className="download-note">Inton is a beta. Installation testing across systems is ongoing. Windows still needs testing in a DAW.</p>
-          <p className="download-note">Includes the official MTS-ESP runtime and installation helper. macOS plug-ins are not notarized. <a href={`${basePath}/inton/#start-here`}>Installation instructions</a> · <a href={`${basePath}/downloads/inton/latest/checksums.txt`}>SHA-256 checksums</a></p>
+          <p className="download-note">Includes the official MTS-ESP runtime and installation helper. macOS plug-ins are not notarized. <a href={`${basePath}/inton/#start-here`}>Installation instructions</a> · <a href={`${basePath}/downloads/inton/latest/checksums.txt`}>SHA-256 checksums</a> · <a href="https://github.com/oikoaudio/oikoaudio/tree/main/plugins/inton">Source code <Arrow /></a></p>
         </div>
         <div className="download-panel" id="oikontrol">
           <div className="download-panel-head">
@@ -104,6 +104,6 @@ export default function DownloadsPage() {
           </details>
         </div>
     </section>
-    <footer><p>OIKO AUDIO</p><p>Oiko Audio is a brand of Octofox Ltd.</p></footer>
+    <footer><p>OIKO AUDIO</p><p>Oiko Audio is a brand of Octofox Ltd.</p><p><a href="https://github.com/oikoaudio">Open source on GitHub ↗</a></p></footer>
   </main>;
 }

@@ -9,6 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:pages": "next build",
+    "fetch:releases": "node scripts/fetch-releases.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
   },
   "dependencies": {

@@ -63,7 +63,7 @@ export function ProductPage({ product, stage = 'beta', line, description, startH
           <div className="document-content">{releases}</div>
         </section>
       </article>
-      <footer><p>OIKO AUDIO</p><p>Oiko Audio is a brand of Octofox Ltd.</p></footer>
+      <footer><p>OIKO AUDIO</p><p>Oiko Audio is a brand of Octofox Ltd.</p><p><a href="https://github.com/oikoaudio">Open source on GitHub ↗</a></p></footer>
     </main>
   );
 }

@@ -38,6 +38,7 @@ export default function Home() {
             <dl className="spec-list">
               <div><dt>Platforms</dt><dd>macOS · Windows · Linux</dd></div>
               <div><dt>Formats</dt><dd>CLAP · VST3</dd></div>
+              <div><dt>Source</dt><dd><a href="https://github.com/oikoaudio/oikoaudio/tree/main/plugins/weft">Open source · MIT / Apache-2.0 <Arrow /></a></dd></div>
             </dl>
             <div className="actions">
               <a className="button primary" href={`${basePath}/downloads/#weft`}>Download beta <Arrow /></a>
@@ -63,6 +64,7 @@ export default function Home() {
             <dl className="spec-list">
               <div><dt>Platforms</dt><dd>macOS · Windows · Linux</dd></div>
               <div><dt>Formats</dt><dd>CLAP · VST3</dd></div>
+              <div><dt>Source</dt><dd><a href="https://github.com/oikoaudio/oikoaudio/tree/main/plugins/wow">Open source · MIT / Apache-2.0 <Arrow /></a></dd></div>
             </dl>
             <div className="actions">
               <a className="button primary" href={`${basePath}/downloads/#wow`}>Download beta <Arrow /></a>
@@ -88,6 +90,7 @@ export default function Home() {
               <div><dt>Platforms</dt><dd>Linux · macOS · Windows</dd></div>
               <div><dt>Tuning</dt><dd>MTS-ESP · Scala SCL / KBM</dd></div>
               <div><dt>Formats</dt><dd>CLAP · VST3</dd></div>
+              <div><dt>Source</dt><dd><a href="https://github.com/oikoaudio/oikoaudio/tree/main/plugins/inton">Open source · MIT / Apache-2.0 <Arrow /></a></dd></div>
             </dl>
             <div className="actions">
               <a className="button primary" href={`${basePath}/downloads/#inton`}>Download beta <Arrow /></a>
@@ -114,6 +117,7 @@ export default function Home() {
               <div><dt>Controllers</dt><dd>Akai Fire · Launch Control XL Mk2</dd></div>
               <div><dt>Requires</dt><dd>Bitwig Studio 6.0 or later</dd></div>
               <div><dt>Platforms</dt><dd>macOS · Windows · Linux</dd></div>
+              <div><dt>Source</dt><dd><a href="https://github.com/oikoaudio/bitwig-oikontrol">Open source · MIT <Arrow /></a></dd></div>
             </dl>
             <p>Also adds device, drum and arpeggiator controls to the Launch Control XL, while keeping user templates available for your own MIDI mappings.</p>
             <div className="actions"><a className="button primary" href={`${basePath}/oikontrol/`}>Explore Oikontrol ↗</a><a className="button" href={`${basePath}/downloads/#oikontrol`}>Download ↓</a></div>
@@ -125,6 +129,7 @@ export default function Home() {
       <footer>
         <p>OIKO AUDIO</p>
         <p>Oiko Audio is a brand of Octofox Ltd.</p>
+        <p><a href="https://github.com/oikoaudio">Open source on GitHub ↗</a></p>
       </footer>
     </main>
   );

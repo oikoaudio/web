@@ -21,6 +21,7 @@ export function DocumentShell({ product, section, children }: { product: 'Wow' |
       <footer>
         <p>OIKO AUDIO</p>
         <p>Oiko Audio is a brand of Octofox Ltd.</p>
+        <p><a href="https://github.com/oikoaudio">Open source on GitHub ↗</a></p>
       </footer>
     </main>
   );
