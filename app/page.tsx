@@ -124,6 +124,26 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section aria-label="Linux tools">
+        <div className="oikontrol-install">
+          <div>
+            <p className="index">LINUX TOOL / DEVELOPER PREVIEW</p>
+            <h2>PLUGG</h2>
+            <p className="plugin-line">Your Windows audio plug-ins in your Linux DAW.</p>
+            <p>Drop in a vendor&apos;s installer or a Windows VST3. Plugg installs it into a Windows environment of its own and adds it to your DAW as a native VST3. It also handles vendor apps such as Native Access, and iLok-licensed plug-ins.</p>
+          </div>
+          <div>
+            <dl className="spec-list">
+              <div><dt>Platform</dt><dd>Linux</dd></div>
+              <div><dt>Format</dt><dd>VST3</dd></div>
+              <div><dt>Tested in</dt><dd>Bitwig Studio</dd></div>
+              <div><dt>Source</dt><dd><a href="https://github.com/oikoaudio/plugg">Open source · GPL-3.0-or-later <Arrow /></a></dd></div>
+            </dl>
+            <p>Plugg is a developer preview, and not every plug-in will work yet. A vendor that hasn&apos;t been tried will probably need a fix of its own.</p>
+            <div className="actions"><a className="button primary" href={`${basePath}/plugg/`}>Explore Plugg ↗</a><a className="button" href={`${basePath}/plugg/#install`}>Install ↗</a></div>
+          </div>
+        </div>
+      </section>
       <section className="download-callout" id="downloads"><h2>Ready to try them?</h2><a className="button primary" href={`${basePath}/downloads/`}>Downloads <Arrow /></a></section>
 
       <footer>

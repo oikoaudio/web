@@ -290,3 +290,7 @@ footer p:nth-child(3) { text-align: right; }
 .download-installation summary { width: fit-content; cursor: pointer; color: var(--ink); }
 .download-installation li + li { margin-top: 8px; }
 .download-installation p { max-width: 720px; }
+.document-content a:not(.button) { text-decoration: underline; text-underline-offset: 3px; }
+.product-screenshot.wide { max-width: 1152px; }
+.screenshot-figure a { display: block; cursor: zoom-in; }
+.document-content pre { max-width: 760px; margin: 18px 0; padding: 14px 16px; overflow-x: auto; border: 1px solid var(--rule); background: var(--panel); font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; }
