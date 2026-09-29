@@ -52,7 +52,7 @@ export function PluggFeatureContent() {
     <section>
       <h2>Recipes are data, not scripts</h2>
       <p>A recipe describes how to set up a vendor: the runtime, graphics settings, Microsoft components and installer arguments. It is a TOML file, never a script. Before you use a recipe you didn&apos;t write, Plugg explains it in plain language: what it can do, every download and its hash, the exact arguments any installer would get, and anything worth a second look.</p>
-      <p>The app shows the same report under <strong>Recipes &amp; fixes</strong>, before you add a recipe.</p>
+      <p>In the app, choose <strong>Add recipe…</strong> on the <strong>Recipes &amp; fixes</strong> page, and Plugg shows the same report before it adds the recipe.</p>
       <Screenshot src="plugg-recipe.png" alt="Plugg explaining the Native Instruments recipe: its runtime, pinned downloads with SHA-256 hashes, what it can do, and a list of points worth looking at." width={820} height={900} caption="The Native Instruments recipe, explained. Points worth a second look are flagged in colour." />
     </section>
     <section>
@@ -60,6 +60,12 @@ export function PluggFeatureContent() {
       <p>Help is an FAQ in plain words. When you add an installer, Plugg says what is already known about it. That can be a tested setup, the vendor&apos;s tested notes, another project&apos;s research on the same file, or a native Linux version you should use instead.</p>
       <Screenshot src="plugg-known-fixes.png" alt="Plugg installing Native Access, with the tested notes for Native Instruments and another project's findings shown in orange below the progress line." width={1070} height={110} caption="While Native Access installs, Plugg shows what is known about Native Instruments." />
       <p><strong>Troubleshoot</strong> opens the reusable fixes for that vendor.</p>
+    </section>
+    <section id="licences">
+      <h2>Your licences stay on your computer</h2>
+      <p>Licences live where the vendor&apos;s own app puts them, inside that vendor&apos;s environment under <code>~/.local/share/plugg/environments/</code>. iLok licences stay in iLok License Manager, in the shared iLok environment. Plugg keeps no serial numbers, licence files, passwords or account details. For a protected environment it records only the product names and hashed identity values. <a href={`${repo}/blob/main/docs/licensing-safety.md`}>Licensing safety</a> has the details.</p>
+      <p>Plugg goes online only to download its own parts: Proton, its Wine modules, the plug-in bridge and Microsoft components. It fetches them from a fixed list of sites and checks each one by hash. It sends nothing about you or your plug-ins anywhere. The vendor&apos;s app signs in and activates on its own, as it would on Windows.</p>
+      <p>Back up <code>~/.local/share/plugg</code> with the rest of your home folder. Don&apos;t post environment folders or vendor app logs online, because they can contain your machine&apos;s identifiers or account details.</p>
     </section>
     <section>
       <h2>How it works</h2>
@@ -93,7 +99,7 @@ export function PluggStatusContent() {
     <h3>Other DAWs</h3>
     <p>Plugg is tested in Bitwig. REAPER, Ardour and other DAWs haven&apos;t been tested separately yet.</p>
     <h3>Plugg has no helpdesk</h3>
-    <p>One person makes Plugg. Good bug reports get read and fixed. The app has a guided report form that asks for what makes a report useful, then opens <a href={`${repo}/issues`}>GitHub&apos;s issue form</a> with your answers filled in. The app itself sends nothing.</p>
+    <p>One person makes Plugg. Good bug reports get read and fixed. To report a bug, open Help and choose <strong>Report a bug in Plugg…</strong>. The form asks for what makes a report useful, then opens <a href={`${repo}/issues`}>GitHub&apos;s issue form</a> in your browser with a summary you can read and edit first. Nothing leaves your computer unless you submit it.</p>
     <p>I usually can&apos;t answer requests to get one particular setup working. Start with Help, the known fixes and Troubleshoot in the app.</p>
   </>;
 }
@@ -107,9 +113,10 @@ export function PluggFaqContent() {
     <div><dt>Is each environment a sandbox?</dt><dd>No. Separate environments keep vendors&apos; setups apart, but they are not security sandboxes.</dd></div>
     <div><dt>Can I check a recipe before I use it?</dt><dd>Yes. Recipes are TOML files, not scripts. Plugg explains what a recipe can do, what it downloads with each hash, and anything worth a second look, before you add it.</dd></div>
     <div><dt>What happens when a plug-in crashes?</dt><dd>Plugg notices when a plug-in takes its Windows host down and fails the load within seconds, so your DAW doesn&apos;t wait forever.</dd></div>
+    <div><dt>Where are my licences, and what goes online?</dt><dd>Licences stay where the vendor&apos;s app puts them, inside that vendor&apos;s environment on your computer. Plugg keeps no serial numbers, passwords or account details. It goes online only to download its own parts, each checked by hash, and sends nothing about you or your plug-ins. See <a href="#licences">Your licences stay on your computer</a>.</dd></div>
     <div><dt>Is there a Flatpak?</dt><dd>No, and none is planned. If you want a Flatpak, use <a href="https://github.com/Mark12870/cabinet">Cabinet</a>.</dd></div>
     <div><dt>Which distributions?</dt><dd>Plugg is developed on CachyOS. The first release will have packages for Ubuntu and Debian, Fedora and Arch. Until then, it builds as a package on Arch-based systems and runs from a checkout elsewhere. See <a href="#install">Install</a>.</dd></div>
-    <div><dt>What if it doesn&apos;t work?</dt><dd>Start with Help, the known fixes Plugg shows for your installer, and Troubleshoot. Plugg has no helpdesk, but I read good bug reports. The report form in the app asks for what I need to reproduce the problem.</dd></div>
+    <div><dt>What if it doesn&apos;t work?</dt><dd>Start with Help, the known fixes Plugg shows for your installer, and Troubleshoot. Plugg has no helpdesk, but I read good bug reports. To report one, open Help and choose <strong>Report a bug in Plugg…</strong>. The form asks for what I need to reproduce the problem.</dd></div>
   </dl>;
 }
 
