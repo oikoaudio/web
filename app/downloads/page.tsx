@@ -116,12 +116,12 @@ export default function DownloadsPage() {
             <a href={pluggRelease} className="download-row">
               <strong>Fedora</strong><span>Fedora 42 or newer</span><span>.rpm · x86-64</span><code>sudo dnf install ./plugg-*.x86_64.rpm</code><span className="download-arrow">↗</span>
             </a>
-            <a href={`${basePath}/plugg/#install`} className="download-row">
-              <strong>Arch</strong><span>AUR package coming soon</span><span>Build from source for now</span><code>makepkg -si</code><span className="download-arrow">↗</span>
+            <a href={pluggRelease} className="download-row">
+              <strong>Arch</strong><span>Arch, CachyOS, EndeavourOS and others</span><span>.pkg.tar.zst · x86-64</span><code>sudo pacman -U ./plugg-*-x86_64.pkg.tar.zst</code><span className="download-arrow">↗</span>
             </a>
           </div>
           <p className="download-note">Plugg is a developer preview, and not every plug-in will work. Klevgrand and Variety of Sound work. Native Instruments, Plugin Alliance and Universal Audio, through iLok, are experimental. <a href="https://github.com/oikoaudio/plugg/tree/main/docs/compatibility">Compatibility notes <Arrow /></a></p>
-          <p className="download-note">Download the .deb or .rpm from the latest release on GitHub, then install it with the command shown. Start Plugg from your applications menu, or run <code>plugg gui</code>. SHA-256 checksums are in <code>SHA256SUMS</code> on the release page. <a href={`${basePath}/plugg/#install`}>Installation instructions</a> · <a href="https://github.com/oikoaudio/plugg">Source code <Arrow /></a></p>
+          <p className="download-note">Download the package for your system from the latest release on GitHub, then install it with the command shown. Plugg will also be in the AUR once the AUR takes new accounts again. Start Plugg from your applications menu, or run <code>plugg gui</code>. SHA-256 checksums are in <code>SHA256SUMS</code> on the release page. <a href={`${basePath}/plugg/#install`}>Installation instructions</a> · <a href="https://github.com/oikoaudio/plugg">Source code <Arrow /></a></p>
         </div>
     </section>
     <footer><p>OIKO AUDIO</p><p>Oiko Audio is a brand of Octofox Ltd.</p><p><a href="https://github.com/oikoaudio">Open source on GitHub ↗</a></p></footer>
