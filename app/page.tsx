@@ -129,8 +129,8 @@ export default function Home() {
           <div>
             <p className="index">LINUX TOOL / DEVELOPER PREVIEW</p>
             <h2>PLUGG</h2>
-            <p className="plugin-line">Your Windows audio plug-ins in your Linux DAW.</p>
-            <p>Drop in a vendor&apos;s installer or a Windows VST3. Plugg installs it into a Windows environment of its own and adds it to your DAW as a native VST3. It also handles vendor apps such as Native Access, and iLok-licensed plug-ins.</p>
+            <p className="plugin-line">Windows audio plug-ins in your Linux DAW.</p>
+            <p>Drop in a vendor&apos;s installer or a Windows VST3. Plugg installs it into a Windows environment of its own and adds it to the DAW as a native VST3. It also handles vendor apps such as Native Access, and iLok-licensed plug-ins.</p>
           </div>
           <div>
             <dl className="spec-list">

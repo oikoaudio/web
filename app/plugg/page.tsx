@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ProductPage } from '../product-page';
 import { repo, PluggStartContent, PluggFeatureContent, PluggStatusContent, PluggFaqContent, PluggCreditsContent } from '../plugg-content';
 
-const description = 'Plugg installs Windows audio plug-ins from the vendor\'s own installer and publishes them to your Linux DAW as native VST3s. Free software, GPL-3.0-or-later.';
+const description = 'Plugg installs Windows audio plug-ins from the vendor\'s own installer and publishes them to a Linux DAW as native VST3s. Free software, GPL-3.0-or-later.';
 
 export const metadata: Metadata = {
   title: 'Plugg | Oiko Audio',
@@ -19,8 +19,8 @@ export default function PluggPage() {
     download={false}
     startButton={false}
     links={[{ label: 'Download', href: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/downloads/#plugg`, primary: true }, { label: 'Install', href: '#install' }, { label: 'Source on GitHub', href: repo }]}
-    line="Your Windows audio plug-ins in your Linux DAW."
-    description="Drop in a vendor's installer or a Windows VST3, and it shows up in your DAW as a native plug-in. It also handles vendor apps and iLok-licensed plug-ins."
+    line="Windows audio plug-ins in your Linux DAW."
+    description="Drop in a vendor's installer or a Windows VST3, and the plug-in shows up in the DAW as a native VST3. Plugg also handles vendor apps and iLok-licensed plug-ins."
     screenshot={{ darkSrc: '/images/plugg-library-dark.png', brightSrc: '/images/plugg-library-light.png', darkWidth: 1120, darkHeight: 900, brightWidth: 1120, brightHeight: 900, alt: 'The Plugg window: a list of vendors with status dots, their vendor apps, and the disk space each one uses.', wide: true }}
     startHere={<PluggStartContent />}
     manualTitle="Features"
