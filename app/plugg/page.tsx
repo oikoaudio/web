@@ -18,7 +18,7 @@ export default function PluggPage() {
     stage="preview"
     download={false}
     startButton={false}
-    links={[{ label: 'Install', href: '#install', primary: true }, { label: 'Source on GitHub', href: repo }]}
+    links={[{ label: 'Download', href: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/downloads/#plugg`, primary: true }, { label: 'Install', href: '#install' }, { label: 'Source on GitHub', href: repo }]}
     line="Your Windows audio plug-ins in your Linux DAW."
     description="Drop in a vendor's installer or a Windows VST3, and it shows up in your DAW as a native plug-in. It also handles vendor apps and iLok-licensed plug-ins."
     screenshot={{ darkSrc: '/images/plugg-library-dark.png', brightSrc: '/images/plugg-library-light.png', darkWidth: 1120, darkHeight: 900, brightWidth: 1120, brightHeight: 900, alt: 'The Plugg window: a list of vendors with status dots, their vendor apps, and the disk space each one uses.', wide: true }}

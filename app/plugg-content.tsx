@@ -75,14 +75,18 @@ export function PluggFeatureContent() {
     </section>
     <section id="install">
       <h2>Install</h2>
-      <p>There is no packaged release yet. The first, v0.1.0, will have packages for Ubuntu and Debian (.deb), Fedora (.rpm) and Arch (AUR). <a href={`${repo}/releases`}>Watch the releases on GitHub</a> to hear when it&apos;s out.</p>
-      <p>Until then, on Arch and Arch-based systems such as CachyOS and EndeavourOS, build the package from source:</p>
+      <p>Download the package for your system from <a href={`${repo}/releases/latest`}>the latest release on GitHub</a>, then install it from the folder you saved it to:</p>
+      <ul>
+        <li>Ubuntu 24.04 or newer, Debian 13 or newer: download the .deb, then run <code>sudo apt install ./plugg_*_amd64.deb</code>.</li>
+        <li>Fedora 42 or newer: download the .rpm, then run <code>sudo dnf install ./plugg-*.x86_64.rpm</code>.</li>
+      </ul>
+      <p>An AUR package for Arch is coming. Until then, on Arch and Arch-based systems such as CachyOS and EndeavourOS, build the package from source:</p>
       <pre><code>{`git clone ${repo}.git
 cd plugg/packaging/aur/plugg-git
-makepkg -si
-plugg gui`}</code></pre>
-      <p>The build takes a few minutes, because it compiles the plug-in bridge from pinned sources. On other distributions, <a href={`${repo}/blob/main/docs/building.md#build-from-a-checkout`}>build from a checkout</a>. Plugg downloads its Proton runtime the first time it needs it.</p>
-      <p>Then drop in an installer and point your DAW at <code>~/.vst3/plugg</code>.</p>
+makepkg -si`}</code></pre>
+      <p>On other distributions, <a href={`${repo}/blob/main/docs/building.md#build-from-a-checkout`}>build from a checkout</a>.</p>
+      <p>Start Plugg from your applications menu, or run <code>plugg gui</code>. It downloads its Proton runtime the first time it needs it. Then drop in an installer and point your DAW at <code>~/.vst3/plugg</code>.</p>
+      <p>Plugg is a developer preview, and not every plug-in will work. See <a href="#status">Status</a> before you rely on it.</p>
     </section>
   </>;
 }
@@ -115,7 +119,7 @@ export function PluggFaqContent() {
     <div><dt>What happens when a plug-in crashes?</dt><dd>Plugg notices when a plug-in takes its Windows host down and fails the load within seconds, so your DAW doesn&apos;t wait forever.</dd></div>
     <div><dt>Where are my licences, and what goes online?</dt><dd>Licences stay where the vendor&apos;s app puts them, inside that vendor&apos;s environment on your computer. Plugg keeps no serial numbers, passwords or account details. It goes online only to download its own parts, each checked by hash, and sends nothing about you or your plug-ins. See <a href="#licences">Your licences stay on your computer</a>.</dd></div>
     <div><dt>Is there a Flatpak?</dt><dd>No, and none is planned. If you want a Flatpak, use <a href="https://github.com/Mark12870/cabinet">Cabinet</a>.</dd></div>
-    <div><dt>Which distributions?</dt><dd>Plugg is developed on CachyOS. The first release will have packages for Ubuntu and Debian, Fedora and Arch. Until then, it builds as a package on Arch-based systems and runs from a checkout elsewhere. See <a href="#install">Install</a>.</dd></div>
+    <div><dt>Which distributions?</dt><dd>Plugg is developed on CachyOS. There are packages for Ubuntu 24.04 or newer, Debian 13 or newer and Fedora 42 or newer. An AUR package for Arch is coming; until then it builds from source on Arch-based systems. See <a href="#install">Install</a>.</dd></div>
     <div><dt>What if it doesn&apos;t work?</dt><dd>Start with Help, the known fixes Plugg shows for your installer, and Troubleshoot. Plugg has no helpdesk, but I read good bug reports. To report one, open Help and choose <strong>Report a bug in Plugg…</strong>. The form asks for what I need to reproduce the problem.</dd></div>
   </dl>;
 }

@@ -6,8 +6,9 @@ import weftRelease from '../../public/downloads/weft/latest/release.json';
 import wowRelease from '../../public/downloads/wow/latest/release.json';
 import intonRelease from '../../public/downloads/inton/latest/release.json';
 
-export const metadata: Metadata = { title: 'Downloads | Oiko Audio', description: 'Download Weft, Wow and Inton for macOS, Windows and Linux, and Oikontrol controller extensions for Bitwig Studio.' };
+export const metadata: Metadata = { title: 'Downloads | Oiko Audio', description: 'Download Weft, Wow and Inton for macOS, Windows and Linux, Oikontrol controller extensions for Bitwig Studio, and Plugg for Linux.' };
 const download = 'https://github.com/oikoaudio/bitwig-oikontrol/releases/download/oikontrol-v2.23.0/Oikontrol.bwextension';
+const pluggRelease = 'https://github.com/oikoaudio/plugg/releases/latest';
 
 const downloadRows = [
   { platform: 'macOS', detail: 'Universal', formats: 'CLAP · VST3', file: 'macos-universal.zip' },
@@ -36,8 +37,8 @@ export default function DownloadsPage() {
     <header className="downloads-intro">
       <p className="eyebrow"><span className="status-dot" /> Free, open-source audio software</p>
       <h1>Downloads</h1>
-      <p>Choose your product and platform. Weft, Wow and Inton come in CLAP and VST3 formats, with universal macOS builds for Apple Silicon and Intel. All four are open source. Weft, Wow and Inton use MIT or Apache 2.0, and Oikontrol uses MIT. <a href="https://github.com/oikoaudio/oikoaudio">Plugin source code <Arrow /></a></p>
-      <div className="actions"><a className="button" href="#weft">Weft ↓</a><a className="button" href="#wow">Wow ↓</a><a className="button" href="#inton">Inton ↓</a><a className="button" href="#oikontrol">Oikontrol ↓</a></div>
+      <p>Choose your product and platform. Weft, Wow and Inton come in CLAP and VST3 formats, with universal macOS builds for Apple Silicon and Intel. Plugg runs Windows plug-ins in a Linux DAW. All five are open source. Weft, Wow and Inton use MIT or Apache 2.0, Oikontrol uses MIT, and Plugg uses GPL-3.0-or-later. <a href="https://github.com/oikoaudio/oikoaudio">Plugin source code <Arrow /></a></p>
+      <div className="actions"><a className="button" href="#weft">Weft ↓</a><a className="button" href="#wow">Wow ↓</a><a className="button" href="#inton">Inton ↓</a><a className="button" href="#oikontrol">Oikontrol ↓</a><a className="button" href="#plugg">Plugg ↓</a></div>
     </header>
     <section className="downloads-catalog" aria-label="Product downloads">
         <div className="download-panel" id="weft">
@@ -102,6 +103,25 @@ export default function DownloadsPage() {
             <summary>Installation instructions</summary>
             <ol><li>Download the extension and put it in your Bitwig Studio <strong>Extensions</strong> folder.</li><li>Open <strong>Settings → Controllers</strong> in Bitwig.</li><li>Add <strong>Fire Oikontrol</strong> or <strong>LCXL Oikontrol</strong> and select your controller&apos;s MIDI ports.</li></ol><p>On Windows and macOS, the folder is normally in Documents → Bitwig Studio → Extensions. On Linux, look in Bitwig Studio → Extensions in your home folder.</p><p>The <strong>?</strong> button beside the controller in Bitwig opens the bundled manual.</p>
           </details>
+        </div>
+        <div className="download-panel" id="plugg">
+          <div className="download-panel-head">
+            <div><span className="download-product">PLUGG</span><span className="version">Developer preview</span></div>
+            <a href={pluggRelease}>Release notes <Arrow /></a>
+          </div>
+          <div className="download-table">
+            <a href={pluggRelease} className="download-row">
+              <strong>Ubuntu · Debian</strong><span>Ubuntu 24.04 or newer, Debian 13 or newer</span><span>.deb · x86-64</span><code>sudo apt install ./plugg_*_amd64.deb</code><span className="download-arrow">↗</span>
+            </a>
+            <a href={pluggRelease} className="download-row">
+              <strong>Fedora</strong><span>Fedora 42 or newer</span><span>.rpm · x86-64</span><code>sudo dnf install ./plugg-*.x86_64.rpm</code><span className="download-arrow">↗</span>
+            </a>
+            <a href={`${basePath}/plugg/#install`} className="download-row">
+              <strong>Arch</strong><span>AUR package coming soon</span><span>Build from source for now</span><code>makepkg -si</code><span className="download-arrow">↗</span>
+            </a>
+          </div>
+          <p className="download-note">Plugg is a developer preview, and not every plug-in will work. Klevgrand and Variety of Sound work. Native Instruments, Plugin Alliance and Universal Audio, through iLok, are experimental. <a href="https://github.com/oikoaudio/plugg/tree/main/docs/compatibility">Compatibility notes <Arrow /></a></p>
+          <p className="download-note">Download the .deb or .rpm from the latest release on GitHub, then install it with the command shown. Start Plugg from your applications menu, or run <code>plugg gui</code>. SHA-256 checksums are in <code>SHA256SUMS</code> on the release page. <a href={`${basePath}/plugg/#install`}>Installation instructions</a> · <a href="https://github.com/oikoaudio/plugg">Source code <Arrow /></a></p>
         </div>
     </section>
     <footer><p>OIKO AUDIO</p><p>Oiko Audio is a brand of Octofox Ltd.</p><p><a href="https://github.com/oikoaudio">Open source on GitHub ↗</a></p></footer>

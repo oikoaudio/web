@@ -140,7 +140,7 @@ export default function Home() {
               <div><dt>Source</dt><dd><a href="https://github.com/oikoaudio/plugg">Open source · GPL-3.0-or-later <Arrow /></a></dd></div>
             </dl>
             <p>Plugg is a developer preview, and not every plug-in will work yet. A vendor that hasn&apos;t been tried will probably need a fix of its own.</p>
-            <div className="actions"><a className="button primary" href={`${basePath}/plugg/`}>Explore Plugg ↗</a><a className="button" href={`${basePath}/plugg/#install`}>Install ↗</a></div>
+            <div className="actions"><a className="button primary" href={`${basePath}/plugg/`}>Explore Plugg ↗</a><a className="button" href={`${basePath}/downloads/#plugg`}>Download ↗</a></div>
           </div>
         </div>
       </section>
