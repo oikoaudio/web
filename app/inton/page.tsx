@@ -54,6 +54,9 @@ Open the Library with the folder icon and select a scale. Try a few chords with 
       <p>Check that the instrument supports MTS-ESP and has it enabled. If Inton says Unavailable, install the included runtime and restart your DAW. If it says Tuning blocked, check for another active MTS master.</p>
     </>}
     releases={<>
+      <h3>0.5.0-beta.2</h3>
+      <p>On Linux, the editor now opens at the right size on desktops that scale X11 apps, such as KDE Plasma at 200%. Before, the host window kept the unscaled size and cut off the enlarged editor. In VST3 hosts, the window can open small and then grow to fit.</p>
+      <p>Parameters, automation mappings, Scale set slot numbering and saved state are unchanged from 0.5.0-beta.1.</p>
       <h3>0.5.0-beta.1</h3>
       <p>Wow, Weft and Inton now share one release version. These plugins are still maturing; sound, controls and automation mappings may change between beta releases. Keep the previous plugin version and a backup of existing projects before updating.</p>
       <ul><li>Corner-drag resizing from 50% to 200%, with the chosen size restored when reopening the editor.</li><li>Updated shared editor and host integration, including macOS window sizing.</li></ul>
