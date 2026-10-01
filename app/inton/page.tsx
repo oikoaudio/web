@@ -54,6 +54,9 @@ Open the Library with the folder icon and select a scale. Try a few chords with 
       <p>Check that the instrument supports MTS-ESP and has it enabled. If Inton says Unavailable, install the included runtime and restart your DAW. If it says Tuning blocked, check for another active MTS master.</p>
     </>}
     releases={<>
+      <h3>0.5.0-beta.3</h3>
+      <p>Inton now keeps its files in an <code>Oiko Audio/Inton</code> folder (<code>oikoaudio/inton</code> on Linux) in the standard per-user folders. The first time it loads, Inton moves the <code>oiko/inton</code> folder that earlier versions used, including your favourites, library and preferences. A project whose current scale came from your library sounds the same, but the browser won&apos;t highlight that scale until you choose it again.</p>
+      <p>Parameters, automation mappings, Scale set slot numbering and saved state are unchanged from 0.5.0-beta.2. If you go back to an earlier beta after running this one, Inton won&apos;t find the moved folder and opens with its default favourites and library.</p>
       <h3>0.5.0-beta.2</h3>
       <p>On Linux, the editor now opens at the right size on desktops that scale X11 apps, such as KDE Plasma at 200%. Before, the host window kept the unscaled size and cut off the enlarged editor. In VST3 hosts, the window can open small and then grow to fit.</p>
       <p>Parameters, automation mappings, Scale set slot numbering and saved state are unchanged from 0.5.0-beta.1.</p>

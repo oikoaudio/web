@@ -104,6 +104,11 @@ export function WeftManualContent({ includeStart = true }: { includeStart?: bool
 export function WeftReleaseContent() {
   return <>
     <section className="release-entry">
+      <div className="release-heading"><h2>0.5.0-beta.3</h2><time dateTime="2026-10-01">1 October 2026</time></div>
+      <p>New instances open at the editor zoom you last chose. A saved project still reopens at the zoom it was saved with.</p>
+      <p>Parameters, automation mappings and saved state are unchanged from 0.5.0-beta.2. If you are updating from an earlier beta, check the Motion Shape automation notes under 0.5.0-beta.1.</p>
+    </section>
+    <section className="release-entry">
       <div className="release-heading"><h2>0.5.0-beta.2</h2><time dateTime="2026-09-29">29 September 2026</time></div>
       <p>On Linux, the editor now opens at the right size on desktops that scale X11 apps, such as KDE Plasma at 200%. Before, the host window kept the unscaled size and cut off the enlarged editor. In VST3 hosts, the window can open small and then grow to fit.</p>
       <p>Parameters, automation mappings and saved state are unchanged from 0.5.0-beta.1. If you are updating from an earlier beta, check the Motion Shape automation notes under 0.5.0-beta.1.</p>
