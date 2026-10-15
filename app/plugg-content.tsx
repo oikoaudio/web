@@ -16,7 +16,7 @@ export function PluggStartContent() {
     <h3>Installers and VST3 files</h3>
     <p>Plugg takes the files a vendor supplies: an EXE installer, an MSI, or a Windows VST3 file or bundle. It runs the installer in the background, in a private Windows environment, and keeps a copy.</p>
     <h3>Vendor apps and iLok</h3>
-    <p>Native Access, UA Connect, Softube Central, Klevgrand Helper, Kilohearts Installer and other vendor apps open from the vendor&apos;s row in Plugg. Sign in, install products, and close the app. Plugg then adds whatever the app installed to the DAW. iLok-licensed plug-ins share one environment with PACE License Support, and Plugg&apos;s runtime includes the Wine fixes the PACE installer needs.</p>
+    <p>Native Access, UA Connect, Softube Central, Arturia Software Center, Klevgrand Helper, Kilohearts Installer and other vendor apps open from the vendor&apos;s row in Plugg. Sign in, install products, and close the app. Plugg then adds whatever the app installed to the DAW. iLok-licensed plug-ins share one environment with PACE License Support, and Plugg&apos;s runtime includes the Wine fixes the PACE installer needs.</p>
     <Screenshot src="plugg-ilok.png" alt="The Universal Audio row in Plugg, expanded. The UADx LA-2A Tube Compressor is in the DAW, and two more UADx plug-ins wait for iLok activation next to an Activate in iLok button." width={905} height={178} caption="An amber dot means something needs you. Here two UADx plug-ins wait for activation in iLok." />
     <h3>Protecting activations</h3>
     <p>Plugg records which environments hold activations and refuses the operations that could cost a licence seat. Every environment on a computer presents the same machine identity, so one computer counts as one machine against a vendor&apos;s limit.</p>
@@ -91,7 +91,7 @@ export function PluggFeatureContent() {
 export function PluggStatusContent() {
   return <>
     <p><strong>Plugg is a developer preview.</strong> It is developed and tested on one machine running CachyOS, Hyprland and Bitwig. Not every plug-in will work.</p>
-    <p>Klevgrand and Variety of Sound work. Native Instruments, Plugin Alliance and Universal Audio, through iLok, are experimental. Kilohearts and other free plug-ins can be dropped in as VST3 files or installers. A vendor that hasn&apos;t been tested yet will often need a fix of its own before it works.</p>
+    <p>Klevgrand and Variety of Sound work. Arturia is experimental, and so are Native Instruments, Plugin Alliance and Universal Audio through iLok. Kilohearts and other free plug-ins can be dropped in as VST3 files or installers. A vendor that hasn&apos;t been tested yet will often need a fix of its own before it works.</p>
     <p>What has been tested changes every week, so this page doesn&apos;t list products. The app tells you what is known about an installer when you add it, and <a href={`${repo}/tree/main/docs/compatibility`}>Plugg&apos;s compatibility notes</a> list what has been tested for each vendor.</p>
     <h3>iLok</h3>
     <p>iLok-licensed plug-ins work in one shared environment. Creating that environment is still a command-line step, and experimental.</p>
