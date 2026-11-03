@@ -17,17 +17,22 @@ export default function TackOverview() {
   return <main>
     <SiteHeader currentProduct="Tack" />
     <section className="oikontrol-intro tack-intro">
+      <div className="tack-intro-head">
+        <p className="index"><span className="status-dot" /> PUBLIC BETA</p>
+        <h1>TACK</h1>
+      </div>
+      <div className="tack-intro-text">
+        <h2>A digital drum synth, in two forms.</h2>
+        <p>Tack is a digital drum synth with seven voices: three drums, a snare, a cymbal, and closed and open hats, with an FX bus. Its oscillators alias and its distortion is gritty, and a small turn of a dial makes expressive changes. It currently comes as plugins for your DAW and as firmware for the M-VAVE FM-1 hardware synth. Both are free software.</p>
+        <p>Tack is Swedish for <b>Thank you</b>.</p>
+        <p>Its sound engine is the LXR-02 firmware by Sonic Potions and Erica Synths, which Tack extends. The reverb the LXR leaves switched off is on, in stereo with low and high cuts. An LFO can play once from a voice&apos;s hit, and the delay can follow the tempo. A kit or a single voice can mutate, one small random change at a time, and step back the way it came. On the FM-1 the sequencer adds up to eight parameter locks a step, lanes that run backwards, ping-pong, bounce or at random and at half or quarter speed, velocity shapes that write a rhythm&apos;s accents into a lane, and steps that play only on chosen passes of their lane.</p>
+        <p className="oikontrol-requirements">Tack is not affiliated with or endorsed by Erica Synths, Sonic Potions or M-VAVE.</p>
+      </div>
       <figure className="tack-hero" aria-label="Tack as a plugin and on the FM-1">
         <img className="tack-hero-plugin" src={`${base}/images/tack-plugin-editor.png`} width={912} height={436} alt="The Tack plugin's editor: a tab per voice, with boxes of dials for the oscillator, FM, transient, filter, envelopes, mix and LFO." />
-        <img className="tack-hero-fm1" src={`${base}/images/tack-overview-240.png`} width={240} height={240} alt="Tack on the FM-1's screen: seven lanes of steps, with pitch, filter, decay and volume below." />
+        <img src={`${base}/images/tack-overview.png`} width={720} height={720} alt="Tack on the FM-1's screen, HOME: seven lanes of steps, with pitch, filter, decay and volume below." />
+        <img src={`${base}/images/tack-note.png`} width={720} height={720} alt="Tack on the FM-1's screen, NOTE: each step's note as a mark, with its velocity as a grey bar behind it." />
       </figure>
-      <p className="index"><span className="status-dot" /> PUBLIC BETA</p>
-      <h1>TACK</h1>
-      <h2>A digital drum synth, in two forms.</h2>
-      <p>Tack is a digital drum synth with seven voices: three drums, a snare, a cymbal, and closed and open hats, with an FX bus. Its oscillators alias and its distortion is gritty, and a small turn of a dial makes expressive changes. It currently comes as plugins for your DAW and as firmware for the M-VAVE FM-1 hardware synth. Both are free software.</p>
-      <p>Tack is Swedish for <b>Thank you</b>.</p>
-      <p>Its sound engine is the LXR-02 firmware by Sonic Potions and Erica Synths, which Tack extends. The reverb the LXR leaves switched off is on, in stereo with low and high cuts. An LFO can play once from a voice&apos;s hit, and the delay can follow the tempo. A kit or a single voice can mutate, one small random change at a time, and step back the way it came. On the FM-1 the sequencer adds up to eight parameter locks a step, lanes that run backwards, ping-pong, bounce or at random and at half or quarter speed, velocity shapes that write a rhythm&apos;s accents into a lane, and steps that play only on chosen passes of their lane.</p>
-      <p className="oikontrol-requirements">Tack is not affiliated with or endorsed by Erica Synths, Sonic Potions or M-VAVE.</p>
     </section>
     <section className="oikontrol-hardware" aria-label="The two forms of Tack">
       <article>
