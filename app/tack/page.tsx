@@ -29,7 +29,7 @@ export default function TackOverview() {
         <p className="oikontrol-requirements">Tack is not affiliated with or endorsed by Erica Synths, Sonic Potions or M-VAVE.</p>
       </div>
       <figure className="tack-hero" aria-label="Tack as a plugin and on the FM-1">
-        <img className="tack-hero-plugin" src={`${base}/images/tack-plugin-editor.png`} width={912} height={436} alt="The Tack plugin's editor: a tab per voice, with boxes of dials for the oscillator, FM, transient, filter, envelopes, mix and LFO." />
+        <img className="tack-hero-plugin" src={`${base}/images/tack-plugin-editor.png`} width={912} height={430} alt="The Tack plugin's editor: a tab per voice, with boxes of dials for the oscillator, FM, transient, filter, envelopes, mix and LFO." />
         <img src={`${base}/images/tack-overview.png`} width={720} height={720} alt="Tack on the FM-1's screen, HOME: seven lanes of steps, with pitch, filter, decay and volume below." />
         <img src={`${base}/images/tack-note.png`} width={720} height={720} alt="Tack on the FM-1's screen, NOTE: each step's note as a mark, with its velocity as a grey bar behind it." />
       </figure>
@@ -62,7 +62,7 @@ export default function TackOverview() {
         <h2>One kit format</h2>
       </div>
       <div>
-        <p>Both forms read <code>.SND</code> kit files, the format an LXR-02 writes to its SD card. The plugin&apos;s Save kit button writes that format too, so you can shape a kit at the computer and send it to the FM-1. No kits come with Tack, because kits belong to the people who made them.</p>
+        <p>Both forms read <code>.SND</code> kit files, the format an LXR-02 writes to its SD card. The plugin&apos;s Save button writes that format too, so you can shape a kit at the computer and send it to the FM-1. No kits come with Tack, because kits belong to the people who made them.</p>
       </div>
     </section>
     <footer><p>OIKO AUDIO</p><p>Oiko Audio is a brand of Octofox Ltd.</p><p><a href="https://github.com/oikoaudio">Open source on GitHub ↗</a></p></footer>

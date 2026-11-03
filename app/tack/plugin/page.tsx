@@ -49,8 +49,8 @@ function ManualContent() {
         <div><dt>Linux</dt><dd><code>~/.local/share/Tack/Kits/</code></dd></div>
         <div><dt>macOS and Windows</dt><dd><code>Documents/Tack/Kits</code></dd></div>
       </dl>
-      <p>Save kit writes a <code>.SND</code> file to the User pack. A single-voice plugin saves a kit with only its voice in it, and Tack&apos;s browser marks such files with the kind of voice. Picking one replaces only that voice of the open kit.</p>
-      <p>Mutate kit and Mutate voice make a small random change to the kit or the open tab&apos;s voice, and each click goes on from the last. Back retraces the same steps to where you started. Volume, pan, routing, modulation targets, filter type and the FX stay as they are. A single-voice plugin has one Mutate button.</p>
+      <p>Save writes a <code>.SND</code> file to the User pack. A single-voice plugin saves a kit with only its voice in it, and Tack&apos;s browser marks such files with the kind of voice. Picking one replaces only that voice of the open kit.</p>
+      <p>The die makes a small random change to the open tab&apos;s voice, and Shift-click changes every voice. Each click goes on from the last, and the arrow beside it retraces the same steps to where you started. Volume, pan, routing, modulation targets, filter type and the FX stay as they are. A single-voice plugin&apos;s die changes its voice.</p>
     </section>
     <section>
       <h2>Installing</h2>
@@ -87,7 +87,7 @@ export default function TackPluginPage() {
     links={[{ label: 'Download', href: `${tackRepo}/releases/latest`, primary: true }, { label: 'Source on GitHub', href: tackRepo }]}
     line="A digital drum synth for your DAW."
     description="Seven synthesised drum voices with 227 parameters to automate, seven stereo outputs, and an editor. CLAP, VST3 and Audio Unit."
-    screenshot={{ darkSrc: '/images/tack-plugin-editor.png', brightSrc: '/images/tack-plugin-editor.png', darkWidth: 912, darkHeight: 436, brightWidth: 912, brightHeight: 436, alt: 'The Tack editor: a tab per voice, with boxes of dials for the oscillator, FM, transient, filter, envelopes, mix and LFO.', wide: true }}
+    screenshot={{ darkSrc: '/images/tack-plugin-editor.png', brightSrc: '/images/tack-plugin-editor.png', darkWidth: 912, darkHeight: 430, brightWidth: 912, brightHeight: 430, alt: 'The Tack editor: a tab per voice, with boxes of dials for the oscillator, FM, transient, filter, envelopes, mix and LFO.', wide: true }}
     startHere={<StartContent />}
     manual={<ManualContent />}
     manualDescription="The plugins, kits, installing and building from source."

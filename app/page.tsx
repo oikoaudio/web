@@ -124,7 +124,7 @@ export default function Home() {
           </div>
           <figure className="product-shot tack-shot">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <div className="tack-hero"><img className="tack-hero-plugin" src={`${basePath}/images/tack-plugin-editor.png`} width={912} height={436} alt="The Tack plugin's editor: a tab per voice, with boxes of dials for the oscillator, FM, transient, filter, envelopes, mix and LFO." />
+            <div className="tack-hero"><img className="tack-hero-plugin" src={`${basePath}/images/tack-plugin-editor.png`} width={912} height={430} alt="The Tack plugin's editor: a tab per voice, with boxes of dials for the oscillator, FM, transient, filter, envelopes, mix and LFO." />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={`${basePath}/images/tack-overview.png`} width={720} height={720} alt="Tack on the FM-1's screen, HOME: seven lanes of steps, with pitch, filter, decay and volume below." />
               {/* eslint-disable-next-line @next/next/no-img-element */}
