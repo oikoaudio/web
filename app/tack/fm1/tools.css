@@ -1,0 +1,66 @@
+/* The install and backup pages, and the FM-1 screens in the manual. fm1-base's page logic drives the markup in
+   tool-pages.ts by id and class, so these names are that markup's. */
+.device-tool { max-width: 1152px; margin: 0 auto; padding: clamp(40px, 5vw, 68px) clamp(20px, 4vw, 48px) 72px; }
+.device-tool .tool-column { max-width: 680px; }
+.device-tool [hidden] { display: none !important; }
+.device-tool .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.device-tool h1 { margin: 22px 0 22px; font-size: clamp(48px, 7vw, 88px); line-height: 1; letter-spacing: -.045em; }
+.device-tool h2 { margin: 44px 0 12px; font-size: clamp(22px, 2.5vw, 30px); font-weight: 400; letter-spacing: -.02em; }
+.device-tool p, .device-tool li { color: var(--muted); font-size: 15px; line-height: 1.65; }
+.device-tool p { margin: 0 0 14px; }
+.device-tool a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.device-tool code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; overflow-wrap: anywhere; }
+.device-tool .small { font-size: 13px; }
+.device-tool .lede { font-size: 17px; }
+.device-tool ol, .device-tool ul { margin: 0 0 16px; padding-left: 20px; }
+.device-tool ul.ports, .device-tool #portlist { list-style: none; padding: 0; }
+.device-tool #portlist li, .device-tool ul.ports li { display: flex; gap: 10px; align-items: center; margin: 0 0 6px; }
+.device-tool :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+.device-tool #lang { display: none; }
+.device-tool button, .device-tool label.pick { display: inline-flex; justify-content: space-between; min-width: 154px; padding: 10px 12px; border: 1px solid var(--ink); border-radius: 3px; background: var(--ink); color: var(--page); font-size: 13px; cursor: pointer; transition: opacity 120ms ease, background 120ms ease; }
+.device-tool button:hover { opacity: .86; }
+.device-tool button:disabled { opacity: .4; cursor: default; }
+.device-tool button.plain, .device-tool button.quiet, .device-tool label.pick { background: transparent; color: var(--ink); border-color: var(--rule); }
+.device-tool button.plain:hover, .device-tool button.quiet:hover, .device-tool label.pick:hover { background: var(--track); opacity: 1; }
+.device-tool label.pick { position: relative; }
+.device-tool label.pick input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.device-tool label.pick:focus-within { outline: 2px solid var(--blue); outline-offset: 2px; }
+.device-tool .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.device-tool dialog .row { justify-content: flex-end; margin-top: 24px; }
+
+.device-tool progress { width: 100%; height: 6px; margin-top: 16px; accent-color: var(--blue); }
+.device-tool progress[hidden] { display: none; }
+.device-tool #status { margin-top: 16px; min-height: 1.6em; color: var(--ink); }
+.device-tool #alert { margin: 0; color: var(--orange-red); }
+.device-tool #alert:empty { display: none; }
+.device-tool pre { margin-top: 16px; color: var(--muted); font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre-wrap; }
+.device-tool #log { max-height: 15em; overflow-y: auto; overscroll-behavior: contain; padding: 10px 12px; border: 1px solid var(--rule); background: var(--field); }
+.device-tool #log:empty { display: none; }
+.device-tool textarea { width: 100%; padding: 10px; border: 1px solid var(--rule); border-radius: 3px; background: var(--field); color: var(--ink); font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.device-tool input[type='file'] { max-width: 100%; color: var(--ink); font: inherit; font-size: 13px; }
+.device-tool .opt { display: flex; gap: 10px; align-items: flex-start; }
+.device-tool .opt input { margin-top: 6px; accent-color: var(--blue); }
+
+.device-tool .backup, .device-tool .tool-note { margin: 0 0 18px; padding: 12px 14px; border: 1px solid var(--rule); border-left: 2px solid var(--orange); background: var(--panel); }
+.device-tool .backup strong, .device-tool .tool-note strong { color: var(--orange); font-weight: 400; }
+.device-tool .card { margin: 0 0 16px; padding: 16px 18px; border: 1px solid var(--rule); background: var(--panel); }
+.device-tool .card h2 { margin-top: 0; }
+.device-tool .status { min-height: 52px; margin: 0 0 16px; padding: 12px 14px; border: 1px solid var(--rule); border-left: 2px solid var(--blue); background: var(--panel); }
+.device-tool .status.err { border-left-color: var(--orange-red); }
+.device-tool .status.ask { border-left-color: var(--orange); }
+.device-tool .status p { margin: 0; color: var(--ink); }
+.device-tool .ask { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--rule); }
+.device-tool kbd { padding: 0 .3em; border: 1px solid var(--rule); border-radius: 3px; font: inherit; font-size: .9em; }
+.device-tool dialog { max-width: 460px; padding: 24px; border: 1px solid var(--rule); border-radius: 4px; background: var(--panel); color: var(--ink); }
+.device-tool dialog::backdrop { background: rgba(0, 0, 0, .5); }
+.device-tool dialog h2 { margin: 0 0 12px; }
+.device-tool .tool-credits { max-width: 680px; margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--rule); }
+.device-tool .tool-release { margin-top: 28px; color: var(--muted); font-size: 12px; }
+.device-tool .tool-links { margin-top: 28px; }
+
+.tack-screens { display: grid; grid-template-columns: repeat(auto-fill, 240px); gap: 14px; margin: 26px 0 34px; max-width: 760px; }
+.tack-screens figure { margin: 0; }
+.tack-screens a { display: block; }
+.tack-screens img { display: block; box-sizing: content-box; width: 240px; height: 240px; border: 1px solid var(--rule); image-rendering: pixelated; } /* the screen's own pixels: a whole multiple only */
+.tack-screens figcaption { position: static; margin-top: 8px; color: var(--muted); font: 10px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0; }

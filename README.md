@@ -28,6 +28,12 @@ Update the release notes and manuals before deploying a new plugin release, beca
 
 Theme-matched plug-in captures live in `public/images/` as `oiko-<plugin>-dark.png` and `oiko-<plugin>-bright.png`.
 
+## Tack on the FM-1
+
+`app/tack/` is the overview, `app/tack/plugin/` the plugins, and `app/tack/fm1/` the FM-1 firmware with its install and backup pages. The update and backup logic is fm1-base's. `firmware/fm1/tools/make_web.py VERSION WEB_DIR` in the Tack repository writes it here from a release package: `app/tack/fm1/tool-pages.ts` and `public/tack/fm1/`. Don't edit those by hand. Screens in `public/images/tack-*.png` come from the simulator, with `firmware/fm1/tests/site_shots.txt`.
+
+The installer needs HTTPS or localhost, and Chrome or Edge, for Web MIDI with SysEx.
+
 ## Domain
 
 Configure `oikoaudio.com` as the custom domain in the repository's GitHub Pages settings. DNS is managed separately at Namecheap.

@@ -7,7 +7,8 @@ type ProductSection = { id: string; index: string; title: string; description?: 
 const stageLabels = { beta: 'Public beta', alpha: 'Public alpha', preview: 'Developer preview' };
 
 type ProductPageProps = {
-  product: 'Wow' | 'Weft' | 'Inton' | 'Plugg';
+  product: 'Wow' | 'Weft' | 'Inton' | 'Plugg' | 'Tack';
+  title?: string;
   stage?: keyof typeof stageLabels;
   download?: boolean;
   startButton?: boolean;
@@ -16,7 +17,7 @@ type ProductPageProps = {
   description: string;
   startHere: ReactNode;
   demo?: { src: string; poster: string; width: number; height: number; caption: string };
-  screenshot?: { darkSrc: string; brightSrc: string; darkWidth: number; darkHeight: number; brightWidth: number; brightHeight: number; frameCrop?: { dark: number; bright: number }; alt?: string; wide?: boolean };
+  screenshot?: { pixel?: boolean; darkSrc: string; brightSrc: string; darkWidth: number; darkHeight: number; brightWidth: number; brightHeight: number; frameCrop?: { dark: number; bright: number }; alt?: string; wide?: boolean };
   manual: ReactNode;
   manualTitle?: string;
   manualDescription?: string;
@@ -24,7 +25,7 @@ type ProductPageProps = {
   releases?: ReactNode;
 };
 
-export function ProductPage({ product, stage = 'beta', download = true, startButton = true, links = [], line, description, startHere, demo, screenshot, manual, manualTitle = 'Manual', manualDescription = 'Controls, settings and practical details.', sections = [], releases }: ProductPageProps) {
+export function ProductPage({ product, title, stage = 'beta', download = true, startButton = true, links = [], line, description, startHere, demo, screenshot, manual, manualTitle = 'Manual', manualDescription = 'Controls, settings and practical details.', sections = [], releases }: ProductPageProps) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   const slug = product.toLowerCase();
   const pageSections: ProductSection[] = [
@@ -39,7 +40,7 @@ export function ProductPage({ product, stage = 'beta', download = true, startBut
       <article className="product-detail" id="overview">
         <header className="product-intro">
           <p className="eyebrow"><span className="status-dot" /> {stageLabels[stage]}</p>
-          <h1>{product.toUpperCase()}</h1>
+          <h1>{title ?? product.toUpperCase()}</h1>
           <p className="product-detail-line">{line}</p>
           <p className="product-detail-description">{description}</p>
           {(demo || startButton || download || links.length > 0) && <div className="actions">
@@ -60,7 +61,7 @@ export function ProductPage({ product, stage = 'beta', download = true, startBut
           <figcaption id="demo-caption">{demo.caption}</figcaption>
         </figure>}
 
-        {!demo && screenshot && <figure className={`product-demo product-screenshot${screenshot.wide ? ' wide' : ''}`}>
+        {!demo && screenshot && <figure className={`product-demo product-screenshot${screenshot.wide ? ' wide' : ''}${screenshot.pixel ? ' pixel' : ''}`}>
           <ThemeScreenshot darkSrc={`${basePath}${screenshot.darkSrc}`} brightSrc={`${basePath}${screenshot.brightSrc}`} alt={screenshot.alt ?? `Oiko ${product} plug-in interface`} darkWidth={screenshot.darkWidth} darkHeight={screenshot.darkHeight} brightWidth={screenshot.brightWidth} brightHeight={screenshot.brightHeight} frameCrop={screenshot.frameCrop} />
         </figure>}
 

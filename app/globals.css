@@ -292,5 +292,9 @@ footer p:nth-child(3) { text-align: right; }
 .download-installation p { max-width: 720px; }
 .document-content a:not(.button) { text-decoration: underline; text-underline-offset: 3px; }
 .product-screenshot.wide { max-width: 1152px; }
+/* a screen's own pixels: only whole multiples of 240, so none is blended or dropped */
+.product-screenshot.pixel .theme-screenshot { box-sizing: content-box; width: 480px; }
+.product-screenshot.pixel img { image-rendering: pixelated; }
+@media (max-width: 560px) { .product-screenshot.pixel .theme-screenshot { width: 240px; } }
 .screenshot-figure a { display: block; cursor: zoom-in; }
 .document-content pre { max-width: 760px; margin: 18px 0; padding: 14px 16px; overflow-x: auto; border: 1px solid var(--rule); background: var(--panel); font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; }
