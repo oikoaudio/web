@@ -53,8 +53,11 @@ function ManualContent() {
       <p>Mutate kit and Mutate voice make a small random change to the kit or the open tab&apos;s voice, and each click goes on from the last. Back retraces the same steps to where you started. Volume, pan, routing, modulation targets, filter type and the FX stay as they are. A single-voice plugin has one Mutate button.</p>
     </section>
     <section>
+      <h2>Installing</h2>
+      <p>Download the zip for your platform from <a href={`${tackRepo}/releases/latest`}>the latest release</a>: Linux x86-64, Windows x86-64 or macOS, for Apple silicon and Intel alike. Each holds <code>Tack.clap</code> and <code>Tack.vst3</code>, and on macOS also <code>Tack.component</code>. Copy them to your plugin folders: <code>~/.clap</code> and <code>~/.vst3</code> on Linux, <code>C:\Program Files\Common Files\CLAP</code> and <code>VST3</code> on Windows, and <code>~/Library/Audio/Plug-Ins/CLAP</code>, <code>VST3</code> and <code>Components</code> on macOS.</p>
+      <p>The macOS build is not signed, so macOS blocks it as downloaded. After copying, clear the download flag in Terminal: <code>xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins</code>.</p>
       <h2>Building</h2>
-      <p>There are no prebuilt binaries yet, so build Tack from source. You need CMake 3.21 or newer, Ninja, a C and C++ compiler and the OpenGL and X11 development files.</p>
+      <p>To build Tack from source instead, you need CMake 3.21 or newer, Ninja, a C and C++ compiler and the OpenGL and X11 development files.</p>
       <pre>{`cmake -S host -B build/host -G Ninja
 cmake --build build/host
 cmake --build build/host --target install_tack`}</pre>
@@ -81,13 +84,13 @@ export default function TackPluginPage() {
     stage="preview"
     download={false}
     startButton={false}
-    links={[{ label: 'Source on GitHub', href: tackRepo, primary: true }]}
+    links={[{ label: 'Download', href: `${tackRepo}/releases/latest`, primary: true }, { label: 'Source on GitHub', href: tackRepo }]}
     line="A wild digital drum synth for your DAW."
     description="Seven synthesised drum voices with 227 parameters to automate, seven stereo outputs, and an editor. CLAP, VST3 and Audio Unit."
     screenshot={{ darkSrc: '/images/tack-plugin-editor.png', brightSrc: '/images/tack-plugin-editor.png', darkWidth: 912, darkHeight: 436, brightWidth: 912, brightHeight: 436, alt: 'The Tack editor: a tab per voice, with boxes of dials for the oscillator, FM, transient, filter, envelopes, mix and LFO.', wide: true }}
     startHere={<StartContent />}
     manual={<ManualContent />}
-    manualDescription="The plugins, kits and building from source."
+    manualDescription="The plugins, kits, installing and building from source."
     sections={[
       { id: 'status', index: 'STATUS', title: 'Status', description: 'What is tested.', content: <StatusContent /> },
       { id: 'credits', index: 'CREDITS', title: 'Credits', content: <TackCreditsContent /> },
