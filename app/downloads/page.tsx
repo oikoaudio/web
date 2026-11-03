@@ -5,10 +5,12 @@ import { SiteHeader } from '../site-header';
 import weftRelease from '../../public/downloads/weft/latest/release.json';
 import wowRelease from '../../public/downloads/wow/latest/release.json';
 import intonRelease from '../../public/downloads/inton/latest/release.json';
+import { release as tackFirmware } from '../tack/fm1/tool-pages';
 
-export const metadata: Metadata = { title: 'Downloads | Oiko Audio', description: 'Download Weft, Wow and Inton for macOS, Windows and Linux, Oikontrol controller extensions for Bitwig Studio, and Plugg for Linux.' };
+export const metadata: Metadata = { title: 'Downloads | Oiko Audio', description: 'Download Weft, Wow and Inton for macOS, Windows and Linux, Oikontrol controller extensions for Bitwig Studio, Plugg for Linux, and Tack as plugins and FM-1 firmware.' };
 const download = 'https://github.com/oikoaudio/bitwig-oikontrol/releases/download/oikontrol-v2.23.0/Oikontrol.bwextension';
 const pluggRelease = 'https://github.com/oikoaudio/plugg/releases/latest';
+const tackRelease = 'https://github.com/oikoaudio/tack/releases/latest';
 
 const downloadRows = [
   { platform: 'macOS', detail: 'Universal', formats: 'CLAP · VST3', file: 'macos-universal.zip' },
@@ -37,8 +39,8 @@ export default function DownloadsPage() {
     <header className="downloads-intro">
       <p className="eyebrow"><span className="status-dot" /> Free, open-source audio software</p>
       <h1>Downloads</h1>
-      <p>Choose your product and platform. Weft, Wow and Inton come in CLAP and VST3 formats, with universal macOS builds for Apple Silicon and Intel. Plugg runs Windows plug-ins in a Linux DAW. All five are open source. Weft, Wow and Inton use MIT or Apache 2.0, Oikontrol uses MIT, and Plugg uses GPL-3.0-or-later. <a href="https://github.com/oikoaudio/oikoaudio">Plugin source code <Arrow /></a></p>
-      <div className="actions"><a className="button" href="#weft">Weft ↓</a><a className="button" href="#wow">Wow ↓</a><a className="button" href="#inton">Inton ↓</a><a className="button" href="#oikontrol">Oikontrol ↓</a><a className="button" href="#plugg">Plugg ↓</a></div>
+      <p>Choose your product and platform. Weft, Wow and Inton come in CLAP and VST3 formats, with universal macOS builds for Apple Silicon and Intel. Plugg runs Windows plug-ins in a Linux DAW. Tack is a drum synth, as CLAP, VST3 and AU plugins and as firmware for the M-VAVE FM-1. All six are open source. Weft, Wow and Inton use MIT or Apache 2.0, Oikontrol uses MIT, Plugg uses GPL-3.0-or-later, and Tack uses GPL-3.0. <a href="https://github.com/oikoaudio/oikoaudio">Plugin source code <Arrow /></a></p>
+      <div className="actions"><a className="button" href="#weft">Weft ↓</a><a className="button" href="#wow">Wow ↓</a><a className="button" href="#inton">Inton ↓</a><a className="button" href="#oikontrol">Oikontrol ↓</a><a className="button" href="#plugg">Plugg ↓</a><a className="button" href="#tack">Tack ↓</a></div>
     </header>
     <section className="downloads-catalog" aria-label="Product downloads">
         <div className="download-panel" id="weft">
@@ -122,6 +124,27 @@ export default function DownloadsPage() {
           </div>
           <p className="download-note">Plugg is a developer preview, and not every plug-in will work. Klevgrand and Variety of Sound work. Arturia is experimental, and so are Native Instruments, Plugin Alliance and Universal Audio through iLok. <a href="https://github.com/oikoaudio/plugg/tree/main/docs/compatibility">Compatibility notes <Arrow /></a></p>
           <p className="download-note">Download the package for your system from the latest release on GitHub, then install it with the command shown. Plugg will also be in the AUR once the AUR takes new accounts again. Start Plugg from your applications menu, or run <code>plugg gui</code>. SHA-256 checksums are in <code>SHA256SUMS</code> on the release page. <a href={`${basePath}/plugg/#install`}>Installation instructions</a> · <a href="https://github.com/oikoaudio/plugg">Source code <Arrow /></a></p>
+        </div>
+        <div className="download-panel" id="tack">
+          <div className="download-panel-head">
+            <div><span className="download-product">TACK</span><span className="version">Public beta</span></div>
+            <a href={tackRelease}>Release notes <Arrow /></a>
+          </div>
+          <div className="download-table">
+            <a href={tackRelease} className="download-row">
+              <strong>Linux</strong><span>x86-64</span><span>CLAP · VST3</span><code>~/.clap · ~/.vst3</code><span className="download-arrow">↗</span>
+            </a>
+            <a href={tackRelease} className="download-row">
+              <strong>macOS</strong><span>Apple silicon and Intel</span><span>CLAP · VST3 · AU</span><code>~/Library/Audio/Plug-Ins</code><span className="download-arrow">↗</span>
+            </a>
+            <a href={tackRelease} className="download-row">
+              <strong>Windows</strong><span>x86-64</span><span>CLAP · VST3</span><code>C:\Program Files\Common Files</code><span className="download-arrow">↗</span>
+            </a>
+            <a href={`${basePath}/tack/fm1/install/`} className="download-row">
+              <strong>M-VAVE FM-1</strong><span>Installs from Chrome or Edge</span><span>Firmware</span><code>{tackFirmware.file}</code><span className="download-arrow">↗</span>
+            </a>
+          </div>
+          <p className="download-note">Each zip holds the plugins and their licences. Copy the plugins to the folder shown. The builds are not signed, so on macOS run <code>xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins</code> after copying. SHA-256 checksums are in <code>SHA256SUMS</code> on the release page. <a href={`${basePath}/tack/plugin/#manual`}>Installation instructions</a> · <a href="https://github.com/oikoaudio/tack">Source code <Arrow /></a></p>
         </div>
     </section>
     <footer><p>OIKO AUDIO</p><p>Oiko Audio is a brand of Octofox Ltd.</p><p><a href="https://github.com/oikoaudio">Open source on GitHub ↗</a></p></footer>

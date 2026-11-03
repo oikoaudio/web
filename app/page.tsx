@@ -102,6 +102,36 @@ export default function Home() {
             <figcaption>INTON</figcaption>
           </figure>
         </article>
+        <article className="plugin plugin-tack">
+          <div className="plugin-copy">
+            <div className="plugin-meta"><span className="product-index">004</span><span className="availability live">Public beta</span></div>
+            <h3>TACK</h3>
+            <p className="plugin-line">A digital drum synth, in two forms.</p>
+            <div className="plugin-description">
+              <p>Tack is a digital drum synth with seven voices, built on the LXR-02&apos;s sound engine. Its oscillators alias and its distortion is gritty.</p>
+              <p>It comes as plugins for your DAW and as firmware for the M-VAVE FM-1, which gets a step sequencer with parameter locks, velocity shapes and recurrence. The firmware also runs in a browser.</p>
+            </div>
+            <dl className="spec-list">
+              <div><dt>Platforms</dt><dd>Linux · macOS · Windows · <span style={{ whiteSpace: 'nowrap' }}>M-VAVE FM-1</span></dd></div>
+              <div><dt>Formats</dt><dd>CLAP · VST3 · AU</dd></div>
+              <div><dt>Source</dt><dd><a href="https://github.com/oikoaudio/tack">Open source · GPL-3.0 <Arrow /></a></dd></div>
+            </dl>
+            <div className="actions">
+              <a className="button primary" href={`${basePath}/downloads/#tack`}>Download beta <Arrow /></a>
+              <a className="button" href={`${basePath}/tack/`}>Explore Tack <Arrow /></a>
+              <a className="button" href={`${basePath}/tack/fm1/try/`}>Try it in a browser <Arrow /></a>
+            </div>
+          </div>
+          <figure className="product-shot tack-shot">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <div className="tack-hero"><img className="tack-hero-plugin" src={`${basePath}/images/tack-plugin-editor.png`} width={912} height={436} alt="The Tack plugin's editor: a tab per voice, with boxes of dials for the oscillator, FM, transient, filter, envelopes, mix and LFO." />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`${basePath}/images/tack-overview.png`} width={720} height={720} alt="Tack on the FM-1's screen, HOME: seven lanes of steps, with pitch, filter, decay and volume below." />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`${basePath}/images/tack-note.png`} width={720} height={720} alt="Tack on the FM-1's screen, NOTE: each step's note as a mark, with its velocity as a grey bar behind it." /></div>
+            <figcaption>TACK / plugin and FM-1</figcaption>
+          </figure>
+        </article>
       </section>
 
       <section aria-label="Controller extensions">
