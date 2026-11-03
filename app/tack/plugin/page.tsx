@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ProductPage } from '../../product-page';
 import { tackRepo, TackCreditsContent } from '../../tack-content';
 
-const description = 'Tack plugins: a wild, aliasing digital drum synth with seven voices for your DAW, as CLAP, VST3 and Audio Unit. Free software, GPL-3.0.';
+const description = 'Tack plugins: a seven-voice digital drum synth with aliasing oscillators for your DAW, as CLAP, VST3 and Audio Unit. Free software, GPL-3.0.';
 
 export const metadata: Metadata = {
   title: 'Tack plugins | Oiko Audio',
@@ -68,7 +68,7 @@ cmake --build build/host --target install_tack`}</pre>
 
 function StatusContent() {
   return <>
-    <p>This is a developer preview, and saved projects may not load in later versions.</p>
+    <p>Tack 0.9 is a beta, and projects saved with it may not load in later versions.</p>
     <dl className="manual-list">
       <div><dt>Linux x86-64</dt><dd>CLAP and VST3 tested in Bitwig 6.1.6.</dd></div>
       <div><dt>Apple silicon Mac</dt><dd>CLAP and VST3 tested in Bitwig 6.1.6, and the Audio Unit in Logic Pro.</dd></div>
@@ -81,11 +81,11 @@ export default function TackPluginPage() {
   return <ProductPage
     product="Tack"
     title="TACK PLUGIN"
-    stage="preview"
+    stage="beta"
     download={false}
     startButton={false}
     links={[{ label: 'Download', href: `${tackRepo}/releases/latest`, primary: true }, { label: 'Source on GitHub', href: tackRepo }]}
-    line="A wild digital drum synth for your DAW."
+    line="A digital drum synth for your DAW."
     description="Seven synthesised drum voices with 227 parameters to automate, seven stereo outputs, and an editor. CLAP, VST3 and Audio Unit."
     screenshot={{ darkSrc: '/images/tack-plugin-editor.png', brightSrc: '/images/tack-plugin-editor.png', darkWidth: 912, darkHeight: 436, brightWidth: 912, brightHeight: 436, alt: 'The Tack editor: a tab per voice, with boxes of dials for the oscillator, FM, transient, filter, envelopes, mix and LFO.', wide: true }}
     startHere={<StartContent />}

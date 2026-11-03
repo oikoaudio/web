@@ -17,7 +17,7 @@ export default function TackPage() {
   return <ProductPage
     product="Tack"
     title="TACK FM-1"
-    stage="preview"
+    stage="beta"
     download={false}
     startButton={false}
     links={[{ label: 'Install', href: `${basePath}/tack/fm1/install/`, primary: true }, { label: 'Try it', href: `${basePath}/tack/fm1/try/` }, { label: 'Back up', href: `${basePath}/tack/fm1/backup/` }, { label: 'Kit bank', href: `${basePath}/tack/fm1/kits/` }, { label: 'Read the manual', href: `${basePath}/manuals/tack-fm1/` }, { label: 'Source on GitHub', href: tackRepo }]}

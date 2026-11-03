@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
+/* eslint-disable @next/next/no-img-element */
 import { SiteHeader } from '../site-header';
 
-const description = 'Tack is a wild, aliasing digital drum synth with seven voices, as plugins for your DAW and as firmware for the M-VAVE FM-1.';
+const description = 'Tack is a seven-voice digital drum synth with aliasing oscillators, as plugins for your DAW and as firmware for the M-VAVE FM-1.';
 
 export const metadata: Metadata = {
   title: 'Tack | Oiko Audio',
@@ -15,10 +16,14 @@ export default function TackOverview() {
   const base = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   return <main>
     <SiteHeader currentProduct="Tack" />
-    <section className="oikontrol-intro">
-      <p className="index"><span className="status-dot" /> DEVELOPER PREVIEW</p>
+    <section className="oikontrol-intro tack-intro">
+      <figure className="tack-hero" aria-label="Tack as a plugin and on the FM-1">
+        <img className="tack-hero-plugin" src={`${base}/images/tack-plugin-editor.png`} width={912} height={436} alt="The Tack plugin's editor: a tab per voice, with boxes of dials for the oscillator, FM, transient, filter, envelopes, mix and LFO." />
+        <img className="tack-hero-fm1" src={`${base}/images/tack-overview-240.png`} width={240} height={240} alt="Tack on the FM-1's screen: seven lanes of steps, with pitch, filter, decay and volume below." />
+      </figure>
+      <p className="index"><span className="status-dot" /> PUBLIC BETA</p>
       <h1>TACK</h1>
-      <h2>A wild digital drum synth, in two forms.</h2>
+      <h2>A digital drum synth, in two forms.</h2>
       <p>Tack is a digital drum synth with seven voices: three drums, a snare, a cymbal, and closed and open hats, with an FX bus. Its oscillators alias and its distortion is gritty, and a small turn of a dial makes expressive changes. It currently comes as plugins for your DAW and as firmware for the M-VAVE FM-1 hardware synth. Both are free software.</p>
       <p>Tack is Swedish for <b>Thank you</b>.</p>
       <p>Its sound engine is the LXR-02 firmware by Sonic Potions and Erica Synths, which Tack extends. The reverb the LXR leaves switched off is on, in stereo with low and high cuts. An LFO can play once from a voice&apos;s hit, and the delay can follow the tempo. A kit or a single voice can mutate, one small random change at a time, and step back the way it came. On the FM-1 the sequencer adds up to eight parameter locks a step, lanes that run backwards, ping-pong, bounce or at random and at half or quarter speed, velocity shapes that write a rhythm&apos;s accents into a lane, and steps that play only on chosen passes of their lane.</p>
@@ -41,7 +46,7 @@ export default function TackOverview() {
         <p>The same voices in your DAW, for automation and modulation: 227 parameters, seven stereo outputs, and separate plugins for a single drum, snare, cymbal or hi-hat. The DAW does the sequencing.</p>
         <dl>
           <div><dt>Sequencer</dt><dd>None, by design</dd></div>
-          <div><dt>Runs on</dt><dd>Linux and Apple silicon Macs. Windows builds, and is not yet tried in a DAW</dd></div>
+          <div><dt>Runs on</dt><dd>Linux, macOS and Windows</dd></div>
         </dl>
         <div className="actions"><a className="button primary" href={`${base}/tack/plugin/`}>Explore the plugins ↗</a></div>
       </article>

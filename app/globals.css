@@ -30,6 +30,14 @@ html { scroll-behavior: smooth; background: var(--page); }
 .oikontrol-intro h2 { font-size: clamp(24px, 3vw, 40px); font-weight: 400; color: var(--blue); }
 .oikontrol-intro > p:not(.index) { max-width: 700px; font-size: 18px; }
 .oikontrol-intro .oikontrol-requirements { font-size: 14px; color: var(--muted); margin-top: 30px; }
+.tack-intro { position: relative; }
+.tack-intro > h2 { max-width: 700px; }
+.tack-hero { position: absolute; top: clamp(60px, 9vw, 120px); right: clamp(20px, 6vw, 96px); width: min(560px, calc(100% - 700px - 2 * clamp(20px, 6vw, 96px) - 96px)); margin: 0; padding-bottom: 120px; }
+.tack-hero img { display: block; }
+.tack-hero-plugin { width: 100%; height: auto; border: 1px solid var(--rule); }
+.tack-hero-fm1 { position: absolute; left: -40px; bottom: 0; width: 240px; height: 240px; image-rendering: pixelated; border: 8px solid #000; box-shadow: 0 12px 40px rgba(0, 0, 0, .35); }
+@media (max-width: 1180px) { .tack-hero { position: relative; top: auto; right: auto; width: auto; max-width: 560px; margin: 0 0 32px 48px; } }
+@media (max-width: 560px) { .tack-hero { margin-left: 24px; padding-bottom: 100px; } .tack-hero-fm1 { width: 160px; height: 160px; left: -24px; image-rendering: auto; } }
 .oikontrol-hardware, .oikontrol-install { max-width: 1500px; margin: auto; padding: 0 clamp(20px, 6vw, 96px) 80px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; font-size: 16px; }
 .oikontrol-hardware article { border-top: 2px solid var(--blue); padding-top: 24px; }
 .oikontrol-hardware article + article { border-color: var(--orange); }
