@@ -47,7 +47,7 @@ export function TackManualContent() {
         <div><dt>Black key 8</dt><dd>ROLL while held. The rate is on GLO.</dd></div>
         <div><dt>Black key 11</dt><dd>COPY. Hold it and press a white key to copy this pattern onto that one.</dd></div>
         <div><dt>K1 to K4</dt><dd>Whatever the screen shows above them.</dd></div>
-        <div><dt>SELECT, ALGORITHM, PRESET</dt><dd>Tempo, morph and kit. With <b>SEL</b> held, <b>SELECT</b> is the shuffle, which is also on GLO. In the bars view and NOTE, SELECT walks the steps, and with <b>SEL</b> held it jumps a bar, and ALGORITHM nudges the selected one.</dd></div>
+        <div><dt>SELECT, ALGORITHM, PRESET</dt><dd>Tempo, morph and kit. The tempo shows large in the header as it turns. With <b>SEL</b> held, <b>SELECT</b> is the shuffle, which is also on GLO. In the bars view and NOTE, SELECT walks the steps, and with <b>SEL</b> held it jumps a bar, and ALGORITHM nudges the selected one.</dd></div>
         <div><dt>OCT- and OCT+</dt><dd>Bars 1 to 4. In NOTE they move the keys up to three octaves. On a sound page, hold one to bring its row onto the dials.</dd></div>
         <div><dt>HOME</dt><dd>The overview, from anywhere.</dd></div>
         <div><dt>SEQ</dt><dd>The last detail view, the bars view or NOTE. Tapped in one, the other. Hold it with a white key for a pattern.</dd></div>
@@ -62,18 +62,19 @@ export function TackManualContent() {
     <section id="overview-page">
       <h2>The overview</h2>
       <p><b>HOME</b> shows all seven lanes with their lengths, playheads and mutes, and each step&apos;s height is its velocity. Below them are the selected voice&apos;s four main dials and its envelope. Above the grid are the transport, REC, <code>SW</code> and the shuffle amount when it isn&apos;t 0, and four marks just above the grid: white for the bar it shows, grey for the other bars in use, and dim for the room to add more. <code>FX</code> shows there if the voice goes to the FX.</p>
-      <p>Bottom right are the 16 patterns in the white keys&apos; order: the one playing is lit, those with steps are grey, and the one queued has an outline. Above them is what&apos;s playing: <code>PATTERN 1</code>, or the row of the chain or song, such as <code>CHAIN 1/3</code>. To its right, <code>NEXT 2</code> shows a queued pattern.</p>
+      <p>Bottom left are the 16 patterns in the white keys&apos; order: the one playing is lit, those with steps are grey, and the one queued has an outline. Above them is what&apos;s playing: <code>PATTERN 1</code>, or the row of the chain or song, such as <code>CHAIN 1/3</code>. To its right, <code>NEXT 2</code> shows a queued pattern. The envelope is to their right, under the dials that shape it.</p>
       <Screens shots={[{ name: 'overview', alt: 'The overview: seven rows of steps with velocity as height, the four main dials, the decay, and a map of the 16 patterns.', caption: 'HOME: all seven lanes.' }]} />
     </section>
 
     <section id="steps">
       <h2>Steps and locks</h2>
-      <p>Press a white key to set or clear a step. Hold a step to work on it:</p>
+      <p>Press a white key to set or clear a step. Hold a step to work on it. Once a dial turns, or after half a second held, the dials show the step&apos;s values, its locked ones lit, and on <b>HOME</b> the bottom shows the step: its passes, and its locks by name and value where the envelope was, those the four dials don&apos;t show first.</p>
       <dl className="manual-list">
         <div><dt>K1 to K4</dt><dd>Lock those values on the step, on the overview and the sound pages. A step holds eight locks. <b>EDIT</b> clears them.</dd></div>
         <div><dt>ALGORITHM</dt><dd>Nudge, on a ruler, in 24ths of a step. It moves one 24th at a time up to 9, for small changes of feel, then 12, 15, 18 and 21 either way. At 120 BPM a 24th is about 5 ms.</dd></div>
         <div><dt>PRESET</dt><dd>Chance.</dd></div>
-        <div><dt>SELECT</dt><dd>Recurrence: a cycle of 1 to 8 passes. Then the first eight black keys pick the passes the step plays on.</dd></div>
+        <div><dt>Black keys 1 to 8</dt><dd><code>PLAY ON PASS</code>: the passes of the pattern the step plays on, eight of them, as a lane&apos;s steps. A new step plays on all eight. A key takes its pass out, and puts it back.</dd></div>
+        <div><dt>SELECT</dt><dd>Shortens the cycle of passes, to as few as 2, as a lane&apos;s end does. Passes it gains play.</dd></div>
       </dl>
     </section>
 
