@@ -786,7 +786,7 @@ const log = (t) => {
   if (atEnd) el.scrollTop = el.scrollHeight;
 };
 let image = null, boot = null, res = null;
-const meta = {"version": "0.9.0", "product": "FM-1_47000900", "pkg": "../firmware/tack-0.9.0.fwsc", "backup": true, "res": null, "boot": null};
+const meta = {"version": "0.12.0", "product": "FM-1_47001200", "pkg": "../firmware/tack-0.12.0.fwsc", "backup": true, "res": null, "boot": null};
 /* the firmware's own steps around an install (its site's install_app script, or none): before(midi, ui) runs before
    anything is written, may ask (ui.ask) and returns its state, or false to stop there; after(midi, ui, state) once
    the new firmware has started (it waits for it itself). A failure in after is said, the install stays done */
