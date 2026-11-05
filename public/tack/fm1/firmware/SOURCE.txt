@@ -1,2 +1,2 @@
-The complete source of tack-0.12.0.fwsc, including fm1-base and felucca-bsp, is the release's source archive:
-https://github.com/oikoaudio/tack/releases/tag/v0.12.0
+The complete source of tack-0.13.0.fwsc, including fm1-base and felucca-bsp, is the release's source archive:
+https://github.com/oikoaudio/tack/releases/tag/v0.13.0
