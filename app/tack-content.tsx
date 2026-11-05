@@ -49,14 +49,16 @@ export function TackManualContent() {
       <dl className="manual-list">
         <div><dt>White keys</dt><dd>The 16 steps of the bar showing, on release.</dd></div>
         <div><dt>Black keys 1 to 7</dt><dd>Pick a voice and play it. With REC running they record it. With SEQ held they pick it silently, and with ARP held they mute it.</dd></div>
-        <div><dt>Black key 8</dt><dd>ROLL while held. The rate is on GLO.</dd></div>
+        <div><dt>Black key 8</dt><dd>ROLL while held. The rate is on GLO&apos;s settings.</dd></div>
+        <div><dt>Black key 9</dt><dd>MONO. Opens Frankensound.</dd></div>
+        <div><dt>Black key 10</dt><dd>POLY. Hold it to set the morph target.</dd></div>
         <div><dt>Black key 11</dt><dd>COPY. Hold it and press a white key to copy this pattern onto that one.</dd></div>
         <div><dt>K1 to K4</dt><dd>Whatever the screen shows above them.</dd></div>
         <div><dt>SELECT, ALGORITHM, PRESET</dt><dd>Tempo, morph and kit. The tempo shows large in the header as it turns. With <b>SEL</b> held, <b>SELECT</b> is the shuffle, which is also on GLO. In the bars view and NOTE, SELECT walks the steps, and with <b>SEL</b> held it jumps a bar, and ALGORITHM nudges the selected one.</dd></div>
         <div><dt>OCT- and OCT+</dt><dd>Bars 1 to 4. In NOTE they move the keys up to three octaves. On a sound page, hold one to bring its row onto the dials.</dd></div>
-        <div><dt>HOME</dt><dd>The overview, from anywhere.</dd></div>
+        <div><dt>HOME</dt><dd>The overview, from anywhere. <b>SEL</b> and <b>HOME</b> held together for a second reload the kit as the pattern was last saved.</dd></div>
         <div><dt>SEQ</dt><dd>The last detail view, the bars view or NOTE. Tapped in one, the other. Hold it with a white key for a pattern.</dd></div>
-        <div><dt>EDIT, ENV, LFO, FX, GLO, ARP</dt><dd>Open a page. A second press moves to the page&apos;s next screen if it has one, and otherwise does nothing. ARP opens the selected lane.</dd></div>
+        <div><dt>EDIT, ENV, LFO, FX, GLO, ARP</dt><dd>Open a page. A second press moves to the page&apos;s next screen if it has one, and otherwise does nothing. <b>GLO</b> goes back and forth between the mixer and the settings. ARP opens the selected lane.</dd></div>
         <div><dt>PLAY, REC</dt><dd>Start and stop, and live recording.</dd></div>
         <div><dt>SAVE</dt><dd>Opens the save page. A second press writes what it says. <b>SEL</b> and <b>SAVE</b> together write your changes at once.</dd></div>
       </dl>
@@ -134,13 +136,14 @@ export function TackManualContent() {
 
     <section id="morph">
       <h2>Morph</h2>
-      <p>Morph blends the kit towards a second kit from the bank, with one dial. The kit itself doesn&apos;t change: the dials still show it and SAVE still writes it.</p>
+      <p>Morph blends the kit towards a target, a second kit that each pattern keeps for itself, with one dial. The kit itself doesn&apos;t change: the dials still show it and SAVE still writes it.</p>
       <dl className="manual-list">
-        <div><dt>POLY held, PRESET</dt><dd>The tenth black key, printed POLY. Picks the kit to morph to, from NONE through the bank. The top bar says <code>MORPH TO</code> and its name.</dd></div>
+        <div><dt>POLY held, K1 to K4</dt><dd>The tenth black key, printed POLY. The dials show and set the target&apos;s values, on HOME and the sound pages, as a held step sets its locks. The first value you set starts the target from the kit as it is, named after it with a <code>+</code>.</dd></div>
+        <div><dt>POLY held, PRESET</dt><dd>Copies a kit from the bank in as the target, from NONE through the bank. NONE drops the target. The top bar says <code>MORPH TO</code> and its name.</dd></div>
         <div><dt>ALGORITHM</dt><dd>How far it goes. With steps on screen, in the bars view and NOTE, this dial stays the nudge.</dd></div>
         <div><dt>CC 1 on channel 1</dt><dd>The same, for a mod wheel or a DAW&apos;s automation.</dd></div>
       </dl>
-      <p>Every sound parameter blends, so a wave or filter type steps through the ones between the two kits. An FX&apos;s type changes half way across. LFO and velocity targets and FX sends stay the kit&apos;s. Each pattern saves its second kit and how far it goes, so a song can move between them. While a second kit is set, HOME shows the two names with a crossfader between them.</p>
+      <p>Every sound parameter blends, so a wave or filter type steps through the ones between the two kits. An FX&apos;s type changes half way across. LFO and velocity targets and FX sends stay the kit&apos;s. Each pattern saves its target and how far it goes, so a song can move between them. The target is a copy, so changing the bank slot it came from doesn&apos;t change it. While a second kit is set, HOME shows the two names with a crossfader between them.</p>
       <p>To keep a sound from between two kits, press <b>SAVE</b> and turn K4 to <code>BLEND</code>. LFO and velocity targets come from the first kit.</p>
       <Screens shots={[{ name: 'morph', alt: 'The overview with two kit names and a crossfader between them above the voice name.', caption: 'HOME with a second kit set.' }]} />
     </section>
@@ -170,17 +173,20 @@ export function TackManualContent() {
       <dl className="manual-list">
         <div><dt>SEQ held, one white key</dt><dd>Pattern 1 to 16. While running it changes when the longest lane reaches its end, counted at 1X. Let go of SEQ before picking the next pattern, because a second key while SEQ stays held makes a chain.</dd></div>
         <div><dt>SEQ held, several white keys</dt><dd>A chain, which loops until you pick one pattern. A chain isn&apos;t saved.</dd></div>
-        <div><dt>SEQ held, ARP</dt><dd>The song, up to 63 rows of one pattern each. White keys fill the rows. K1 is the row, K2 its pattern or the end, K3 stop or loop, and K4 turns the song on or off. Picking one pattern turns the song off and keeps its rows.</dd></div>
+        <div><dt>SEQ held, ARP</dt><dd>The song, up to 63 rows of one pattern each. White keys fill the rows. K1 is the row, K2 its pattern or the end, K3 how many times the row plays, and K4 turns the song on or off. On the end row, K3 is stop or loop. Picking one pattern turns the song off and keeps its rows.</dd></div>
         <div><dt>COPY on the SONG page</dt><dd>While a chain plays, a tap writes it over the rows from the selected one. The song&apos;s end and any rows after the chain stay.</dd></div>
+        <div><dt>SEL held, K1 on the SONG page</dt><dd>Turned right, puts a copy of the row in after it, repeats and all. Turned left, takes the row out. The end row stays. Taking out the row that&apos;s playing lets it finish first.</dd></div>
       </dl>
-      <p>A row plays its pattern once, so a repeat is a second row. Rows can&apos;t be inserted or deleted yet.</p>
+      <p>A row plays 1, 2, 3, 4, 6, 8, 12 or 16 times before the song moves on. A row set to repeat shows its count under it, and the row playing shows which time it&apos;s on, as <code>2/4</code>. Songs saved before 0.13 play each row once.</p>
     </section>
 
     <section id="sound">
       <h2>Sound pages</h2>
       <p><b>EDIT</b>, <b>ENV</b> and <b>LFO</b> show three rows of four. The dials work the middle row, and holding <b>OCT-</b> or <b>OCT+</b> brings the lower or upper row onto them. <b>EDIT</b> has a second screen.</p>
       <p><b>FX</b> has the sends, lit by the black keys, then the FX type, mix and two settings of that type. Hold <b>OCT-</b> for the rest.</p>
-      <p><b>GLO</b> has tempo, shuffle, external MIDI clock, roll rate, and the <code>CPU</code>, <code>PEAK</code> and <code>XRUN</code> readings. With <b>OCT-</b> held, two more dials change the sound of everything, and the last one sets what the black keys do:</p>
+      <p><b>GLO</b> opens the mixer. Each lane has a strip: its level as a fader, the voice&apos;s meter beside it, its pan under it, and <code>FX</code>, <code>M</code> for muted or <code>S</code> for soloed at the foot. The black keys pick the strip, and K1 to K4 are its level, pan, FX send and drive. A held step and a turned dial lock the value, as on the other pages. The hats share a voice, so CH and OH show the same level, pan and meter.</p>
+      <p><b>SEL</b> and a black key solo a lane, and again lift the solo. Only soloed lanes play, the mutes stay as they were underneath, and a solo isn&apos;t saved. <b>ARP</b> and a black key still mute.</p>
+      <p>A second press of <b>GLO</b> opens the settings, and a third goes back to the mixer. The settings have tempo, shuffle, external MIDI clock, roll rate, and the <code>CPU</code>, <code>PEAK</code> and <code>XRUN</code> readings. With <b>OCT-</b> held, two more dials change the sound of everything, and the last one sets what the black keys do:</p>
       <dl className="manual-list">
         <div><dt>K2, RATE</dt><dd>Lowers every voice&apos;s sample rate, before the FX, so delay and distortion stay clean. The kit saves it.</dd></div>
         <div><dt>K3, BITS</dt><dd>Lowers the bit depth of the final mix, from 16 bits to 2, after the FX. Tails break into steps and cut to silence, and loud hits stay fairly intact. The pattern saves it.</dd></div>
@@ -201,14 +207,22 @@ export function TackManualContent() {
     <section id="kits">
       <h2>Kits</h2>
       <p>No kits come with Tack, because kits belong to the people who made them. Tack reads the <code>.SND</code> files an LXR-02 writes to its SD card, and <a href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/tack/plugin/`}>the Tack plugin</a> writes the same files. Save from the full Tack plugin: a single-voice plugin saves only its own voice. <a href="https://www.ericasynths.lv/news/fresh-kits-and-patterns-lxr-02-hrtl">Erica Synths publishes kit packs</a> for the LXR-02, and third parties sell others.</p>
-      <p><b>PRESET</b> copies a kit from the bank into the pattern, and on pages other than HOME the top bar names it for a moment. From then on the pattern keeps its own copy, with your edits and its name, and <b>SAVE</b> stores it with the pattern. The sound comes back with the pattern, and changing the bank doesn&apos;t change it. <b>SEL</b> and <b>HOME</b> held a second goes back to the kit as it is in the bank.</p>
+      <p><b>PRESET</b> copies a kit from the bank into the pattern, and on pages other than HOME the top bar names it for a moment. From then on the pattern keeps its own copy, with your edits and its name, and <b>SAVE</b> stores it with the pattern. The sound comes back with the pattern, and changing the bank doesn&apos;t change it. <b>SEL</b> and <b>HOME</b> held a second reload the kit as the pattern was last saved, which undoes your edits since. A pattern never saved with a kit of its own goes back to the kit as it is in the bank.</p>
       <p>One turn back from the bank&apos;s first kit is the init kit, a clean start. It is built into the firmware and is in no slot, so nothing overwrites it: <b>SAVE</b> puts a kit made from it in a free slot.</p>
       <p><b>SEL</b> held with <b>PRESET</b> mutates the whole kit, and <b>SEL</b> held with <b>ALGORITHM</b> mutates the selected voice. Each click forward is a small random change on top of the last, and turning back retraces the same path to where you started, up to 99 steps. Volume, pan, routing, modulation targets, filter type and the FX stay as they are. A wave changes only now and then. Any other edit starts a new walk from there, and <b>SAVE</b> keeps the result like any other edit.</p>
+      <p><b>MONO</b> opens Frankensound, <code>FRANKEN</code> on the screen, which makes the pattern&apos;s kit from up to four parent kits. Each voice&apos;s sections, the oscillator, its modulator, the transient, filter, output, envelopes and LFO, come whole from one parent each, and so does the FX. The cymbal&apos;s pitch, oscillator and modulators come from one kit together, as its three FM oscillators only sound right with each other.</p>
+      <dl className="manual-list">
+        <div><dt>K1 to K4</dt><dd>The parents: random, none, this kit or a kit from the bank. K1 starts on this kit and the others on random, which draws a kit from the bank for each combo.</dd></div>
+        <div><dt>PRESET right</dt><dd>A new combo, heard at once.</dd></div>
+        <div><dt>PRESET left</dt><dd>Back through the combos, exactly as you heard them. At 0, the kit from before.</dd></div>
+        <div><dt>A voice key held, PRESET</dt><dd>A combo of that voice alone. The other voices stay as they are.</dd></div>
+      </dl>
+      <p>A combo is the pattern&apos;s kit, named <code>FRANKEN</code>, so every page edits it and <b>SAVE</b> keeps it. This kit means the kit as it was before the first combo, and an edit after a combo starts the next one from the edited kit. The morph target stays as it is.</p>
       <p>A new pattern with no steps plays on with the sound that&apos;s playing, and keeps it once you add steps or edit it. A copied pattern takes the sound with it.</p>
       <p><b>SAVE</b> opens one page, and K4 picks what it saves. K1 or <b>SELECT</b> picks the slot. A second <b>SAVE</b> writes it, with the sequencer stopped, and any page button leaves without writing.</p>
       <dl className="manual-list">
         <div><dt>PTRN</dt><dd>On the pattern&apos;s own slot, saves every changed pattern with its kit, the song and the tempo. On another slot, which the white keys also pick, it&apos;s save as: the pattern and its kit go there, and you carry on there.</dd></div>
-        <div><dt>BLEND</dt><dd>With morph above 0, saves what you hear as a new kit in the bank. The pattern stays on its two kits.</dd></div>
+        <div><dt>BLEND</dt><dd>With morph above 0, saves what you hear as a new kit in the bank. The pattern keeps its kit and its target.</dd></div>
         <div><dt>KIT</dt><dd>Saves the kit to the bank, starting on its own slot if it came from there. A slot in use shows the name you would replace, and an empty one shows the kit&apos;s. K2 moves the cursor along the name and K3 changes the letter. <b>OCT-</b> clears the name and <b>OCT+</b> picks a random one. Once you change the name, picking another slot keeps it. A kit can&apos;t be saved without a name.</dd></div>
       </dl>
       <p>The <a href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/tack/fm1/kits/`}>kit bank page</a> replaces the bank with up to 128 kits from <code>.SND</code> files, a folder or a <code>.zip</code>, and saves the bank to a <code>.zip</code>. It works in Chrome or Edge.</p>
@@ -217,21 +231,21 @@ export function TackManualContent() {
     <section id="sync">
       <h2>MIDI and clock</h2>
       <p>On MIDI channel 1, notes 60 to 66 play the voices. Notes 0 to 15 and Program Change 0 to 15 pick a pattern.</p>
-      <p>Turn on external clock on <b>GLO</b> to follow MIDI Beat Clock over USB. Tack takes Start, Stop and Continue, so <b>PLAY</b> does nothing and says so. It ignores MIDI Time Code and Song Position Pointer, so a DAW that starts mid-bar isn&apos;t followed to its position.</p>
+      <p>Turn on external clock on <b>GLO</b>&apos;s settings to follow MIDI Beat Clock over USB. Tack takes Start, Stop and Continue, so <b>PLAY</b> does nothing and says so. It ignores MIDI Time Code and Song Position Pointer, so a DAW that starts mid-bar isn&apos;t followed to its position.</p>
       <p>Tack runs its own clock, locked to the pulses, so jitter on the pulses doesn&apos;t reach the steps. The lock takes 12 pulses, and a gap of three pulses or more starts it again.</p>
       <p>MIDI out is USB only. Notes that arrive go back out on the voice&apos;s channel, so a DAW track that sends Tack its own output plays voices twice.</p>
     </section>
 
     <section id="usb-audio">
       <h2>USB audio</h2>
-      <p>Every power-on is stereo. <b>GLO</b> with <b>OCT-</b> held switches USB audio, with the sequencer stopped:</p>
+      <p>Every power-on is stereo. On <b>GLO</b>&apos;s settings, <b>OCT-</b> held switches USB audio, with the sequencer stopped:</p>
       <div className="doc-table compact-table">
         <div><b>1-2</b><span>The master</span><span /></div>
         <div><b>3-8</b><span>D1 D2 D3 SN CY HH</span><span>Each as it leaves the voice, so a voice sent to the FX is dry here</span></div>
         <div><b>9-10</b><span>The FX bus</span><span>Dry and wet, of the voices sent to it</span></div>
       </div>
       <p>Audio is 44.1 kHz only. The engine runs at exactly that rate on the FM-1, where the LXR-02 and the Tack plugin run at 44,140 Hz. Its pitches and times follow the rate it is built for, and renders of the factory kits match the plugin&apos;s as closely as two renders of the same sound do, apart from a slightly different top end above 16 kHz.</p>
-      <p>Switching re-enumerates the FM-1, so USB MIDI goes for a moment and a DAW can lose its links. Switch before starting the DAW&apos;s audio engine. With no host after 8 seconds it goes back to stereo. On <b>GLO</b> with <b>OCT+</b> held, <code>DROPS</code> counts lost packets, and each one is a click.</p>
+      <p>Switching re-enumerates the FM-1, so USB MIDI goes for a moment and a DAW can lose its links. Switch before starting the DAW&apos;s audio engine. With no host after 8 seconds it goes back to stereo. On <b>GLO</b>&apos;s settings with <b>OCT+</b> held, <code>DROPS</code> counts lost packets, and each one is a click.</p>
       <p>Saving on the FM-1 while it streams USB audio is experimental. On some computers the save interrupts the stream, the recording then stays garbled, and it recovers only when the recording application restarts. Stop recording before you save.</p>
     </section>
 
