@@ -1,0 +1,92 @@
+/* Tack's FM-1 mode maps and cheat sheet. Their drawings come from tack/firmware/fm1/tools/docs/make_docs.py; the classes
+ * here are the drawings' own. Orange is a callout, blue the key that takes you to a mode */
+.fm1-doc {
+  --fm1-callout: var(--orange); --fm1-mode: var(--blue-bright); --fm1-mode-ink: var(--page);
+  --dev-body: #3a3d42; --dev-tray: #26282c; --dev-knob: #1b1c1f; --dev-btn: #2e3135; --dev-line: #4a4d52;
+  --dev-text: #e8e8ea; --dev-key: #d9dadc; --dev-key-b: #55585e; --dev-screen: #0b0c0d; --dev-wlab: #6b6d73;
+  --v-drum: #e04234; --v-snare: #f07d24; --v-cym: #f2c23d; --v-hat: #e9e1cc;
+  --kbd-bg: var(--field); --kbd-line: var(--rule);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) .fm1-doc {
+    --dev-body: #e3e2de; --dev-tray: #cfcdc8; --dev-knob: #2a2c30; --dev-btn: #f2f1ee; --dev-line: #9a988f;
+    --dev-text: #1d1e21; --dev-key: #ffffff; --dev-key-b: #3a3c41; --dev-screen: #141518; --dev-wlab: #6b6d73;
+  }
+}
+:root[data-theme='light'] .fm1-doc {
+  --dev-body: #e3e2de; --dev-tray: #cfcdc8; --dev-knob: #2a2c30; --dev-btn: #f2f1ee; --dev-line: #9a988f;
+  --dev-text: #1d1e21; --dev-key: #ffffff; --dev-key-b: #3a3c41; --dev-screen: #141518; --dev-wlab: #6b6d73;
+}
+
+/* the maps want the page's whole width: the title goes above them */
+.document-page:has(.fm1-doc) { grid-template-columns: 1fr; gap: 40px; }
+
+.fm1-doc .fm1-nav { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; font-size: 14px; }
+.fm1-doc .fm1-nav a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--fm1-callout); }
+.fm1-doc .fm1-mode-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin-bottom: 12px; }
+.fm1-doc .fm1-mode-head h2 { margin: 0; }
+.fm1-doc .fm1-how { margin: 4px 0 0; font-size: 14px; }
+.fm1-doc .fm1-beacon { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.fm1-doc .cap { font-weight: 600; font-size: 17px; line-height: 1; letter-spacing: .06em; color: var(--fm1-mode-ink); background: var(--fm1-mode);
+  border-radius: 9px; padding: 10px 14px; min-width: 3.2em; text-align: center; box-shadow: 0 0 0 3px var(--page), 0 0 0 5px var(--fm1-mode); }
+.fm1-doc .cap.key { border-radius: 999px; }
+.fm1-doc .held { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 4px 0 2px; }
+.fm1-doc .sep { font-size: 12px; color: var(--muted); }
+.fm1-doc .fm1-figure { margin-top: 18px; background: var(--panel); border: 1px solid var(--rule); overflow-x: auto; }
+.fm1-doc svg.mode, .fm1-doc svg.panel { display: block; width: 100%; height: auto; }
+.fm1-doc svg.mode { min-width: 760px; }
+.fm1-doc svg.panel { min-width: 560px; padding: 14px; box-sizing: border-box; }
+
+.fm1-doc .d-body { fill: var(--dev-body); } .fm1-doc .d-tray { fill: var(--dev-tray); }
+.fm1-doc .d-knob { fill: var(--dev-knob); stroke: var(--dev-line); stroke-width: 2; }
+.fm1-doc .d-knob.on { stroke: var(--fm1-callout); stroke-width: 4; } .fm1-doc .d-knob.beacon { stroke: var(--fm1-mode); stroke-width: 4; }
+.fm1-doc .d-ring { fill: none; stroke: var(--fm1-mode); stroke-width: 3; }
+.fm1-doc .d-ind { stroke: #e8e8ea; stroke-width: 3; stroke-linecap: round; }
+.fm1-doc .d-btn { fill: var(--dev-btn); stroke: var(--dev-line); stroke-width: 1.5; }
+.fm1-doc .d-btn.on { stroke: var(--fm1-callout); stroke-width: 3; } .fm1-doc .d-btn.beacon { fill: var(--fm1-mode); stroke: var(--fm1-mode); }
+.fm1-doc .d-screen { fill: var(--dev-screen); }
+.fm1-doc .d-lab { font-weight: 600; font-size: 15px; letter-spacing: .05em; fill: var(--dev-text); text-anchor: middle; }
+.fm1-doc .d-lab.s { font-size: 12px; } .fm1-doc .d-lab.beacon { fill: var(--fm1-mode-ink); }
+.fm1-doc .d-fn { font-weight: 600; font-size: 14px; letter-spacing: .04em; fill: var(--fm1-callout); text-anchor: middle; }
+.fm1-doc .d-scr { font-weight: 600; font-size: 13px; letter-spacing: .06em; fill: #9a9ca3; text-anchor: middle; }
+.fm1-doc .d-scr.big { font-weight: 700; font-size: 34px; letter-spacing: .12em; fill: #f07d24; }
+.fm1-doc .d-bkey { fill: var(--dev-key-b); }
+.fm1-doc .d-bkey.v-drum { fill: var(--v-drum); } .fm1-doc .d-bkey.v-snare { fill: var(--v-snare); }
+.fm1-doc .d-bkey.v-cym { fill: var(--v-cym); } .fm1-doc .d-bkey.v-hat { fill: var(--v-hat); }
+.fm1-doc .d-bkey.k-fn { fill: var(--dev-knob); } .fm1-doc .d-bkey.k-off { opacity: .45; } .fm1-doc .d-bkey.beacon { fill: var(--fm1-mode); }
+.fm1-doc .d-klab { font-weight: 700; font-size: 14px; letter-spacing: .04em; text-anchor: middle; fill: #1d1e21; }
+.fm1-doc .d-klab.k-fn { fill: #f07d24; font-size: 12px; } .fm1-doc .d-bkey.beacon + .d-klab { fill: var(--fm1-mode-ink); }
+.fm1-doc .d-wkey { fill: var(--dev-key); stroke: var(--dev-line); stroke-width: 1; }
+.fm1-doc .d-wkey.on { stroke: var(--fm1-callout); stroke-width: 2; } .fm1-doc .d-wkey.beat { stroke: var(--fm1-callout); stroke-width: 2; }
+.fm1-doc .d-wlab { font-weight: 600; font-size: 15px; text-anchor: middle; fill: var(--dev-wlab); }
+.fm1-doc .c-title { font-weight: 700; font-size: 22px; letter-spacing: .08em; fill: var(--fm1-callout); } .fm1-doc .c-title.mode { fill: var(--fm1-mode); }
+.fm1-doc .c-line { font-weight: 400; font-size: 20px; fill: var(--ink); }
+.fm1-doc .ld { fill: none; stroke: var(--fm1-callout); stroke-width: 1.8; } .fm1-doc .ldot { fill: var(--fm1-callout); }
+.fm1-doc .ld.mode { stroke: var(--fm1-mode); } .fm1-doc .ldot.mode { fill: var(--fm1-mode); }
+
+.fm1-doc svg text { font-family: inherit; }
+
+/* the cheat sheet's legend and reference panels */
+.fm1-sheet .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 0 14px 14px; font-size: 13px; color: var(--muted); }
+.fm1-sheet .legend b { color: var(--ink); font-weight: 500; }
+.fm1-sheet .sw { display: inline-block; width: .8em; height: .8em; border-radius: 50%; vertical-align: -.05em; margin-right: .35em; }
+.fm1-sheet .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 28px 32px; }
+.fm1-sheet .grid section { padding: 0; border: 0; min-width: 0; }
+.fm1-sheet .grid h2 { font-size: 17px; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--rule);
+  display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.fm1-sheet .grid h2 small { font-size: 12px; color: var(--muted); letter-spacing: .06em; }
+.fm1-sheet dl { margin: 0; display: grid; grid-template-columns: minmax(0, 11em) minmax(0, 1fr); gap: 6px 12px; font-size: 14px; line-height: 1.5; }
+.fm1-sheet dt { color: var(--ink); font-size: 13px; }
+.fm1-sheet dd { margin: 0; min-width: 0; color: var(--muted); }
+.fm1-sheet .rule { margin: 0 0 8px; font-size: 14px; }
+.fm1-sheet kbd { font: 500 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--kbd-bg); border: 1px solid var(--kbd-line);
+  border-bottom-width: 2px; border-radius: 4px; padding: 2px 5px; white-space: nowrap; color: var(--ink); }
+.fm1-sheet kbd.k { background: var(--ink); color: var(--page); border-color: var(--ink); }
+.fm1-sheet .plus { margin: 0 1px; }
+@media (max-width: 520px) { .fm1-sheet dl { grid-template-columns: 1fr; gap: 0; } .fm1-sheet dd { margin-bottom: 8px; } }
+@media print {
+  body:has(.fm1-doc) .document-header, body:has(.fm1-doc) .document-title, body:has(.fm1-doc) footer { display: none; }
+  .fm1-doc .fm1-figure { border: 0; }
+  .fm1-doc .fm1-mode { break-inside: avoid; break-after: page; }
+  .fm1-sheet .grid section { break-inside: avoid; }
+}

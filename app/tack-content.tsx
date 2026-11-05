@@ -38,7 +38,12 @@ export function TackStartContent() {
 }
 
 export function TackManualContent() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   return <>
+    <section id="at-a-glance">
+      <h2>At a glance</h2>
+      <p>The <a href={`${basePath}/manuals/tack-fm1/maps/`}>mode maps</a> show each mode on a drawing of the panel, with the key that takes you there and what every control does in it. The <a href={`${basePath}/manuals/tack-fm1/cheat-sheet/`}>cheat sheet</a> puts every key, hold and dial on one page to print.</p>
+    </section>
     <section id="controls">
       <h2>Keys and buttons</h2>
       <dl className="manual-list">
