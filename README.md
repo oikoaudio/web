@@ -30,7 +30,7 @@ Theme-matched plug-in captures live in `public/images/` as `oiko-<plugin>-dark.p
 
 ## Tack on the FM-1
 
-`app/tack/` is the overview, `app/tack/plugin/` the plugins, and `app/tack/fm1/` the FM-1 firmware with its install and backup pages. The update and backup logic is fm1-base's. `firmware/fm1/tools/make_web.py VERSION WEB_DIR` in the Tack repository writes it here from a release package: `app/tack/fm1/tool-pages.ts` and `public/tack/fm1/`. Don't edit those by hand. Screens in `public/images/tack-*.png` come from the simulator, with `firmware/fm1/tests/site_shots.txt`.
+`app/tack/` is the overview, `app/tack/plugin/` the plugins, and `app/tack/fm1/` the FM-1 firmware with its install and backup pages. The update and backup logic is fm1-base's. `firmware/fm1/tools/make_web.py VERSION WEB_DIR` in the Tack repository writes it here from a release package: `app/tack/fm1/tool-pages.ts` and `public/tack/fm1/`. Don't edit those by hand. Screens in `public/images/tack-*.png` come from the simulator, with `firmware/fm1/tests/site_shots.txt`. The mode maps and cheat sheet beside the manual, `app/manuals/tack-fm1/maps/` and `cheat-sheet/`, read `maps-data.ts` and `sheet-data.ts`, which `firmware/fm1/tools/docs/make_docs.py OUTDIR WEB_DIR` writes; their pages and `fm1-doc.css` are this repository's. The Tack repository's `firmware/fm1/README.md`, under Release and the website, has the steps in order.
 
 The installer needs HTTPS or localhost, and Chrome or Edge, for Web MIDI with SysEx.
 
