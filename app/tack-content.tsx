@@ -266,7 +266,7 @@ export function TackManualContent() {
 
 export function TackStatusContent() {
   return <>
-    <p>Tack 0.9 is a beta. It has run on one FM-1, so expect rough edges, and expect the panel to change between versions. Patterns saved in one version may not load in the next.</p>
+    <p>Tack is a beta. It has run on one FM-1, so expect rough edges, and expect the panel to change between versions. So far each version has loaded the patterns saved by earlier ones. If a change ever has to break that, it will come with a new major version, and its release notes will say so.</p>
     <dl className="manual-list">
       <div><dt>Run on a real FM-1</dt><dd>Installing and updating over a unit that came from V15, and going from Tack back to V15 and returning. Sound, saving, a power cycle, kit upload and switching, backup and restore, stereo and 10 channel USB audio, following a DAW&apos;s MIDI clock, NOTE, chains and the song.</dd></div>
       <div><dt>Not tested</dt><dd>Installing on an FM-1 with M-VAVE&apos;s V16 bootloader. A long playing run. TRS MIDI, hat choke and MIDI out from the sequencer.</dd></div>

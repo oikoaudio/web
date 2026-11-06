@@ -68,7 +68,7 @@ cmake --build build/host --target install_tack`}</pre>
 
 function StatusContent() {
   return <>
-    <p>Tack 0.9 is a beta, and projects saved with it may not load in later versions.</p>
+    <p>Tack is a beta. So far each version has loaded the projects saved with earlier ones. If a change ever has to break that, it will come with a new major version, and its release notes will say so.</p>
     <dl className="manual-list">
       <div><dt>Linux x86-64</dt><dd>CLAP and VST3 tested in Bitwig 6.1.6.</dd></div>
       <div><dt>Apple silicon Mac</dt><dd>CLAP and VST3 tested in Bitwig 6.1.6, and the Audio Unit in Logic Pro.</dd></div>
