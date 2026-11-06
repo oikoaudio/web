@@ -1,8 +1,13 @@
 import type { ReactNode } from 'react';
 import { SiteHeader } from './site-header';
 
-export function DocumentShell({ product, section, children }: { product: 'Wow' | 'Weft' | 'Oikontrol' | 'Tack'; section: 'Manual' | 'Release notes'; children: ReactNode }) {
+export type DocumentTab = { label: string; href: string; active: boolean };
+
+export function DocumentShell({ product, section, tabs, children }: { product: 'Wow' | 'Weft' | 'Oikontrol' | 'Tack'; section: 'Manual' | 'Release notes'; tabs?: DocumentTab[]; children: ReactNode }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+  const switcher = section === 'Release notes'
+    ? [{ label: 'Weft', href: `${basePath}/releases/weft/`, active: product === 'Weft' }, { label: 'Wow', href: `${basePath}/releases/wow/`, active: product === 'Wow' }]
+    : tabs;
   return (
     <main>
       <SiteHeader currentProduct={product} className="document-header" />
@@ -10,12 +15,9 @@ export function DocumentShell({ product, section, children }: { product: 'Wow' |
         <header className="document-title">
           <p className="index">{product.toUpperCase()} / {section.toUpperCase()}</p>
           <h1>{product}<br />{section}</h1>
-          <div className="document-switcher">
-            {section === 'Manual' && <a href={`${basePath}/manuals/oikontrol/`} className={product === 'Oikontrol' ? 'is-active' : ''}>Oikontrol</a>}
-            <a href={`${basePath}/${section === 'Manual' ? 'manuals' : 'releases'}/weft/`} className={product === 'Weft' ? 'is-active' : ''}>Weft</a>
-            <a href={`${basePath}/${section === 'Manual' ? 'manuals' : 'releases'}/wow/`} className={product === 'Wow' ? 'is-active' : ''}>Wow</a>
-            {section === 'Manual' && <a href={`${basePath}/manuals/tack-fm1/`} className={product === 'Tack' ? 'is-active' : ''}>Tack FM-1</a>}
-          </div>
+          {switcher && <div className="document-switcher">
+            {switcher.map((t) => <a key={t.href} href={t.href} className={t.active ? 'is-active' : ''}>{t.label}</a>)}
+          </div>}
         </header>
         <div className="document-content">{children}</div>
       </article>

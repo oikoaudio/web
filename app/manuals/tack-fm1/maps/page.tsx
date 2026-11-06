@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { DocumentShell } from '../../../document-shell';
+import { tackTabs } from '../tabs';
 import { MODES } from './maps-data';
 import '../fm1-doc.css';
 
@@ -7,7 +8,7 @@ export const metadata: Metadata = { title: 'Tack for the FM-1 mode maps | Oiko A
 
 export default function TackMaps() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-  return <DocumentShell product="Tack" section="Manual">
+  return <DocumentShell product="Tack" section="Manual" tabs={tackTabs('maps')}>
     <div className="fm1-doc">
       <section id="maps">
         <h2>Mode maps</h2>

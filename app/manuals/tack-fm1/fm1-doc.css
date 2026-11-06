@@ -19,6 +19,10 @@
 }
 
 
+/* the maps and the cheat sheet want the page's whole width: the title goes above them, and scrolls away with the page */
+.document-page:has(.fm1-doc) { grid-template-columns: 1fr; gap: 40px; }
+.document-page:has(.fm1-doc) .document-title { position: static; }
+
 .fm1-doc .fm1-nav { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; font-size: 14px; }
 .fm1-doc .fm1-nav a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--fm1-callout); }
 .fm1-doc .fm1-mode-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin-bottom: 12px; }
