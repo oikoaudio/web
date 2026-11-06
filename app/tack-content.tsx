@@ -27,6 +27,7 @@ export function TackStartContent() {
       <li>Hold a step and turn a dial to lock that value to the step.</li>
       <li>Stop, press <b>SAVE</b> to see what it will write, and press it again.</li>
     </ol>
+    <p>The <a href={`${basePath}/manuals/tack-fm1/maps/`}>user guide</a> takes it from there: a map of the panel for each mode, a cheat sheet to print, and the manual.</p>
     <dl className="manual-list">
       <div><dt>Voices</dt><dd>Three drums, a snare, a cymbal, and closed and open hats, each with its own synth parameters.</dd></div>
       <div><dt>Sequencer</dt><dd>Seven lanes of up to 64 steps, each with its own length. Steps have velocity, nudge, flam, chance, recurrence and up to eight parameter locks.</dd></div>
@@ -38,12 +39,7 @@ export function TackStartContent() {
 }
 
 export function TackManualContent() {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   return <>
-    <section id="at-a-glance">
-      <h2>At a glance</h2>
-      <p>The <a href={`${basePath}/manuals/tack-fm1/maps/`}>mode maps</a> show each mode on a drawing of the panel, with the key that takes you there and what every control does in it. The <a href={`${basePath}/manuals/tack-fm1/cheat-sheet/`}>cheat sheet</a> puts every key, hold and dial on one page to print.</p>
-    </section>
     <section id="controls">
       <h2>Keys and buttons</h2>
       <dl className="manual-list">

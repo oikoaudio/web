@@ -144,7 +144,7 @@ export default function DownloadsPage() {
               <strong>M-VAVE FM-1</strong><span>Installs from Chrome or Edge</span><span>Firmware</span><code>{tackFirmware.file}</code><span className="download-arrow">↗</span>
             </a>
           </div>
-          <p className="download-note">Each zip holds the plugins and their licences. Copy the plugins to the folder shown. The builds are not signed, so on macOS run <code>xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins</code> after copying. SHA-256 checksums are in <code>SHA256SUMS</code> on the release page. <a href={`${basePath}/tack/plugin/#manual`}>Installation instructions</a> · FM-1: <a href={`${basePath}/manuals/tack-fm1/`}>manual</a>, <a href={`${basePath}/manuals/tack-fm1/cheat-sheet/`}>cheat sheet</a>, <a href={`${basePath}/manuals/tack-fm1/maps/`}>mode maps</a> · <a href="https://github.com/oikoaudio/tack">Source code <Arrow /></a></p>
+          <p className="download-note">Each zip holds the plugins and their licences. Copy the plugins to the folder shown. The builds are not signed, so on macOS run <code>xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins</code> after copying. SHA-256 checksums are in <code>SHA256SUMS</code> on the release page. <a href={`${basePath}/tack/plugin/#manual`}>Installation instructions</a> · <a href={`${basePath}/manuals/tack-fm1/maps/`}>FM-1 user guide</a> · <a href="https://github.com/oikoaudio/tack">Source code <Arrow /></a></p>
         </div>
     </section>
     <footer><p>OIKO AUDIO</p><p>Oiko Audio is a brand of Octofox Ltd.</p><p><a href="https://github.com/oikoaudio">Open source on GitHub ↗</a></p></footer>

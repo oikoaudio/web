@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: 'Tack for the FM-1 cheat sheet | Oiko
 
 export default function TackCheatSheet() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-  return <DocumentShell product="Tack" section="Manual" tabs={tackTabs('sheet')}>
+  return <DocumentShell product="Tack" section="User guide" tabs={tackTabs('sheet')}>
     <div className="fm1-doc fm1-sheet">
       <section id="sheet">
         <h2>Cheat sheet</h2>

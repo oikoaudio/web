@@ -18,7 +18,7 @@ type ProductPageProps = {
   startHere: ReactNode;
   demo?: { src: string; poster: string; width: number; height: number; caption: string };
   screenshot?: { pixel?: boolean; darkSrc: string; brightSrc: string; darkWidth: number; darkHeight: number; brightWidth: number; brightHeight: number; frameCrop?: { dark: number; bright: number }; alt?: string; wide?: boolean };
-  manual: ReactNode;
+  manual?: ReactNode;
   manualTitle?: string;
   manualDescription?: string;
   sections?: ProductSection[];
@@ -30,7 +30,7 @@ export function ProductPage({ product, title, stage = 'beta', download = true, s
   const slug = product.toLowerCase();
   const pageSections: ProductSection[] = [
     { id: 'start-here', index: 'EXPLORE', title: 'Start here', content: startHere },
-    { id: 'manual', index: 'REFERENCE', title: manualTitle, description: manualDescription, content: manual },
+    ...(manual ? [{ id: 'manual', index: 'REFERENCE', title: manualTitle, description: manualDescription, content: manual }] : []),
     ...sections,
     ...(releases ? [{ id: 'release-notes', index: 'RELEASE NOTES', title: 'Release notes', content: releases }] : []),
   ];

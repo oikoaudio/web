@@ -3,7 +3,7 @@ import { SiteHeader } from './site-header';
 
 export type DocumentTab = { label: string; href: string; active: boolean };
 
-export function DocumentShell({ product, section, tabs, children }: { product: 'Wow' | 'Weft' | 'Oikontrol' | 'Tack'; section: 'Manual' | 'Release notes'; tabs?: DocumentTab[]; children: ReactNode }) {
+export function DocumentShell({ product, section, tabs, children }: { product: 'Wow' | 'Weft' | 'Oikontrol' | 'Tack'; section: 'Manual' | 'User guide' | 'Release notes'; tabs?: DocumentTab[]; children: ReactNode }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   const switcher = section === 'Release notes'
     ? [{ label: 'Weft', href: `${basePath}/releases/weft/`, active: product === 'Weft' }, { label: 'Wow', href: `${basePath}/releases/wow/`, active: product === 'Wow' }]
