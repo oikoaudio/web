@@ -18,8 +18,6 @@
   --dev-text: #1d1e21; --dev-key: #ffffff; --dev-key-b: #3a3c41; --dev-screen: #141518; --dev-wlab: #6b6d73;
 }
 
-/* the maps want the page's whole width: the title goes above them */
-.document-page:has(.fm1-doc) { grid-template-columns: 1fr; gap: 40px; }
 
 .fm1-doc .fm1-nav { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; font-size: 14px; }
 .fm1-doc .fm1-nav a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--fm1-callout); }
@@ -86,6 +84,7 @@
 @media (max-width: 520px) { .fm1-sheet dl { grid-template-columns: 1fr; gap: 0; } .fm1-sheet dd { margin-bottom: 8px; } }
 @media print {
   body:has(.fm1-doc) .document-header, body:has(.fm1-doc) .document-title, body:has(.fm1-doc) footer { display: none; }
+  .document-page:has(.fm1-doc) { grid-template-columns: 1fr; padding: 0; }
   .fm1-doc .fm1-figure { border: 0; }
   .fm1-doc .fm1-mode { break-inside: avoid; break-after: page; }
   .fm1-sheet .grid section { break-inside: avoid; }

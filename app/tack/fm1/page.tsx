@@ -20,7 +20,7 @@ export default function TackPage() {
     stage="beta"
     download={false}
     startButton={false}
-    links={[{ label: 'Install', href: `${basePath}/tack/fm1/install/`, primary: true }, { label: 'Try it', href: `${basePath}/tack/fm1/try/` }, { label: 'Back up', href: `${basePath}/tack/fm1/backup/` }, { label: 'Kit bank', href: `${basePath}/tack/fm1/kits/` }, { label: 'Read the manual', href: `${basePath}/manuals/tack-fm1/` }, { label: 'Source on GitHub', href: tackRepo }]}
+    links={[{ label: 'Install', href: `${basePath}/tack/fm1/install/`, primary: true }, { label: 'Try it', href: `${basePath}/tack/fm1/try/` }, { label: 'Back up', href: `${basePath}/tack/fm1/backup/` }, { label: 'Kit bank', href: `${basePath}/tack/fm1/kits/` }, { label: 'Read the manual', href: `${basePath}/manuals/tack-fm1/` }, { label: 'Cheat sheet', href: `${basePath}/manuals/tack-fm1/cheat-sheet/` }, { label: 'Mode maps', href: `${basePath}/manuals/tack-fm1/maps/` }, { label: 'Source on GitHub', href: tackRepo }]}
     line="A drum synth for the M-VAVE FM-1."
     description="Seven synthesised voices and a step sequencer with parameter locks, Euclidean lanes, chance, recurrence, velocity shapes, and a direction and speed for each lane. It installs from the browser and sends 10 channels of USB audio."
     screenshot={{ pixel: true, darkSrc: '/images/tack-overview-240.png', brightSrc: '/images/tack-overview-240.png', darkWidth: 240, darkHeight: 240, brightWidth: 240, brightHeight: 240, alt: 'The FM-1 screen running Tack: seven lanes of steps, with pitch, filter, decay and volume below.' }}
