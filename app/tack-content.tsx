@@ -45,7 +45,7 @@ export function TackManualContent() {
       <dl className="manual-list">
         <div><dt>White keys</dt><dd>The 16 steps of the bar showing, on release.</dd></div>
         <div><dt>Black keys 1 to 7</dt><dd>Pick a voice and play it. With REC running they record it. With SEQ held they pick it silently, and with ARP held they mute it.</dd></div>
-        <div><dt>Black key 8</dt><dd>ROLL while held. The rate is on GLO&apos;s settings.</dd></div>
+        <div><dt>Black key 8</dt><dd>ROLL while held. The rate is on GLO&apos;s settings, with <b>OCT-</b> held.</dd></div>
         <div><dt>Black key 9</dt><dd>MONO. Opens Frankensound.</dd></div>
         <div><dt>Black key 10</dt><dd>POLY. Hold it to set the morph target.</dd></div>
         <div><dt>Black key 11</dt><dd>COPY. Hold it and press a white key to copy this pattern onto that one.</dd></div>
@@ -182,11 +182,14 @@ export function TackManualContent() {
       <p><b>FX</b> has the sends, lit by the black keys, then the FX type, mix and two settings of that type. Hold <b>OCT-</b> for the rest.</p>
       <p><b>GLO</b> opens the mixer. Each lane has a strip: its level as a fader, the voice&apos;s meter beside it, its pan under it, and <code>FX</code>, <code>M</code> for muted or <code>S</code> for soloed at the foot. The black keys pick the strip, and K1 to K4 are its level, pan, FX send and drive. A held step and a turned dial lock the value, as on the other pages. The hats share a voice, so CH and OH show the same level, pan and meter.</p>
       <p><b>SEL</b> and a black key solo a lane, and again lift the solo. Only soloed lanes play, the mutes stay as they were underneath, and a solo isn&apos;t saved. <b>ARP</b> and a black key still mute.</p>
-      <p>A second press of <b>GLO</b> opens the settings, and a third goes back to the mixer. The settings have tempo, shuffle, external MIDI clock, roll rate, and the <code>CPU</code>, <code>PEAK</code> and <code>XRUN</code> readings. With <b>OCT-</b> held, two more dials change the sound of everything, and the last one sets what the black keys do:</p>
+      <p>A second press of <b>GLO</b> opens the settings, and a third goes back to the mixer. The settings show the <code>CPU</code>, <code>PEAK</code> and <code>XRUN</code> readings. K1 and K2 are tempo and shuffle, and the other two change the sound of everything:</p>
       <dl className="manual-list">
-        <div><dt>K2, RATE</dt><dd>Lowers every voice&apos;s sample rate, before the FX, so delay and distortion stay clean. The kit saves it.</dd></div>
-        <div><dt>K3, BITS</dt><dd>Lowers the bit depth of the final mix, from 16 bits to 2, after the FX. Tails break into steps and cut to silence, and loud hits stay fairly intact. The pattern saves it.</dd></div>
-        <div><dt>K4, PREVIEW</dt><dd>Sets whether the first seven black keys play their voice when pressed. Off, they only select it, except while <b>REC</b> is on. <b>SAVE</b> keeps it.</dd></div>
+        <div><dt>K3, RATE</dt><dd>Lowers every voice&apos;s sample rate, before the FX, so delay and distortion stay clean. The kit saves it.</dd></div>
+        <div><dt>K4, BITS</dt><dd>Lowers the bit depth of the final mix, from 16 bits to 2, after the FX. Tails break into steps and cut to silence, and loud hits stay fairly intact. The pattern saves it.</dd></div>
+      </dl>
+      <p>With <b>OCT-</b> held, K1 to K4 are USB audio, external MIDI clock, preview and the roll rate:</p>
+      <dl className="manual-list">
+        <div><dt>K3, PREVIEW</dt><dd>Sets whether the first seven black keys play their voice when pressed. Off, they only select it, except while <b>REC</b> is on. <b>SAVE</b> keeps it.</dd></div>
       </dl>
       <p><b>FX</b> runs one effect at a time: distortion, ring modulator, compressor, delay or reverb. The delay&apos;s <code>MODE</code> picks normal or ping-pong, each free or in sync. In sync, <code>TIME</code> picks a fraction of the bar from <code>1/32</code> to <code>1/2</code>, including dotted ones, and follows the tempo. The buffer holds about 0.74 seconds, or half that in ping-pong, so long fractions at slow tempos stop there. Picking the reverb starts its dials from a setting for drums. Its <code>MIX</code> is its level, added to the dry sound, which stays as it is. <code>PRE</code> is its pre-delay, <code>DECAY</code> its length, which rings for good at the top, <code>E/L MIX</code> the balance from early reflections on the left to the late tail on the right, and <code>LOW CUT</code> and <code>HIGH CUT</code> take 24 dB an octave off each end of it, set in hertz. The reverb is the heaviest of them on the CPU, so watch <code>PEAK</code> on <b>GLO</b>.</p>
       <p>The LXR has this reverb in its code but leaves it switched off. Tack turns it on and changes it. It is stereo, where the code had one output for both sides. Fixes to its delay lines and a slow movement inside the loop take out the flutter and growl of the tail. <code>LOW CUT</code> and <code>HIGH CUT</code> are new, and <code>MIX</code> adds to the dry sound in place of the crossfade the other FX use. It is also built to use less CPU than the LXR&apos;s code did on this chip.</p>
@@ -227,7 +230,7 @@ export function TackManualContent() {
     <section id="sync">
       <h2>MIDI and clock</h2>
       <p>On MIDI channel 1, notes 60 to 66 play the voices. Notes 0 to 15 and Program Change 0 to 15 pick a pattern.</p>
-      <p>Turn on external clock on <b>GLO</b>&apos;s settings to follow MIDI Beat Clock over USB. Tack takes Start, Stop and Continue, so <b>PLAY</b> does nothing and says so. It ignores MIDI Time Code and Song Position Pointer, so a DAW that starts mid-bar isn&apos;t followed to its position.</p>
+      <p>Turn on external clock on <b>GLO</b>&apos;s settings, with <b>OCT-</b> held and K2, to follow MIDI Beat Clock over USB. Tack takes Start, Stop and Continue, so <b>PLAY</b> does nothing and says so. It ignores MIDI Time Code and Song Position Pointer, so a DAW that starts mid-bar isn&apos;t followed to its position.</p>
       <p>Tack runs its own clock, locked to the pulses, so jitter on the pulses doesn&apos;t reach the steps. The lock takes 12 pulses, and a gap of three pulses or more starts it again.</p>
       <p>MIDI out is USB only. Notes that arrive go back out on the voice&apos;s channel, so a DAW track that sends Tack its own output plays voices twice.</p>
     </section>
