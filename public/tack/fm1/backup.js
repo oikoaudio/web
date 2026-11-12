@@ -1,7 +1,7 @@
 
 "use strict";
 // --- backup protocol: begin (tools/fm1_backup.py, device/backup.c; tested by tests/backup_page_test.mjs)
-const FW = { name: "TACK", id: "FM-1_47", magic: "KTLB", version: Number("2"), ext: "tack" };
+const FW = { name: "TACK", id: "FM-1_75", magic: "KTLB", version: Number("2"), ext: "tack" };
 const PB = (() => {
   const HS_QUERY = [0xF0, 0x00, 0x32, 0x45, 0x00, 0x00, 0x00, 0x40, 0x7F, 0xF7];   // fm1_install.py / fm1ota.js
   const RS_REQ = 0x41, BU_REQ = 0x42, BU_END = 0x43;

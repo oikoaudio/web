@@ -740,7 +740,7 @@ async function bankSend(link, kits, onProgress = () => {}) {
 /* SPDX-License-Identifier: GPL-3.0-only */
 /* The kit bank page: site/kits_body.html's controls on site/kits_core.js. make_web.py inlines this after that file and
  * fm1-base's fm1ports.js and fm1ota.js, which give Updater and IS_OTA */
-const FIRMWARE_ID = "FM-1_47";
+const FIRMWARE_ID = "FM-1_75";
 const PICKED_PORTS = "fm1-ports";             // the ports the user picked, shared with the install and backup pages
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
