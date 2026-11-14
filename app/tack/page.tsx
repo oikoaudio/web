@@ -62,7 +62,7 @@ export default function TackOverview() {
         <h2>One kit format</h2>
       </div>
       <div>
-        <p>Both forms read <code>.SND</code> kit files, the format an LXR-02 writes to its SD card. The plugin&apos;s Save button writes that format too, so you can shape a kit at the computer and send it to the FM-1. No kits come with Tack, because kits belong to the people who made them.</p>
+        <p>Both forms read <code>.SND</code> kit files, the format an LXR-02 writes to its SD card. The plugin&apos;s Save button writes that format too, so you can shape a kit at the computer and send it to the FM-1. No kits come with Tack, because kits belong to the people who made them. Erica Synths gives away the LXR-02&apos;s <a href="https://www.ericasynths.lv/service/file/download/product_id/754/file_id/418/">factory kits</a> and two packs by Hrtl, which the FM-1&apos;s <a href={`${base}/tack/fm1/kits/`}>kit bank page</a> puts on it as they come.</p>
       </div>
     </section>
     <footer><p>OIKO AUDIO</p><p>Oiko Audio is a brand of Octofox Ltd.</p><p><a href="https://github.com/oikoaudio">Open source on GitHub ↗</a></p></footer>
