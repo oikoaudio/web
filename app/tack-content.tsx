@@ -77,8 +77,8 @@ export function TackManualContent() {
         <div><dt>K1 to K4</dt><dd>Lock those values on the step, on the overview and the sound pages. A step holds eight locks. <b>EDIT</b> clears them.</dd></div>
         <div><dt>ALGORITHM</dt><dd>Nudge, on a ruler, in 24ths of a step. It moves one 24th at a time up to 9, for small changes of feel, then 12, 15, 18 and 21 either way. At 120 BPM a 24th is about 5 ms.</dd></div>
         <div><dt>PRESET</dt><dd>Chance.</dd></div>
-        <div><dt>Black keys 1 to 8</dt><dd><code>PLAY ON PASS</code>: the passes of the pattern the step plays on, eight of them, as a lane&apos;s steps. A new step plays on all eight. A tap takes its pass out, and puts it back.</dd></div>
-        <div><dt>One black key held, another pressed</dt><dd>The cycle is as many passes as the second key&apos;s number, as a lane&apos;s end is. Passes it gains play. Key 1 pressed second plays every pass again.</dd></div>
+        <div><dt>Black keys 1 to 8</dt><dd><code>PLAY ON PASS</code>, the step&apos;s pass conditions. A pass is one time through the pattern, and a step can play on some passes and rest on others. The keys are the passes, shown as a lane&apos;s steps. A new step plays on all eight, and a tap takes a pass out, and puts it back.</dd></div>
+        <div><dt>One black key held, another pressed</dt><dd>The cycle is as many passes as the second key&apos;s number, as a lane&apos;s end is, and the passes it gains play. Hold 1 and press 4 for a cycle of four, then tap 1 to 3 to take them out, and the step plays only every fourth time. Key 1 pressed second plays every pass again.</dd></div>
         <div><dt>SELECT</dt><dd>On the sound pages, picks the row on K1 to K4, as it does with no step held.</dd></div>
       </dl>
     </section>
