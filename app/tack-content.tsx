@@ -167,7 +167,7 @@ export function TackManualContent() {
     </section>
 
     <section id="patterns">
-      <h2>Patterns, chains and the song</h2>
+      <h2>Patterns, chains and song mode</h2>
       <dl className="manual-list">
         <div><dt>SEQ held, one white key</dt><dd>Pattern 1 to 16. While running it changes when the longest lane reaches its end, counted at 1X. Let go of SEQ before picking the next pattern, because a second key while SEQ stays held makes a chain.</dd></div>
         <div><dt>SEQ held, several white keys</dt><dd>A chain, which loops until you pick one pattern. A chain isn&apos;t saved.</dd></div>
