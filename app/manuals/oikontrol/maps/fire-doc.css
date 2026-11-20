@@ -1,0 +1,78 @@
+/* Oikontrol's Akai Fire mode maps. The drawings come from tools/fire-maps/ in bitwig-oikontrol; the classes here are the
+ * drawings' own. Roles: .m is a control in this mode (orange), .e the button that takes you there (blue), .p the pad
+ * areas (green), .s a control shared by every mode (grey) */
+.fire-doc {
+  --fire-m: var(--orange); --fire-e: var(--blue-bright); --fire-e-ink: var(--page); --fire-s: var(--muted); --fire-p: #7cc98a;
+  --dev-body: #3a3d42; --dev-tray: #26282c; --dev-knob: #1b1c1f; --dev-btn: #2e3135; --dev-pad: #2e3135; --dev-line: #4a4d52;
+  --dev-text: #e8e8ea; --dev-screen: #0b0c0d;
+  --kbd-bg: var(--field); --kbd-line: var(--rule);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) .fire-doc {
+    --fire-p: #2e7d3e;
+    --dev-body: #e3e2de; --dev-tray: #cfcdc8; --dev-knob: #2a2c30; --dev-btn: #f2f1ee; --dev-pad: #f8f7f4; --dev-line: #9a988f;
+    --dev-text: #1d1e21; --dev-screen: #141518;
+  }
+}
+:root[data-theme='light'] .fire-doc {
+  --fire-p: #2e7d3e;
+  --dev-body: #e3e2de; --dev-tray: #cfcdc8; --dev-knob: #2a2c30; --dev-btn: #f2f1ee; --dev-pad: #f8f7f4; --dev-line: #9a988f;
+  --dev-text: #1d1e21; --dev-screen: #141518;
+}
+
+/* the maps want the page's whole width: the title goes above them, and scrolls away with the page */
+.document-page:has(.fire-doc) { grid-template-columns: 1fr; gap: 40px; }
+.document-page:has(.fire-doc) .document-title { position: static; }
+
+.fire-doc .fire-nav { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; font-size: 14px; }
+.fire-doc .fire-nav a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--fire-m); }
+.fire-doc .fire-key { font-weight: 600; }
+.fire-doc .fire-key.m { color: var(--fire-m); } .fire-doc .fire-key.e { color: var(--fire-e); }
+.fire-doc .fire-key.p { color: var(--fire-p); } .fire-doc .fire-key.s { color: var(--fire-s); }
+.fire-doc .fire-mode-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin-bottom: 12px; }
+.fire-doc .fire-mode-head h2 { margin: 0; }
+.fire-doc .fire-how { margin: 4px 0 0; font-size: 14px; }
+.fire-doc .cap { font-family: inherit; font-weight: 600; font-size: 17px; line-height: 1; letter-spacing: .06em; color: var(--fire-e-ink); background: var(--fire-e);
+  border-radius: 9px; padding: 10px 14px; min-width: 3.2em; text-align: center; box-shadow: 0 0 0 3px var(--page), 0 0 0 5px var(--fire-e); }
+.fire-doc kbd:not(.cap) { font: 500 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--kbd-bg); border: 1px solid var(--kbd-line);
+  border-bottom-width: 2px; border-radius: 4px; padding: 2px 5px; white-space: nowrap; color: var(--ink); }
+.fire-doc .fire-figure { margin-top: 18px; background: var(--panel); border: 1px solid var(--rule); overflow-x: auto; }
+.fire-doc .fire-notes { margin: 18px 0 0; padding-left: 1.2em; font-size: 14px; line-height: 1.7; }
+.fire-doc .fire-notes li + li { margin-top: 4px; }
+.fire-doc .fire-more { font-size: 14px; }
+
+/* the drawing: the generator measured its callouts in system-ui, so the text keeps that font */
+.fire-doc svg.fire-map { display: block; width: 100%; height: auto; min-width: 760px; font-family: system-ui, sans-serif; }
+.fire-doc .d-body { fill: var(--dev-body); stroke: var(--dev-line); stroke-width: 2; }
+.fire-doc .d-tray { fill: var(--dev-tray); }
+.fire-doc .d-knob { fill: var(--dev-knob); stroke: var(--dev-line); stroke-width: 2; }
+.fire-doc .d-knob.on { stroke: var(--fire-m); stroke-width: 4; } .fire-doc .d-knob.entry { stroke: var(--fire-e); stroke-width: 4; }
+.fire-doc .d-ind { stroke: #e8e8ea; stroke-width: 3; stroke-linecap: round; }
+.fire-doc .d-btn { fill: var(--dev-btn); stroke: var(--dev-line); stroke-width: 1.5; }
+.fire-doc .d-btn.on { stroke: var(--fire-m); stroke-width: 3; } .fire-doc .d-btn.entry { fill: var(--fire-e); stroke: var(--fire-e); }
+.fire-doc .d-pad { fill: var(--dev-pad); stroke: var(--dev-line); stroke-width: 1.2; }
+.fire-doc .d-pad.r0 { fill: color-mix(in srgb, var(--fire-p) 24%, var(--dev-pad)); }
+.fire-doc .d-pad.r1 { fill: color-mix(in srgb, var(--fire-p) 48%, var(--dev-pad)); }
+.fire-doc .d-pad.r2 { fill: color-mix(in srgb, var(--fire-p) 12%, var(--dev-pad)); }
+.fire-doc .d-sep { stroke: var(--dev-line); stroke-width: 1.5; }
+.fire-doc .d-led { fill: none; stroke: var(--dev-line); stroke-width: 1.2; }
+.fire-doc .d-screen { fill: var(--dev-screen); }
+.fire-doc .d-tiny { font-size: 10px; fill: var(--muted); letter-spacing: .04em; }
+.fire-doc .d-tiny.in { font-size: 8.5px; fill: var(--dev-text); }
+.fire-doc .d-tiny.in.on { font-weight: 700; } .fire-doc .d-tiny.in.entry { fill: var(--fire-e-ink); }
+.fire-doc .d-logo { font-size: 22px; font-weight: 700; fill: var(--dev-line); letter-spacing: .12em; }
+.fire-doc .c-title { font-size: 17px; font-weight: 650; }
+.fire-doc .c-line { font-size: 15px; fill: var(--ink); }
+.fire-doc .c-tag { font-size: 11px; font-weight: 700; fill: var(--muted); letter-spacing: .06em; }
+.fire-doc .ld { fill: none; stroke-width: 1.6; }
+.fire-doc .c-title.m { fill: var(--fire-m); } .fire-doc .ld.m { stroke: var(--fire-m); } .fire-doc .ldot.m { fill: var(--fire-m); }
+.fire-doc .c-title.p { fill: var(--fire-p); } .fire-doc .ld.p { stroke: var(--fire-p); } .fire-doc .ldot.p { fill: var(--fire-p); }
+.fire-doc .c-title.e { fill: var(--fire-e); } .fire-doc .ld.e { stroke: var(--fire-e); } .fire-doc .ldot.e { fill: var(--fire-e); }
+.fire-doc .c-title.s { fill: var(--fire-s); } .fire-doc .ld.s { stroke: var(--fire-s); } .fire-doc .ldot.s { fill: var(--fire-s); }
+
+@media print {
+  body:has(.fire-doc) .document-header, body:has(.fire-doc) .document-title, body:has(.fire-doc) footer { display: none; }
+  .document-page:has(.fire-doc) { grid-template-columns: 1fr; padding: 0; }
+  .fire-doc .fire-figure { border: 0; }
+  .fire-doc .fire-mode { break-inside: avoid; break-after: page; }
+}

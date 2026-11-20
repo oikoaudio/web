@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/manuals/tack-fm1/maps/`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${siteUrl}/manuals/tack-fm1/cheat-sheet/`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${siteUrl}/manuals/oikontrol/`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${siteUrl}/manuals/oikontrol/maps/`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${siteUrl}/manuals/wow/`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${siteUrl}/manuals/weft/`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${siteUrl}/releases/wow/`, changeFrequency: 'monthly', priority: 0.7 },
